@@ -1,0 +1,33 @@
+{
+  "name": "hack-hour-28",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 5.5.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "export COHORT=28; node test/run-tests.js",
+    "start": "export COHORT=28; node test/index.js"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "aws-sdk": "^2.2.24",
+    "ejs": "^2.3.4",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5",
+    "mocha-email-reporter": "1.0.2",
+    "request": "^2.65.0",
+    "sendgrid": "^3.0.8",
+    "config": "^1.30.0",
+    "@sendgrid/mail": "^6.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodesmithLLC/hack-hour-28.git"
+  },
+  "license": "ISC"
+}
