@@ -23,18 +23,17 @@ function fizzbuzz(num) {
   for (let i = 0; i <= num; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
         solutionArray.push("fizzbuzz")
-    } else if {
-      (i % 3 === 0) {
+    } else if (
+      i % 3 === 0) {
         solutionArray.push("fizz")
-    } else  if{
-      (i % 5 === 0) {
+    } else  if (
+      i % 5 === 0) {
         solutionArray.push("buzz")
     } else {
         solutionArray.push(i)
        }
       }
+      return solutionArray;
     }
-  }
-}
 
 module.exports = fizzbuzz;
