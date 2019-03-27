@@ -16,8 +16,29 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+//output will be an array
+//output array will contain numbers 1 through NUM
+//'fizz' will be in place of numbers div by 3
+//'buzz' will be in place of numbers divisible by 5
+//'fizzbuzz' in place of numbers divisible by both 3 & 5
+
+
 function fizzbuzz(num) {
-
+	const returnArr = []
+	for (let i = 0; i <= num; i++) {
+		console.log(i)
+		returnArr.push(i);
+		if (returnArr[i] % 15 === 0) {
+			returnArr[i] = 'fizzbuzz';
+		}
+		if (returnArr[i] % 3 === 0) {
+			returnArr[i] = 'fizz';
+		} else if (returnArr[i] % 5 === 0) {
+			console.log(returnArr[i])
+			returnArr[i] = 'buzz'
+		}
+	}
+	return returnArr.splice(1);
 }
-
+console.log(fizzbuzz(16))
 module.exports = fizzbuzz;
