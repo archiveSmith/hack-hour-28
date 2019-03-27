@@ -18,6 +18,22 @@
 
 function fizzbuzz(num) {
 
+  const fizzy = [];
+
+  for(let i = 1; i <= num; i++) {
+    fizzy.push(
+      i % 5 == 0 && i % 3 == 0 ?
+      "fizzbuzz" :
+        i % 5 == 0 ?
+        "buzz" :
+          i % 3 == 0 ?
+          "fizz" :
+            i
+    )
+  }
+
+  return fizzy;
+
 }
 
 module.exports = fizzbuzz;
