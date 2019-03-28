@@ -20,7 +20,7 @@
 
 function fizzbuzz(num) {
   let solutionArray = [];
-  for (let i = 0; i <= num; i++) {
+  for (let i = 1; i <= num; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
         solutionArray.push("fizzbuzz")
     } else if (
