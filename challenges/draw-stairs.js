@@ -13,6 +13,7 @@
 
 */
 
+//returns a string of length total, 
 function makeLevel(total,currLen){
     let output = '';
     for(let i = 1 ; i <= total;i++){
@@ -34,14 +35,10 @@ function drawStairs(n) {
         let newLevel = makeLevel(n,level);
         output += newLevel
     }
-    return output;
+     console.log(output)
 }
 
-// let output = drawStairs(8);
-// output
-// // console.log(`output:'${output}'`);
-// // console.log('output.length: ', output.length);
-// output
-// console.log(output);
+drawStairs(3);
+
 
 module.exports = drawStairs;
