@@ -18,6 +18,7 @@
 
 function fizzbuzz(num) {
   let returnArray = [];
+
   for (let i = 1; i <= 16; i++) {
     if (i % 15 === 0) {
       returnArray.push('fizzbuzz');
