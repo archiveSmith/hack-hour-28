@@ -14,7 +14,10 @@
 */
 
 function drawStairs(n) {
-
+  for (let i = 1; i <=n; i++) {
+      const stair = ' '.repeat(n) + '*'.repeat(i);
+      console.log(stair);
+  }
 }
 
 
