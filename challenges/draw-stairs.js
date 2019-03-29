@@ -13,9 +13,15 @@
 
 */
 
+
 function drawStairs(n) {
-
-}
-
+    var stairCase = Array(n + 1).fill(' ');
+    stairCase[n] = '';
+    for (var i = n - 1; i >= 0; i--) {
+      stairCase[i] = '*';
+      console.log(stairCase.join(" "));
+    }
+    return stairCase;
+  }
 
 module.exports = drawStairs;
