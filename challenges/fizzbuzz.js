@@ -36,4 +36,7 @@ function fizzbuzz(num) {
 
 }
 
+console.log(fizzbuzz(20))
+
+
 module.exports = fizzbuzz;
