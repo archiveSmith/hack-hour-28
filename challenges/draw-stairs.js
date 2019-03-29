@@ -33,7 +33,7 @@ function drawStairs(n) {
     if(num === 0){
       return holderArr.join("");
     }
-    console.log(holderArr.join(""));
+    //console.log(holderArr.join(""));
   s--;
   num--;
   helpPrint(num);
