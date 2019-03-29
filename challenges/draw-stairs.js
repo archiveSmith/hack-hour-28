@@ -14,8 +14,16 @@
 */
 
 function drawStairs(n) {
-
+// initialize string(n) filled with *
+    if (n === 0) return ' '
+    let output = '*'
+    
+    while (output.length <= n) {
+        console.log(output);
+        output += '*';
+    }
 }
 
+console.log(drawStairs(7));
 
 module.exports = drawStairs;
