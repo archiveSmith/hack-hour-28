@@ -14,22 +14,14 @@
 */
 
 function drawStairs(n) {
+  if(n > 1 || n > 100) return null;
   let stars = 1;
   let spaces = n - stars;
   while(stars <= n){
-    console.log(" ".repeat(spaces) + "*".repeat(stars));
+    console.log(" ".repeat(spaces) + "*".repeat(stars);
     stars += 1;
     spaces -= 1;
   }
 }
-
-
-console.log(drawStairs(0))
-console.log(drawStairs(1))
-console.log(drawStairs(2))
-console.log(drawStairs(3))
-console.log(drawStairs(4))
-console.log(drawStairs(5))
-console.log(drawStairs(6))
 
 module.exports = drawStairs;
