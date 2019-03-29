@@ -14,7 +14,7 @@
 */
 
 function drawStairs(n) {
-  if(n > 1 || n > 100) return null;
+  if(n < 1 || n > 100) return null;
   let stars = 1;
   let spaces = n - stars;
   while(stars <= n){
