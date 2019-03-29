@@ -37,11 +37,11 @@ function drawStairs(n) {
     return output;
 }
 
-let output = drawStairs(8);
-output
-// console.log(`output:'${output}'`);
-// console.log('output.length: ', output.length);
-output
-console.log(output);
+// let output = drawStairs(8);
+// output
+// // console.log(`output:'${output}'`);
+// // console.log('output.length: ', output.length);
+// output
+// console.log(output);
 
 module.exports = drawStairs;
