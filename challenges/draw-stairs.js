@@ -14,8 +14,17 @@
 */
 
 function drawStairs(n) {
-
+    // length of stairs is n
+    // iterate through n starting i at 1
+    // spaces are n - i
+    // stars are i
+    // console.log each time
+    let result = '';
+    for (let i = 1; i <= n; i += 1) {
+        const newLineChar = (i === n) ? '' : '\n';
+        result += `${' '.repeat(n - i)}${'*'.repeat(i)}${newLineChar}`;
+    }
+    return result;
 }
-
 
 module.exports = drawStairs;
