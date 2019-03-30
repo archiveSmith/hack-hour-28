@@ -13,9 +13,32 @@
 
 */
 
-function drawStairs(n) {
-
+//returns a string of length total, 
+function makeLevel(total,currLen){
+    let output = '';
+    for(let i = 1 ; i <= total;i++){
+        let newChar;
+        if(i > currLen){
+            newChar = ' '
+        } else {
+            newChar = '*'
+        }
+        output = newChar + output;
+    }
+    return output + '\n';
 }
+
+//using str.repeat would be helpful here
+function drawStairs(n) {
+    let output =''
+    for(let level = 1;level <= n;level++){
+        let newLevel = makeLevel(n,level);
+        output += newLevel
+    }
+     console.log(output)
+}
+
+drawStairs(3);
 
 
 module.exports = drawStairs;
