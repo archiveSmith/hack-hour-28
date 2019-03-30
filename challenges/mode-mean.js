@@ -22,20 +22,23 @@ function modemean(array) {
 
     let mean = sum/array.length;
     let keyArr = Object.keys(count);
-    mode = keyArr.reduce(function(acc, cur){
+    let mode = keyArr.reduce(function(acc, cur){
         if(count[acc] > count[cur]) return acc
         else return cur
     })
 
     console.log(count);
+
     console.log(mode);
 
     console.log(mean);
-    return mean === mode
+    console.log(mean == mode);
+
+    return mode == mean;
 
 }
 
-let arr = [7,1,6,9,11,5,5,9,9,7,7,7,7]
+let arr = [5,5,5,5,5,1]
 console.log(modemean(arr)) 
 
 module.exports = modemean;
