@@ -25,20 +25,26 @@
 
 function fizzbuzz(num) {
 	const returnArr = []
-	for (let i = 0; i <= num; i++) {
+	for (let i = 1; i <= num; i++) {
 		console.log(i)
-		returnArr.push(i);
-		if (returnArr[i] % 15 === 0) {
-			returnArr[i] = 'fizzbuzz';
-		}
-		if (returnArr[i] % 3 === 0) {
-			returnArr[i] = 'fizz';
-		} else if (returnArr[i] % 5 === 0) {
-			console.log(returnArr[i])
-			returnArr[i] = 'buzz'
-		}
+		// 	returnArr.push(i);
+		// 	if (returnArr[i] % 15 === 0) {
+		// 		returnArr[i] = 'fizzbuzz';
+		// 	}
+		// 	if (returnArr[i] % 3 === 0) {
+		// 		returnArr[i] = 'fizz';
+		// 	} else if (returnArr[i] % 5 === 0) {
+		// 		console.log(returnArr[i])
+		// 		returnArr[i] = 'buzz'
+		// 	}
+		// }
+		// return returnArr.splice(1);
+		if (i % 15 === 0) { returnArr.push('fizzbuzz') }
+		else if (i % 3 === 0) { returnArr.push('fizz') }
+		else if (i % 5 === 0) { returnArr.push('buzz') }
+		else { returnArr.push(i) }
 	}
-	return returnArr.splice(1);
+	return returnArr;
 }
 console.log(fizzbuzz(16))
 module.exports = fizzbuzz;
