@@ -28,7 +28,7 @@ function modemean(array) {
 		return array.indexOf(el) !== i;
 	}).reduce((acc, current) => Math.max(acc, current));
 
-	//are mode and mean equal?
+	//are mode and mean equal? 
 	return mode === mean ? true : false;
 }
 
