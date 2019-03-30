@@ -14,7 +14,12 @@
 */
 
 function drawStairs(n) {
-
+    const asterick = "*";
+    const whiteSpace = " ";
+    for ( let j = 1; j <= n; j++) {
+        console.log(whiteSpace.repeat(n - j) + asterick.repeat(j)  + '\n')
+        
+    }
 }
 
 
