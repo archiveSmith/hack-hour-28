@@ -28,7 +28,7 @@ function makeLevel(total,currLen){
     return output + '\n';
 }
 
-
+//using str.repeat would be helpful here
 function drawStairs(n) {
     let output =''
     for(let level = 1;level <= n;level++){
