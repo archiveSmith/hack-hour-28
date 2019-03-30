@@ -10,8 +10,24 @@
  */
 
 
-function modemean(array) {
 
+function findMode(array){
+  let currentMode = array[0];
+  const tracker = array.reduce((tracker, el)=>{
+    tracker[el] = tracker[el] ? tracker[el] + 1 : 1;
+    if(tracker[el] > tracker[currentMode]) currentMode = el;
+    return tracker
+  },{});
+  return currentMode;
+
+}
+
+function findMean(array) {
+  return  Math.floor(array.reduce((accu,curr) => accu + curr) / array.length);
+}
+
+function modemean(array) {
+  return (findMean(array) === findMode(array));
 }
 
 module.exports = modemean;
