@@ -1,26 +1,27 @@
-/*
- * Given an array of numbers, determine if the mode and mean of the array are equivalent
- *
- * Caveats:
- * 	- Math.floor the mean
- * 	- If there are multiple modes, use the max of the modes
- *
- * Return true or false
- *
- */
-
 function modemean(array) {
+  if (array.length === 1) {
+    return true;
+  }
+
+  console.log(array);
   const mean = Math.floor(array.reduce((acc, cur) => acc + cur) / array.length);
-  let mode = array.forEach(el => {
+  let mode = {};
+
+  array.forEach(el => {
     if (!mode[el]) {
       mode[el] = 1;
+      console.log(mode);
     } else {
       mode[el] += 1;
+      console.log(mode);
     }
   });
 
   mode = Object.keys(mode).reduce((a, b) => (mode[a] > mode[b] ? a : b));
-  return mode === mean;
+
+  console.log("mode ->", mode, "mean ->", mean);
+
+  return mode == mean;
 }
 
 module.exports = modemean;
