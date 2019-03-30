@@ -37,12 +37,12 @@ function modemean(array) {
       mode = prop
     }
   }
-  
+
   const sum = array.reduce((acc, curr) => {
     return acc + curr;
   })
   
-  const mean = Math.floor(sum/2) 
+  const mean = Math.floor(sum/array.length) 
   const modeNumber = parseInt(mode);
 
   if (modeNumber === mean) {
@@ -52,7 +52,7 @@ function modemean(array) {
 }
 
 
-// const arr = [2,2] ;
+// const arr = [6,4,5,5] ;
 // const arr2 = [1,1,1];
 
 // console.log(modemean(arr));
