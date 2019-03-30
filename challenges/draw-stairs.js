@@ -14,16 +14,17 @@
 */
 
 function drawStairs(n) {
+    if (n < 1 || n > 100) return Error('input a number between 1 and 100')
 // initialize string(n) filled with *
-    if (n === 0) return ' '
-    let output = '*'
+    let output = " ".repeat(n)
     
-    while (output.length <= n) {
+    for (let i = 0; i < n; i++) {
+        output = output.slice(1) 
+        output += "*";
         console.log(output);
-        output += '*';
     }
 }
 
-console.log(drawStairs(7));
+// drawStairs(6);
 
 module.exports = drawStairs;

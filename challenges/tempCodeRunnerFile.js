@@ -1,0 +1,1 @@
+drawStairs(6);
