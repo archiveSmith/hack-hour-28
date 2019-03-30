@@ -10,7 +10,6 @@
   ****
  *****
 ******
-
 */
 
 function drawStairs(n) {
