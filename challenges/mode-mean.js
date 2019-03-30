@@ -19,20 +19,21 @@ function modemean(array) {
             countObj[array[i]] = 1;
         } else {
             countObj[array[i]] += 1;
-            if (countObj[array[i]] >= mode && array[i] > mode) {
-                mode = array[i];
-            }
+        }
+        if (countObj[array[i]] >= mode && array[i] > mode) {
+            mode = array[i];
         }
         sum += array[i]
     }
     let mean = Math.floor(sum / array.length);
-    // console.log(mode)
-    // console.log(mean)
+    console.log(mode)
+    console.log(mean)
     return mean === mode;
 }
 
 console.log(modemean([1,2,3,4,5,6,7,4]))
 console.log(modemean([1,1]))
 console.log(modemean([2,2,1,1]))
+console.log(modemean([6]))
 
 module.exports = modemean;
