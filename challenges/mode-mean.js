@@ -9,9 +9,18 @@
  *
  */
 
-
 function modemean(array) {
+  const mean = Math.floor(array.reduce((acc, cur) => acc + cur) / array.length);
+  let mode = array.forEach(el => {
+    if (!mode[el]) {
+      mode[el] = 1;
+    } else {
+      mode[el] += 1;
+    }
+  });
 
+  mode = Object.keys(mode).reduce((a, b) => (mode[a] > mode[b] ? a : b));
+  return mode === mean;
 }
 
 module.exports = modemean;
