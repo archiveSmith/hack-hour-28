@@ -14,17 +14,18 @@
 */
 
 function drawStairs(n) {
-    for (let i = 0; i < n; i += 1) {
-      let tempStr = '';
-      for (let j = 0; j < n; j += 1) {
-        if (j < n - i - 1) tempStr += ' '
-        else tempStr += '*'
-      }
-      console.log(tempStr)
+  if (n < 0 || n > 100) return 'Please input a number that is between 0 and 100.';
+  for (let i = 0; i < n; i += 1) {
+    let tempStr = '';
+    for (let j = 0; j < n; j += 1) {
+      if (j < n - i - 1) tempStr += ' ';
+      else tempStr += '*';
     }
+    console.log(tempStr);
   }
+}
   
   
   module.exports = drawStairs;
   
-  drawStairs(6);
+// drawStairs(3);
