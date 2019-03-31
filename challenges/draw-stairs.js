@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+  if (n < 0 || n > 100) return 'Please input a number that is between 0 and 100.'
     for (let i = 0; i < n; i += 1) {
       let tempStr = '';
       for (let j = 0; j < n; j += 1) {
@@ -27,4 +28,4 @@ function drawStairs(n) {
   
   module.exports = drawStairs;
   
-  drawStairs(6);
+  // drawStairs();
