@@ -19,16 +19,20 @@ function modemean(array) {
       acc[curr] += 1;
     }
     return acc;
-    
+  
   }, {})
 
-  //Use Object.keys and reduce to find the highest occurence of a value
-  //BUG: HIGHEST KEY IS GRABBING THE HIGHEST VALUED ELEMENT, NOT THE HIGHEST OCCURANCE OF AN ELEMENT
-    let highestKey = Object.keys(counterObj).reduce(function(a, b) {if (a > b){return a} else {return b}}
-    , 0)
-    let mode = counterObj[highestKey]
+  //Iterate through object to find the highest occurence of a value
 
-    console.log(highestKey)
+    let comparer = -1;
+    let mode;
+
+    for (prop in counterObj) {
+      if (comparer < counterObj[prop]) {
+        comparer = counterObj[prop];
+        mode = parseInt(prop);
+      }
+    }
 
   //Use reduce to take the mean of the array, rounded down and set it to a variable
   let meanVal = array.reduce(function(first, second) {
@@ -37,12 +41,9 @@ function modemean(array) {
     meanVal = Math.floor(meanVal/array.length);
 
   //Compare the mode to the mean
-    if (mode === meanVal) {
-      return true
-    } else {
-      return false;
-    }
-   
+  
+  return (mode === meanVal) ?  true :  false ;
+
 }
 
 
