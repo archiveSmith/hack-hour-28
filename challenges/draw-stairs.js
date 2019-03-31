@@ -21,7 +21,6 @@ function drawStairs(n) {
       stairCase[i] = '*';
       console.log(stairCase.join(" "));
     }
-    return stairCase;
   }
 
 module.exports = drawStairs;
