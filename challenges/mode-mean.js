@@ -19,19 +19,23 @@ function modemean(array) {
     else  modeObj[array[i]] += 1;
   }
   mean = Math.floor(allNumsAdded / array.length)
-  let max = 0;
   let mode = 0;
-  const objKeys = Object.keys(modeObj)
+  let key = '';
+  const objKeys = Object.keys(modeObj);
   for (let i = 0; i < objKeys.length; i += 1) {
-    const keyvalue = modeObj[objKeys[i]];
-    if (max < keyvalue) {
-      max = keyvalue;
-      mode = objKeys[i];
+    if (modeObj[objKeys[i]] >= mode) {
+      if (modeObj[objKeys[i]] > mode) {
+        mode = parseInt(modeObj[objKeys[i]]);
+        key = objKeys[i];
+      }
+      if (parseInt(objKeys[i]) > parseInt(key)) {
+        key = objKeys[i];
+      }
     }
   }
-  return (mode == mean) ? true : false;
+  return (parseInt(key) === mean) ? true : false;
 }
 
 module.exports = modemean;
 
-console.log(modemean([1, 2]))
+console.log(modemean([2, 2, 2, 3, 3, 3,]))
