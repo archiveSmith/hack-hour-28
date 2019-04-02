@@ -16,10 +16,7 @@
 function drawStairs(n) {
     let str = '';
     let numOfSpace = n - 1; 
-    console.log(numOfSpace)
     let numOfStar = n - numOfSpace; 
-    console.log(numOfStar)
-    let max = n;
     
     function createStars(space, star){
         for(let i = 0; i < space ; i++){
@@ -33,19 +30,12 @@ function drawStairs(n) {
         numOfSpace = numOfSpace - 1;
         numOfStar = numOfStar + 1;
         str += '\n'; 
-        
-        console.log(numOfStar)
-        console.log(numOfSpace)
-
 
     }
-    
-    createStars(numOfSpace, numOfStar);
     
     while(numOfStar <= n){
         createStars(numOfSpace, numOfStar);
     }
-    console.log(numOfSpace)
 
     return str
 }
