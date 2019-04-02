@@ -62,13 +62,20 @@ function kthToLastNodeList(k, head) {
 function kthToLastNode(k, head) {
   let kArray = [];
   let curr = head;
+  let shiftFlag = false;
   while (curr != null) {
     kArray.push(curr.value);
-    if (kArray.length > k) kArray.shift();
+    if (kArray.length > k) {
+      kArray.shift();
+      shiftFlag = true;
+    }
     curr = curr.next;
   }
-  let retval = kArray.shift();
-  return retval;
+  if(shiftFlag) {
+    return undefined;
+  }else{
+    return kArray.shift();
+  }  
 }
 
 
