@@ -22,7 +22,31 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  let kArray = [];
+  let curr = head;
+  while(curr != null){
+    kArray.push(curr.value);
+    if(kArray.length > k) kArray.shift();
+    curr = curr.next;
+  }
+  let retval = kArray.shift();
+  return retval;
 }
+
+
+
+//  const a = new Node('A');
+//  const b = new Node('B');
+//  const c = new Node('C');
+//  const d = new Node('D');
+//  const e = new Node('E');
+
+//  a.next = b;
+//  b.next = c;
+//  c.next = d;
+//  d.next = e;
+
+// const out = kthToLastNode(2, a);
+// out;
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
