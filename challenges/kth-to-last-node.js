@@ -26,16 +26,16 @@ function kthToLastNode(k, head) {
   let slowRunner = head;
   if(head === null)
   {
-    return null;
+    return undefined;
   }
 
  //Push fast nodes k elements in.
-  for(let i = 0; i < k - 1; i++)
+  for(let i = 0; i < k; i++)
   {
      fastRunner = fastRunner.next;
      if(fastRunner === null)
      {
-       return null;
+       return undefined;
      }
   }
 
@@ -47,5 +47,18 @@ function kthToLastNode(k, head) {
   }
   return slowRunner;
 }
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+console.log(kthToLastNode(2, a)); //-> returns 'D' (the value on the second to last node)
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
