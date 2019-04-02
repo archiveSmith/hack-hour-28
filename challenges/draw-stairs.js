@@ -14,11 +14,12 @@
 */
 
 function drawStairs(n) {
-  for (let i = 1; i <= n; i++) {
-    console.log((Array(n - i + 1).join(' ')) +  (Array(i + 1).join('*')));
-  }
+  if (n > 0 && n < 101) {
+    for (let i = 1; i <= n; i++) {
+      console.log((Array(n - i + 1).join(' ')) +  (Array(i + 1).join('*')));
+    }
+  } else console.log('Enter a number from 1 to 100!')
 }
-
 drawStairs(10);
 
 
