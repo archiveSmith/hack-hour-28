@@ -25,14 +25,15 @@ function kthToLastNode(k, head) {
   // Iterate through linked list until next: null. 
   // Map those values to an object as a key: value pair
     let holderObject = {};
-    let key = 0;                                            // Declare a variable to be an incrementing key in holder object
-    let nextLookup = head;                                  // Declare a variable to hold object references found in their next values
-    while (nextLookup.next === !null) {                     // While loop to execute until tail of linked list is reached
+    let key = 0;                                  // Declare a variable to be an incrementing key in holder object
+    let nextLookup = head;     
+                                                  // Declare a variable to hold object references found in their next values
+    while (nextLookup) {                     // While loop to execute until tail of linked list is reached
       holderObject[key] = nextLookup.value;
-      key++;
+      key += 1;
       nextLookup = nextLookup.next;
     }
-
+    
   //Look up key === object's length - k
     let objValPosition = Object.keys(holderObject).length - k;
     if (holderObject[objValPosition] === null) {
