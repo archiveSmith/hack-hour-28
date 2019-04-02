@@ -26,20 +26,22 @@ function kthToLastNode(k, head) {
   // This will take n time to traverse...
   let listLength = 1;
   let current = k;
+  let container = [];
+
   while (current.next) {
+    container.push(current.val);
     current = current.next;
     listLength++;
   }
 
-  // Now that we know the current length... we'll take length - traversals to get to the correct value
-  // This will take n time again to traverse. But it's not nested, so it's 2n overall.
-  current = head;
-  for (let i = 0; i < listLength - k; i++) {
-    current = current.next;
+  if (listLength < k) {
+    return undefined;
   }
 
-  // Return the current node's value.
-  return current.value;
+  return container[listLength - k];
+
+  // // Return the current node's value.
+  // return current.value;
 
 }
 
