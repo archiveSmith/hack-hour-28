@@ -28,16 +28,30 @@ function kthToLastNode(k, head) {
   }
 
   let tracker = head.next
-  let values = [];
+  const nodeValues = [head.value];
 
-  while (tracker) {
-    values.push(head.value);
-    tracker.next;
+  while (tracker !== null) {
+    nodeValues.push(tracker.value);
+    tracker = tracker.next;
   } 
-
-  return values[array.length - 2];
-
+  return nodeValues[nodeValues.length - k];
 
 }
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+console.log(kthToLastNode(1, a));
+console.log(kthToLastNode(2, a));
+console.log(kthToLastNode(4, a));
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
