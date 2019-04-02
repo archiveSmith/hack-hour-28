@@ -63,14 +63,18 @@ function kthToLastNode(k, head) {
   let kArray = [];
   let curr = head;
   let shiftFlag = false;
+
   while (curr != null) {
     kArray.push(curr.value);
+
     if (kArray.length > k) {
       kArray.shift();
       shiftFlag = true;
     }
     curr = curr.next;
   }
+
+  
   if(shiftFlag) {
     return kArray.shift();
   }else{
