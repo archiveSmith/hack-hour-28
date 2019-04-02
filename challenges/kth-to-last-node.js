@@ -72,26 +72,26 @@ function kthToLastNode(k, head) {
     curr = curr.next;
   }
   if(shiftFlag) {
-    return undefined;
-  }else{
     return kArray.shift();
+  }else{
+    return undefined;
   }  
 }
 
 
-//  const a = new Node('A');
-//  const b = new Node('B');
-//  const c = new Node('C');
-//  const d = new Node('D');
-//  const e = new Node('E');
+ const a = new Node('A');
+ const b = new Node('B');
+ const c = new Node('C');
+ const d = new Node('D');
+ const e = new Node('E');
 
-//  a.next = b;
-//  b.next = c;
-//  c.next = d;
-//  d.next = e;
+ a.next = b;
+ b.next = c;
+ c.next = d;
+ d.next = e;
 
-// const out = kthToLastNode(, a);
-// out;
+const out = kthToLastNode(2, a);
+out;
 
 
 function makeList(size) {
@@ -107,23 +107,23 @@ function makeList(size) {
   return head;
 }
 
-let k = 46000;
-let size = 1000000;
+// let k = 46000;
+// let size = 1000000;
 
-console.time("MakeList")
-let bigList = makeList(size);
-console.timeEnd("MakeList")
+// console.time("MakeList")
+// let bigList = makeList(size);
+// console.timeEnd("MakeList")
 
-console.time("List")
-let listOut = kthToLastNodeList(k, bigList);
-console.timeEnd("List")
+// console.time("List")
+// let listOut = kthToLastNodeList(k, bigList);
+// console.timeEnd("List")
 
-console.time("Queue")
-let queueOut = kthToLastNode(k, bigList);
-console.timeEnd("Queue")
+// console.time("Queue")
+// let queueOut = kthToLastNode(k, bigList);
+// console.timeEnd("Queue")
 
 
-console.log(`Q:${queueOut}  :  List:${listOut}`);
+// console.log(`Q:${queueOut}  :  List:${listOut}`);
 
 // performace results:  10000000 elements - looking for 46th kth
 // MakeList: 1619.223ms
