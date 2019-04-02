@@ -39,6 +39,10 @@ function modemean(array) {
        console.log(keys)
     }
     let keyVals = Object.entries(numMap);
+    for(let subArr of keyVals){
+        
+       
+    }
     console.log(keyVals);
     
    
