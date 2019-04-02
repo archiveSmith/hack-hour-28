@@ -23,15 +23,15 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let cache = {};
-  let idx = 0
+  let length = 0
   let currNode = head;
 
   while (currNode) {
-    cache[idx++] = currNode.value;
+    cache[length++] = currNode.value;
     currNode = currNode.next; 
   }
 
-  return cache[idx - k];
+  return cache[length - k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
