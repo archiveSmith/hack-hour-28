@@ -24,25 +24,34 @@ d.next = e;
 function kthToLastNode(k, head) {
   let count = 1;
   let current = head;
+  let cache = {};
 
   // count how many nodes are in the linked list (assuming head exists, since that is a parameter/the only way to find the list)
   while (current.next) {
+    cache[count] = current.value
     count += 1;
     current = current.next;
-    console.log(count)
   };
+
+  // adds tail to cache
+  cache[count] = current.value;
 
   // return statement if the requested 'k' value is larger than the length of the linked list
   if (k > count) return `The list is less than ${k} in length (length = ${count}).`
 
   // reset current to the head, and count forward until our stopping point
-  current = head;
-  for (let i = 0; i < count - k; i += 1) {
-    current = current.next;
-  }
+  // current = head;
+  // for (let i = 0; i < count - k; i += 1) {
+  //   current = current.next;
+  // }
 
   // returns value of kth to last node, which was assigned to 'current'
-  return current.value;
+  // return current.value;
+
+  console.log(count)
+  console.log(cache)
+  // returns key representing kth to last node.value
+  return cache[++count - k]
 }
 
 console.log(kthToLastNode(2, a)); //-> returns 'D' (the value on the second to last node)
