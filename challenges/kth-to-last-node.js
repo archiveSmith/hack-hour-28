@@ -16,12 +16,27 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
+ 
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
+  if (k === 0) {
+    return 'Please enter number greater than 0.'
+  }
+
+  let tracker = head.next
+  let values = [];
+
+  while (tracker) {
+    values.push(head.value);
+    tracker.next;
+  } 
+
+  return values[array.length - 2];
+
 
 }
 
