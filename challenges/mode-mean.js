@@ -10,11 +10,7 @@
  */
 
 function modemean(array) {
-  // OUT: Boolean
-  //   in: array of numbers
-  // calculate the mean (return Math.floor(mean))
   const arrMean = mean(array); //?
-  // calculatethe mode
   const arrMode = mode(array); //?
   return arrMean == arrMode;
 }
@@ -31,8 +27,11 @@ function mode(arr) {
   arr.forEach((element, i) => {
     modeCount[element] ? (modeCount[element] += 1) : (modeCount[element] = 1);
   });
-  let countArr = Object.entries(modeCount).sort((a, b) => b[1] - a[1]); //?
-  return countArr[0][0]; //?
+  let countArr = Object.entries(modeCount).sort((a, b) => b[1] - a[1]);
+  countArr; //?
+  return countArr[0][0];
+  //?
 }
-
+// modemean([4, 4, 4, 4, 6, 7, 8, 9, 10]); //?
+modemean([4, 4, 4, 6, 6, 6]); //?
 module.exports = modemean;
