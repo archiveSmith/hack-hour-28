@@ -25,6 +25,8 @@ function drawStairs(n) {
     }
 }
 
+
 // drawStairs(6);
+// console.log("clg: drawStairs(6)", drawStairs(6))
 
 module.exports = drawStairs;
