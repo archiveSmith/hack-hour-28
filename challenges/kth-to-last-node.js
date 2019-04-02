@@ -55,7 +55,7 @@ function kthToLastNode(int, head) {
     if(obj.next) {
       return check(obj.next)
     }
-
+    if(obj.next === null && previous.length !== int) return undefined
     if(obj.next === null) return previous[0].value
   }
 
