@@ -22,14 +22,14 @@ function Node(val) {
 };
 
 function kthToLastNode(k, head) {
-  if (k <= 0) return "Please enter input greater than 0.";
+  if (k <= 0) return undefined;
   let start = head.next;
   let linkedListLength = 1;
   while (start !== null) {
     linkedListLength += 1;
     start = start.next;
   }
-  if (k > linkedListLength) return "Linked List is not long enough.";
+  if (k > linkedListLength) return undefined;
   let working = head;
   for (let i = 0; i <= linkedListLength - k; i += 1) {
     if (i === linkedListLength - k ) return working.value;
