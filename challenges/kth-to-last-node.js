@@ -22,7 +22,30 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let fastRunner = head;
+  let slowRunner = head;
+  if(head === null)
+  {
+    return null;
+  }
 
+ //Push fast nodes k elements in.
+  for(let i = 0; i < k - 1; i++)
+  {
+     fastRunner = fastRunner.next;
+     if(fastRunner === null)
+     {
+       return null;
+     }
+  }
+
+//While the fastRunner does not equal null, run the slowRunner node k elements behind the fast one.
+  while(fastRunner !== null)
+  {
+    slowRunner = slowRunner.next;
+    fastRunner = fastRunner.next;
+  }
+  return slowRunner;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
