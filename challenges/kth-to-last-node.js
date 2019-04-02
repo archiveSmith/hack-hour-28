@@ -31,7 +31,7 @@ function kthToLastNode(k, head) {
     nextNode = nextNode.next;
     count += 1;
   }
-  if(nodeArr[nodeArr.length - k] === undefined){
+  if(nodeArr[nodeArr.length - k].value === null){
     return undefined;
   }else{
     return nodeArr[nodeArr.length - k].value;
