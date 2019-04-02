@@ -22,6 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if(head.value === undefined) return undefined;
   const nodeArr = [head];
   let nextNode = head.next;
   let count = 1;
