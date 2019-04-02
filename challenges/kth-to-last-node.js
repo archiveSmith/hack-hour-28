@@ -45,10 +45,12 @@ function kthToLastNode(k, head) {
     slowRunner = slowRunner.next;
     fastRunner = fastRunner.next;
   }
-  return slowRunner;
+  return slowRunner.value;
 }
 
-const a = new Node('A');
+//Code return D, final attempt.
+
+/*const a = new Node('A');
 const b = new Node('B');
 const c = new Node('C');
 const d = new Node('D');
@@ -59,6 +61,6 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a)); //-> returns 'D' (the value on the second to last node)
+console.log(kthToLastNode(2, a));*/ //-> returns 'D' (the value on the second to last node)
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
