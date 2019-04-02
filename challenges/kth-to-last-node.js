@@ -35,7 +35,10 @@ function kthToLastNode(k, head) {
 
   //Look up key === object's length - k
     let objValPosition = Object.keys(holderObject).length - k;
-    return holderObject[objValPosition];
+    if (holderObject[objValPosition] === null) {
+      return undefined
+    } else {
+      return holderObject[objValPosition]} ;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
