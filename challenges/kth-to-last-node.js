@@ -35,7 +35,7 @@ function kthToLastNode(k, head) {
      fastRunner = fastRunner.next;
      if(fastRunner === null)
      {
-       return undefinded;
+       return undefined;
      }
   }
 
