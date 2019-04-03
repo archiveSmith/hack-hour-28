@@ -61,6 +61,6 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));*/ //-> returns 'D' (the value on the second to last node)
+console.log(kthToLastNode(3, a));*/ //-> returns 'D' (the value on the second to last node)
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
