@@ -22,6 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+
   // First we have to get the length of the linked list. (In order to know which is the second to last node)
   // This will take n time to traverse...
   let listLength = 1;
