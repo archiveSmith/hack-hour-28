@@ -47,7 +47,7 @@ function kthToLastNode(k, head) {
     if (head.next !== null && k !== 0) {
       retrieveValAtNode(k - 1, head.next);
     } else {
-      console.log('head val:', head.value);
+      // console.log(head.value);
       return head.value;
     }
   }
@@ -64,7 +64,8 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));
+// console.log(kthToLastNode(2, a));
+kthToLastNode(2, a);
 // console.log(getTotalNodes(a));
 
 module.exports = {
