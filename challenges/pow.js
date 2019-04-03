@@ -2,10 +2,21 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-    if(power === 0 ) return 1;
-    return base * pow(base, power - 1);
+function pow(base, power,flag = false) {
+    // console.log(`Getting ${base} to the power of ${power}`);
+    if (power === 0) return 1;
+
+    if (power > 0) {
+        return base * pow(base, power - 1,true);
+    } else {
+         let negative = base * pow(base, power + 1,true);
+        if(flag === false) negative = 1 / negative;
+        return negative;
+    }
 }
 
+power = pow(2, -2);
+
+console.log(`Power: ${power}`);
 
 module.exports = pow;
