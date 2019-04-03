@@ -23,27 +23,20 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  const newNode = new Node(head);
-  this.head = head;
-  this.tail = null;
-  let trackN;
-  
-  if (!this.next) { 
-    this.tail = newNode;
-    trackN = 1;
-  }
-  if (this.next === tail) {
-    trackN += 1;
+  const value = [head.value];
+
+  let nextNode = head.next;
+
+  while(nextNode) {
+    value.push(nextNode.value);
+    nextNode = nextNode.next;
   }
 
-  if (k === trackN) {
-    return newNode.value;
-  }
+  if (k === 0) return undefined;
+  
+  return value[value.length - k];
 
 }
-
-
-
 
 const a = new Node('A');
 const b = new Node('B');
@@ -57,5 +50,6 @@ c.next = d;
 d.next = e;
 
 console.log(kthToLastNode(2, a));
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
