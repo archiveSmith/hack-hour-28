@@ -2,30 +2,71 @@
  * Use recursion!
  */
 
-function pow(base, power,flag = false) {
+function pow(base, power, flag = false) {
     // console.log(`Getting ${base} to the power of ${power}`);
     if (power === 0) return 1;
 
     if (power > 0) {
-        return base * pow(base, power - 1,true);
+        return base * pow(base, power - 1, true);
     } else {
-         let negative = base * pow(base, power + 1,true);
-        if(flag === false) negative = 1 / negative;
+        let negative = base * pow(base, power + 1, true);
+        if (flag === false) negative = 1 / negative;
         return negative;
     }
 }
 
 
-// function pow2(base, power) {
-//     console.log(`Getting ${base} to the power of ${power}`);
+function powShift(base, power) {
 
-//     if (!power) return 1;
-    
-//     return base * pow2(base, power - 1);
-//   }
+    let result = 1;
+    let neg = (power < 0) ? true : false;
+    if(neg) power *= -1;
+    // console.log('neg: ', neg);
 
-power = pow(2, 2);
+    while (power > 0) {
+        // console.log('base: ', base);
+        // console.log('power: ', power);
 
-console.log(`Power: ${power}`);
+
+        if (power & 1 === 1) {
+            result = result * base;
+        }
+
+        base = base * base;
+        // console.log('base: ', base);
+        power >>= 1;
+        // console.log('power: ', power);
+
+    }
+    if (neg) { result = 1 / result }
+    // console.log('result: ', result);
+
+    return result;
+}
+
+b = 22345678765469999999999945
+p = -12
+times = 1000
+// out = powShift(b, p);
+// console.log(`Out: ${out}`);
+// console.log('out2: ', out2);
+
+console.log(`Calculate ${b} to the ${p} ${times} times`);
+
+console.time("Liner");
+for (let i = 0; i < times; i++) {
+    out = pow(b, p)
+}
+console.timeEnd("Liner")
+
+console.time("Bit Magic");
+for (let i = 0; i < times; i++) {
+    out2 = powShift(b, p)
+}
+console.timeEnd("Bit Magic")
+
+out
+out2
+
 
 module.exports = pow;
