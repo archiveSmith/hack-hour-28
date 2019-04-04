@@ -8,7 +8,7 @@ function pow(base, power) {
     else return base * pow(base, --power);
 }
 
-// console.log(pow(-11,0))
-// console.log(11*11*11*11*11*11*11*11)
+console.log(pow(-11,8))
+console.log(11*11*11*11*11*11*11*11)
 
 module.exports = pow;
