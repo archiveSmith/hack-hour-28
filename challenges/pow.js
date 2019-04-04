@@ -15,7 +15,16 @@ function pow(base, power,flag = false) {
     }
 }
 
-power = pow(2, -2);
+
+// function pow2(base, power) {
+//     console.log(`Getting ${base} to the power of ${power}`);
+
+//     if (!power) return 1;
+    
+//     return base * pow2(base, power - 1);
+//   }
+
+power = pow(2, 2);
 
 console.log(`Power: ${power}`);
 
