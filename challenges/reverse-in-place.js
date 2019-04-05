@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 /**
  * Write a function to reverse an array in place
  *
@@ -14,7 +14,18 @@
  */
 
 function reverseInPlace(array) {
-
+    // check the array length to see if it is even or odd
+    // get mp if it is odd, no need to change this index
+    // loop thru up to the first 
+    
+    // set up a pointer
+    for(let i = 0; i < array.length/2; i += 1) {
+        let temp = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = temp;
+    }
+    return array;
 }
-
+let reverseIt = [1,2,3];
+console.log(reverseInPlace(reverseIt));
 module.exports = reverseInPlace;
