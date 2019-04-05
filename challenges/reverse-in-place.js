@@ -14,6 +14,8 @@
  */
 
 function reverseInPlace(array) {
+  if (array.length === 0) return array;
+
   for (let i = 0; i <= array.length / 2; i++) {
     let end;
 
@@ -22,6 +24,10 @@ function reverseInPlace(array) {
       array[array.length - 1] = array[i];
       array[i] = end;
       console.log(array);
+    } else if (i === array.length / 2 && array.length % 2 === 0) {
+      end = array[array.length / 2];
+      array[i] === array[i - 1];
+      array[i] === end;
     } else {
       end = array[array.length - i - 1];
       array[array.length - i - 1] = array[i];
@@ -32,4 +38,7 @@ function reverseInPlace(array) {
   return array;
 }
 
-module.exports = reverseInPlace;
+const theArray = [1, 2, 3, 4, 5, 6];
+
+console.log(reverseInPlace(theArray));
+// module.exports = reverseInPlace;
