@@ -19,27 +19,11 @@ function reverseInPlace(array) {
   let length = array.length;
 
     for (let i = 0; i < mid ; i++) {
-        let tempVal = array[i];
-        array[i] = array[length - 1 - i];
-        array[length - 1 - i ] = tempVal;
-      }
-      return array;
+      let tempVal = array[i];
+      array[i] = array[length - 1 - i];
+      array[length - 1 - i ] = tempVal;
     }
-     
-      
-
-
-
-    
-
-  // swap begin and end elements 
-
-
-
-  //leave middle elements
-
-  }
-
+      return array;
 }
 
 module.exports = reverseInPlace;
