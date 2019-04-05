@@ -15,6 +15,21 @@
 
 function reverseInPlace(array) {
 
-}
 
+  // swap element at i and element at length - i - 1 up to midpoint
+  for(let i = 0; i < array.length/2; i++) {
+    //neat trick!
+    [array[i], array[array.length - i - 1]] = [array[array.length - i - 1], array[i]]
+  }
+
+  return array; //don't need to return, but i don't wanna run test cases twice
+
+}
+/*
+let arr = [1, 2 , 3, 4]
+
+reverseInPlace(arr);
+
+console.log(arr);
+*/
 module.exports = reverseInPlace;
