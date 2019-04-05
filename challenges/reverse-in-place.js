@@ -38,7 +38,4 @@ function reverseInPlace(array) {
   return array;
 }
 
-const theArray = [1, 2, 3, 4, 5, 6];
-
-console.log(reverseInPlace(theArray));
-// module.exports = reverseInPlace;
+module.exports = reverseInPlace;
