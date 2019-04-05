@@ -14,6 +14,30 @@
  */
 
 function reverseInPlace(array) {
+  // check to see if array is odd length
+  let mid = Math.floor(array.length / 2);
+  let length = array.length;
+
+    for (let i = 0; i < mid ; i++) {
+        let tempVal = array[i];
+        array[i] = array[length - 1 - i];
+        array[length - 1 - i ] = tempVal;
+      }
+    }
+     
+      
+
+
+
+    
+
+  // swap begin and end elements 
+
+
+
+  //leave middle elements
+
+  }
 
 }
 
