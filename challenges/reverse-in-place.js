@@ -17,7 +17,7 @@
 function reverseInPlace(array) {
 
   let container;
-  let iterateUntil = Math.floor(array.length / 2);
+  let iterateUntil = Math.floor(array.length / 2 - 1);
   for (let i = 0; i <= iterateUntil; i++) {
     // set j
     let j = array.length - i - 1;
