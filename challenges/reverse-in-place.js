@@ -23,6 +23,7 @@ function reverseInPlace(array) {
         array[i] = array[length - 1 - i];
         array[length - 1 - i ] = tempVal;
       }
+      return array;
     }
      
       
