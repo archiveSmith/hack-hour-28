@@ -14,8 +14,8 @@
  */
 
 function reverseInPlace(array) {
-    let count = 0;
-    array.forEach(el => count += 1);
+    let count = array.length;
+    // array.forEach(el => count += 1);
     for (let i = 0; i < count; i += 1) {
         array[count + i] = array[count - 1 - i];
     };
