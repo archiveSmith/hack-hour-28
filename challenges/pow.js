@@ -32,3 +32,16 @@ function pow2(base, power) {
 }
 //console.log(pow2(3, 5))
 module.exports = pow;
+
+function powlogN(base, p) {
+    let power = Math.abs(p)
+    let b = base, result = 1;
+    while (power > 0) {
+      if ((power & 1) != 0) {
+          result *= b;
+      }
+        power >>= 1;
+        b *= b;
+      }
+    return (p > 0)? result : 1 /result;
+  }

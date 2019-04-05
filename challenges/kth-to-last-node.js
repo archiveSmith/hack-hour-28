@@ -34,8 +34,12 @@ function kthToLastNode(k, head) {
 
   if (k === 0) return undefined;
   
-  return value[value.length - k];
+  else return value[value.length - k];
 
+}
+
+function kthToLastNode2(k, head) {
+  
 }
 
 const a = new Node('A');
