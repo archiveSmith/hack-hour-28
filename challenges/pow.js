@@ -2,8 +2,24 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-
+const pow = (base, power) => {
+    let total = 1;
+    
+    function helper(b, p) {
+        if(p === 0){
+        return total;
+         }
+         else if(p !== 0) {
+        total = total * b;
+         }
+        helper(b, p-1);
+    } 
+     helper(base,power);
+    return total
+      
 }
+
+
+//pow(2,3)
 
 module.exports = pow;
