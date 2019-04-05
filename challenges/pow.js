@@ -20,7 +20,7 @@ function powShift(base, power) {
 
     let result = 1;
     let neg = (power < 0) ? true : false;
-    if(neg) power *= -1;
+    if (neg) power *= -1;
     // console.log('neg: ', neg);
 
     while (power > 0) {
@@ -68,5 +68,39 @@ console.timeEnd("Bit Magic")
 out
 out2
 
+
+
+function divideByTwo(num) {
+    while (num > 2) {
+        if (num % 2 === 1) num -= 1;
+        Math.floor(num = num / 2);
+    }
+    return num;
+}
+
+function bitShiftByTwo(num) {
+    while (num > 2) {
+        num = num >> 1;
+    }
+    return num;
+}
+
+startNum = 5000000;
+size = 5000000;
+console.time("divide");
+for (let i = 0; i < size; i++) {
+    out = divideByTwo(startNum);
+}
+console.timeEnd("divide")
+
+console.time("shift");
+for (let i = 0; i < size; i++) {
+    out2 = bitShiftByTwo(startNum);
+}
+console.timeEnd("shift")
+
+
+out
+out2
 
 module.exports = pow;
