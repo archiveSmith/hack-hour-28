@@ -15,6 +15,25 @@
 
 function reverseInPlace(array) {
 
+	console.log('start array', array)
+
+	for (let i = array.length - 1; i >= 0; i--) {
+		array.push(array[i]);
+	}
+
+	console.log('new array', array)
+
+	array.splice(0, (array.length / 2));
+	console.log('final array', array)
+
+	return array;
+
 }
+
+console.log(reverseInPlace(['a', 'b', 'c', 'd', 'e']))
+console.log(reverseInPlace(['b', 'b', 'b', 'b', 'a']))
+console.log(reverseInPlace([]));
+console.log(reverseInPlace([1, 2, 3, 4]))
+
 
 module.exports = reverseInPlace;
