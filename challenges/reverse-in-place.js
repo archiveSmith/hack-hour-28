@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /**
  * Write a function to reverse an array in place
  *
@@ -14,7 +14,10 @@
  */
 
 function reverseInPlace(array) {
-
+  let reversed = [array[0]];
+  for (let i = 1; i < array.length; i += 1) {
+    reversed.unshift(array[i]);
+  }
+  return reversed;
 }
-
 module.exports = reverseInPlace;
