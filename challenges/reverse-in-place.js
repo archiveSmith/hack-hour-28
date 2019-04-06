@@ -9,7 +9,7 @@
  * be changed after they're created.
  *
  * Since strings are immutable in javascript, we will be reversing an array of characters instead.
- *
+ *5
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
