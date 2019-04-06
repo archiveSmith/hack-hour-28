@@ -11,12 +11,26 @@
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
 
+ //checks to see if the second string is found in the first
+ //if the letters are in the second string
 function isSubstring(s1, s2) {
+  //does the first string have the same indexes as the second
   return s1.indexOf(s2) >= 0;
+
 }
 
 function stringRotation(s1, s2) {
+  let newString = s1 + s2;
+  if (s1.length === s2.length) {
+    stringRotation(newString, s1);
+    } else {
+    return false;
+    }
+  }
 
-}
+
+console.log(stringRotation("hello", "hello"))
+console.log(stringRotation("hello", "he"))
+console.log(isSubstring('hello', "llohe"))
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
