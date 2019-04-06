@@ -12,11 +12,36 @@
  */
 
 function isSubstring(s1, s2) {
+  // indexOf on a string returns if the string of s2 exists in s1
   return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
+  function reverseString(string) {
+    return string.split('').reverse().join('');
+  }
+
+  if (s1 === s2) {
+    return true;
+  }
+  if (s1.length !== s2.length) {
+    return false;
+  }
+
+  // reverse s2
+  const s2Reversed = reverseString(s2);
+  // console.log('s2Reversed: ', s2Reversed);
+  return isSubstring(s1, s2Reversed);
 
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+// console.log(isSubstring('foo', 'foo')); // true
+// console.log(isSubstring('foo', 'he')); // false
+
+console.log(stringRotation('hello', 'hello'));
+console.log(stringRotation('hello', 'llohe'));
+
+module.exports = {
+  isSubstring: isSubstring,
+  stringRotation: stringRotation
+};
