@@ -20,9 +20,6 @@ function stringRotation(s1, s2) {
     }
   }
 
-  obj1;
-  console.log('obj1: ', obj1);
-
 
   let obj2 = {};
   for (let j = 0; j < s2.length; j++) {
