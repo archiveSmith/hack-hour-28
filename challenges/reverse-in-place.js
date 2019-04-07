@@ -21,7 +21,6 @@ function reverseInPlace(array) {
     array[i] = holder;
   }
   return array;
-
 }
 
 module.exports = reverseInPlace;
