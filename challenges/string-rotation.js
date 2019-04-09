@@ -18,6 +18,7 @@ function isSubstring(s1, s2) {
 function stringRotation(s1, s2) {
   let arr1 = s1.split('');
   let arr2 = s2.split('');
+  
   if(arr2.length !== arr1.length) return false;
 
   for(let i = 0; i < arr1.length; i++){
@@ -25,7 +26,6 @@ function stringRotation(s1, s2) {
     let newStr = arr1.join('');
     if(newStr === s2) return true
   }
-
   return false
 
 }
