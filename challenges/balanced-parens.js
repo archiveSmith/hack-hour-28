@@ -26,6 +26,26 @@
 
 function balancedParens(input){
 
+  if (input.length < 2) {
+    return false;
+  }
+  
+  var openParens = ['(']
+  var closingParens = [')']
+  
+  var stack = []; // ['(', '(', ')', ')'  ]
+  
+  
+  let char = input.split('');
+  
+  for (let i = 0; i < input.length; i++) {
+    if (openParens.indexOf(char[i]) > -1) {
+      stack.push(char[i])
+    } else if(closingParens.indexOf(char[i]) > -1) {
+      stack.push(char[i])
+    }
+  }
+  
 }
 
 module.exports = balancedParens;
