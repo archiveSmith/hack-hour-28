@@ -16,10 +16,9 @@
 function drawStairs(n) {
     let stairCase = '';
     for(let i = 0; i < n; i++) {
-      let space = ' ';
-      stairCase += '*' + space.repeat(n);
-      
-      console.log(stairCase);
+      let space = ' '.repeat(n -  i);
+      stairCase += '*'
+      console.log(space + stairCase);
     }
 }
 console.log(drawStairs(6))

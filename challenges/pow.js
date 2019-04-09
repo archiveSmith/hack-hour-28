@@ -5,7 +5,7 @@
 function pow(base, power) {
     if(typeof base !== 'number') return 'not valid input!'
     
-    if(base === 0) return 0;
+    if(base === 0) return 1;
 
     if(power === 1) return base;
 
@@ -14,7 +14,7 @@ function pow(base, power) {
 console.log(pow('hello', 2))
 console.log(pow(0, 2));
 console.log(pow(4,1));
-console.log(pow(2,3));
+console.log(pow(2,3));``
 console.log(pow(2,5));
 console.log(pow(3, 3));
 
