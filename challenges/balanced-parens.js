@@ -25,7 +25,31 @@
  */
 
 function balancedParens(input){
+  let count = {
+    '{' : 1,
+    '}' : 1,
+    '(' : 1,
+    ')' : 1,
+    '[' : 1,
+    ']' : 1
+  }
 
+  for (let i = 0, char; i < input.length; i++) {
+    char = input[i]
+    if (count[char]) count[char]++
+  }
+  
+  if (count['{'] !== count['}'] ||
+    count['('] !== count[')'] ||
+    count['['] !== count[']']
+  ) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 module.exports = balancedParens;
+
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));
