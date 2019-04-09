@@ -25,7 +25,7 @@
  */
 
 const balancedParens = (input) => {
-    let checkOpen = new Set ("( {")
+    let checkOpen = new Set ("(, {")
     let checkClose = new Set("), }")
     let openStr = "";
     let closeStr = "";
