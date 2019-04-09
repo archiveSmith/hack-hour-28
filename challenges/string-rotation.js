@@ -12,12 +12,12 @@
  */
 
 function isSubstring(s1, s2) {
+  //Concat string with itself and grab the middle
   return (s1 + s1).indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
      return ((s1.length === s2.length) && isSubstring(s1,s2));
-
 }
 
 console.log(stringRotation("hello", "hello")); //-> true
@@ -26,3 +26,4 @@ console.log(stringRotation("hello", "he")); //-> false
 console.log(stringRotation("hello", "ollhe"));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+Collaspe
