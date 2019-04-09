@@ -39,6 +39,6 @@ function balancedParens(input) {
 // console.log(balancedParens('[](){}')); // true
 // console.log(balancedParens('[({})]')); // true
 // console.log(balancedParens('[(]{)}')); // false
-console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 module.exports = balancedParens;
