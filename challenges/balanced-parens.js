@@ -24,8 +24,44 @@
  *
  */
 
+ //STEP 1
 function balancedParens(input){
-
+    let parensCount = {};
+    for (let i=0; i < input.length; i ++) {
+    if (input[i] === '(' && !parensCount.left) {
+      parensCount.left = 1
+      } else if (input[i] === ')' && !parensCount.right && parensCount.left) {
+      parensCount.right = 1;
+    } else if (input[i] === '(') {
+      parensCount.left++;
+    } else if (input[i] === ')') {
+      parensCount.right++;
+    }
+    }
+    if (parensCount.left === parensCount.right) return true;
+    else return false;
 }
+
+//STEP 2 - incomplete
+// function balancedParens(input){
+//     const leftBrackets = '[({'
+//     const rightBrackets = '})]'
+//     let parensCount = {};
+//     for (let i=0; i < input.length; i ++) {
+//     if ((input[i] === '[' || input[i] === '(' || input[i] === '{') && !parensCount.left) {
+//       parensCount.left = 1
+//       } else if ((input[i] === ']' || input[i] === ')' || input[i] === '}') && parensCount.left) {
+//       parensCount.right = 1;
+//     } else if (input[i] === '[' || input[i] === '(' || input[i] === '{') {
+//       parensCount.left++;
+//     } else if (input[i] === ']' || input[i] === ')' || input[i] === '}') {
+//       parensCount.right++;
+//     }
+//     }
+//     // console.log(parensCount);
+//     if (parensCount.left === parensCount.right) return true;
+//     else return false;
+//   }
+
 
 module.exports = balancedParens;
