@@ -24,8 +24,21 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  // const revisedInput = input.toLowerCase();
+  // const removedLetters = revisedInput.replace(/[\w]/g, '');
+  // return removedLetters;
+  // works up to solution 3
+  if (input.indexOf("()") > -1 || input.indexOf("{}") > -1 || input.indexOf("[]") > -1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+// console.log(balancedParens('[](){}')); // true
+// console.log(balancedParens('[({})]')); // true
+// console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 module.exports = balancedParens;

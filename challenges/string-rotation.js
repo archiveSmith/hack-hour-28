@@ -32,6 +32,7 @@ function stringRotation(s1, s2) {
   const s2Reversed = reverseString(s2);
   // console.log('s2Reversed: ', s2Reversed);
   return isSubstring(s1, s2Reversed);
+  q
 
 }
 
