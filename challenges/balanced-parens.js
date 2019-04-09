@@ -25,7 +25,27 @@
  */
 
 function balancedParens(input){
+  let openArr = [];
+  let bracketObj = {
+    '{' : '}',
+    '[' : ']',
+    '(' : ')'
+  };
+  for(let i = 0; i < input.length; i += 1){
+    if(input[i] === '(' || input[i] === '{' || input[i] === '[') {
+      openArr.push(input[i])
+      console.log(openArr, 'open')
+    } else {
+      let last = openArr.pop();
+      if(input[i] !== bracketObj[last]){return false}
+      console.log(openArr, 'openArr looped')
+    }
+    }
+    return true;
+    }
 
-}
+
+console.log(balancedParens('[(]{)}')); //false
+// console.log(balancedParens('[({})]')); //true
 
 module.exports = balancedParens;
