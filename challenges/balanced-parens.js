@@ -25,7 +25,36 @@
  */
 
 function balancedParens(input){
-
+  const parensLeft = {
+    '{': '}',
+    '(': ')',
+    '[': ']',
+  }
+  const parensRight = {
+    '}': '{',
+    ')': '(',
+    ']': '[',
+  }
+  newStr = '';
+  for(let i = 0; i < input.length; i += 1){
+    if(parensLeft[input[i]] || parensRight[input[i]]) newStr += input[i];
+  }
+  if(newStr.length % 2 != 0)return false;
+  let balancedByOpposite = true;
+  for(let i = 0; i < (newStr.length / 2); i += 1){
+    const currentChar = newStr[i];
+    const oppositeChar = newStr[newStr.length - 1 - i]
+    if(balancedByOpposite){
+      if(oppositeChar != parensLeft[currentChar]) balancedByOpposite = false;
+    }
+  }
+  let balancedByCompliment = true;
+  for(let i = 0; i < newStr.length; i += 2){
+    if(balancedByCompliment){
+      if(parensLeft[newStr[i]] != newStr[i + 1]) balancedByCompliment = false;
+    }
+  }
+  return(balancedByOpposite || balancedByCompliment);
 }
 
 module.exports = balancedParens;
