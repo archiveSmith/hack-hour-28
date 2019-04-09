@@ -24,8 +24,29 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  let firstParen = input.indexOf("(");
+  let lastParen = input.lastIndexOf(")");
+  let parenSubStr = input.slice(firstParen, lastParen + 1);
+  let i = 0;
+  while (parenSubStr) {
+    if (parenSubStr.indexOf("(") > input.lastIndexOf(")")) {
+      return false;
+    } else {
+      parenSubStr.indexOf("("); //?
+      parenSubStr.indexOf(")"); //?
+      parenSubStr;
+      parenSubStr = parenSubStr.slice(
+        parenSubStr.indexOf("(") + 1,
+        parenSubStr.lastIndexOf(")")
+      );
+      // i += 1;
+    }
+  }
+  return true;
 }
+
+balancedParens("[(]{)}"); //? false
+balancedParens("(())"); //? tru
 
 module.exports = balancedParens;
