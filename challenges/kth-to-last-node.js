@@ -15,40 +15,37 @@
  *
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
-function LinkedList() {
-  this.head = null;
-  this.tail = null;
-}
+// function LinkedList() {
+//   this.head = null;
+//   this.tail = null;
+// }
 
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
-LinkedList.prototype.add = function(val) {
-  const newNode = new Node(val);
-  if(!this.head.value) {
-    this.head = newNode;
-    newNode.next = null;
-  } else {
-    this.head.next = newNode;
-  }
-  this.tail = newNode;
-}
+// LinkedList.prototype.add = function(val) {
+//   const newNode = new Node(val);
+//   if(!this.head.value) {
+//     this.head = newNode;
+//     newNode.next = null;
+//   } else {
+//     this.head.next = newNode;
+//   }
+//   this.tail = newNode;
+// }
 
 function kthToLastNode(k, head) {
   // we have the head of the linked list;
   // find the tail of the linked list 
   // iterate backwards k times to get the value
-  let current = this.head;
   let counter = [];
   // if current.next equals null then we hit the last tail node.
   // counter to see how many nodes we need to go back from tail node.
-  while(current.next !== null) {
-    if(current.next) {
-      current = current.next;
-    } 
-    counter.push(current.value);
+  while(head) {
+    counter.push(head);
+    head = head.next;
   }
   // check array and from the last element subtract k. That's the index that gives you the value.
   const kthVal = (counter.length - 1) - k;
@@ -70,6 +67,8 @@ console.log(d);
 
 const e = new Node('E');
 console.log(e);
+
+// console.log(kthToLastNode(2, a));
 
 
 
