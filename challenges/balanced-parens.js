@@ -34,6 +34,7 @@ function balancedParens(input){
         }else if(char === '}'){
             outChar = parenArray.pop();
             if(outChar != '{') return false;
+
         } else if(char === ']'){
             outChar = parenArray.pop();
             if(outChar != '[') return false;
@@ -55,5 +56,19 @@ function balancedParens(input){
     //array not empty - parens were missed
     return false;
 }
+
+
+let test1 = 'This(called[asdf]){ should work ()}'
+let test2 = 'This(probably(){}wont){}[][{}]'
+
+console.log(balancedParens(test1));
+console.log(balancedParens(test2));
+
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
+
+console.log(  balancedParens('[](){}')); // true
+console.log(  balancedParens('[({})]'));   // true
+console.log(  balancedParens('[(]{)}')); // false
 
 module.exports = balancedParens;
