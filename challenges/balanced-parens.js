@@ -24,8 +24,36 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  if (input.length <= 1 || input[0] === ")") return false;
 
+  const regex = /[\(|\)]+/;
+
+  let removed = input
+    .split("")
+    .filter(char => regex.test(char))
+    .join("");
+
+  const firstHalf = removed.slice(0, removed.length / 2);
+
+  if (firstHalf.indexOf(")") !== -1) return false;
+
+  const secondHalf = removed.slice(removed.length / 2);
+
+  let flippedSecondHalf = secondHalf
+    .split("")
+    .map(el => {
+      if (el === ")") {
+        return "(";
+      } else if (el === "(") {
+        return ")";
+      }
+    })
+    .join("");
+
+  return firstHalf === flippedSecondHalf;
 }
+
+console.log(balancedParens("()()"));
 
 module.exports = balancedParens;
