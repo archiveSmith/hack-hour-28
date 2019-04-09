@@ -3,8 +3,8 @@
  * the parentheses are balanced and false otherwise.
  *
  * Example:
- *   balancedParens('(');  // false
- *   balancedParens('()'); // true
+    *   balancedParens('(');  // false
+    *   balancedParens('()'); // true
  *   balancedParens(')(');  // false
  *   balancedParens('(())');  // true
  *
@@ -24,8 +24,25 @@
  *
  */
 
-function balancedParens(input){
-
+const balancedParens = (input) => {
+    let checkOpen = new Set ("( {")
+    let checkClose = new Set("), }")
+    let openStr = "";
+    let closeStr = "";
+    
+  
+    for(let i = 0; i < input.length; i++){
+      if(checkOpen.has(input[i])){
+        openStr += input[i];
+      }
+      if(checkClose.has(input[i])){
+        closeStr += input[i];
+      }
+    }
+    if(openStr.length === closeStr.length) {
+      return true;
+    } 
+    return false;
 }
 
 module.exports = balancedParens;
