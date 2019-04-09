@@ -25,7 +25,27 @@
  */
 
 function balancedParens(input){
+  let bracks = [];
+  let pairs = {']':'[', ')':'(', '}':'{'}
 
+  for(let i = 0; i < input.length; i++) {
+    // push in all [ ( { characters
+      if(input[i].match(/[\(\[\{]/g))
+        bracks.push(input[i])
+    //pop last if it is the match to ] ) }
+      else if(input[i].match(/[\]\)\}]/g)) {
+        if(pairs[input[i]] === bracks[bracks.length - 1]) {
+          bracks.pop();
+        }
+        else return false;
+      }
+  }
+  //if length of bracks is 0, we had all pairs removed from
+  if(bracks.length == 0) {
+    return true;
+  } else return false; // we didn't remove all pairs so something didn't balance
 }
+
+//console.log(balancedParens("{(turtles)[are]{so(cool}}"));
 
 module.exports = balancedParens;
