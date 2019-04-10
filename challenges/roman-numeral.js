@@ -100,8 +100,10 @@ function romanNumeral(n) {
         romanNumerals['I'] = parseInt(n/1);
         for (let i=0; i<romanNumerals['I']; i++) arrayToString.push('I')
         n=n%1;
-    } else {
-        return '';
+    } 
+    
+    if (n===0) {
+        return ''
     }   
     return arrayToString.join('').toString();
 
