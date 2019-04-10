@@ -37,20 +37,21 @@ function balancedParens(input){
      return false;
    }
 
-   let ch = input.split();
+   let ch = input.split('');
 
    for(let i = 0; i < ch.length; i++)
    {
      if(mapper.has(ch[i]))
      {
        stack.push(mapper.get(ch[i]));
-     }
+     }     
      else if(stack.length === 0 || ch[i] !== stack.pop()){
-
-         return false;
+         
+       return false;
      }
+     
+     return true;
    }
-
 }
 
 console.log(balancedParens('[](){}'));
