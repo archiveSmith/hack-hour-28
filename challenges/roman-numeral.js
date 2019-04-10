@@ -72,7 +72,7 @@ function romanNumeral(n) {
         n=n%50;
     }
     if (n/40 > 0) {
-        romanNumerals['XL'] = parseInt(n/90);
+        romanNumerals['XL'] = parseInt(n/40);
         for (let i=0; i<romanNumerals['XL']; i++) arrayToString.push('XL')
         n=n%40;
     }
@@ -87,7 +87,7 @@ function romanNumeral(n) {
         n=n%9;
     }
     if (n/5 > 0) {
-        romanNumerals['V'] = parseInt(n/90);
+        romanNumerals['V'] = parseInt(n/5);
         for (let i=0; i<romanNumerals['V']; i++) arrayToString.push('V')
         n=n%5;
     }
@@ -102,6 +102,8 @@ function romanNumeral(n) {
         n=n%1;
     }   
     return arrayToString.join('').toString();
+
+
 }
 
 module.exports = romanNumeral;
