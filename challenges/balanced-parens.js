@@ -59,17 +59,22 @@ function balancedParens(input) {
         '[': ']',
         '{': '}'
     }
+    let garbage = [];
 
     for (let i = 0; i < input.length; i += 1) {
         if(input[i] === '(' || input[i] === '[' || input[i] === '{') {
             stack.push(input[i]);
+            console.log(stack)
+        } else if(input[i] !== parenthese[key]) {
+            garbage.push(input[i]);
         }
-        else {
+        else (input[i] === ')' || input[i] === ']' || input[i] === '}') {
             let last = stack.pop();
-
+                console.log(stack)
             if ((input[i] !== parenthese[last])) { return false };
         } 
     }
+    console.log(stack)
     if(stack.length !== 0) { return false };
     
     return true;
@@ -83,7 +88,7 @@ function balancedParens(input) {
 // console.log(balancedParens('[({})]'));   // true
 // console.log(balancedParens('[(]{)}')); // false
 
-// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
 // console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 
 module.exports = balancedParens;
