@@ -36,6 +36,9 @@ function romanNumeral(n) {
     let remainder = 0;
     let wholeNumber = 0;
     let arrayToString = [];
+    if (n===0) {
+        return ''
+    }
     if (n/1000 > 0) {
         romanNumerals['M'] = parseInt(n/1000);
         for (let i=0; i<romanNumerals['M']; i++) arrayToString.push('M')
@@ -102,9 +105,6 @@ function romanNumeral(n) {
         n=n%1;
     } 
     
-    if (n===0) {
-        return ''
-    }   
     return arrayToString.join('').toString();
 
 
