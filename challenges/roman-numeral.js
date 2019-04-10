@@ -53,7 +53,8 @@ table = [
 function romanNumeral(n) {
     result = '';
     table.forEach(element => { //had to use an array since order is important here
-        let val = Object.keys(element)[0]; //get value and roman letter from table
+
+        let val = parseInt(Object.keys(element)[0]); //get value and roman letter from table
         let roman = element[val];
         // console.log(`N:${n} val:${val} roman:${roman} result:${result}`);
         while(n >= val){    
@@ -71,5 +72,5 @@ module.exports = romanNumeral;
 
 
 
-let out = romanNumeral(645);
+let out = romanNumeral(1984);
 out
