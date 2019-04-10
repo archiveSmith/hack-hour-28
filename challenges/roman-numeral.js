@@ -27,7 +27,6 @@ function romanNumeral(n) {
 
   let numStr = ("" + n).split("");
   let romanStr = "";
-  numStr;
   for (let i = numStr.length - 1; i >= 0; i -= 1) {
     let romanIndex = parseInt(numStr[i]);
     let concatRoman = romanNums[i][romanIndex] || "";
