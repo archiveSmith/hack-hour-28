@@ -14,8 +14,20 @@
 */
 
 function drawStairs(n) {
+// starting from left to right, bottom to top, n --> 1
+if (typeof n === "number") {
+
+
+
+//implement recursion
+let lines = n
+    while (n > 0) {
+        console.log("*")
+        
+    }
 
 }
-
+}
+console.log(drawStairs(6))
 
 module.exports = drawStairs;
