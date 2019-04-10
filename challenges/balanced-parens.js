@@ -29,6 +29,7 @@ const balancedParens = (input) => {
     let checkClose = new Set("), }, ]")
     let openStr = "";
     let closeStr = "";
+    let checkStr = "";
     
   
     for(let i = 0; i < input.length; i++){
@@ -38,11 +39,15 @@ const balancedParens = (input) => {
       if(checkClose.has(input[i])){
         closeStr += input[i];
       }
+      checkStr += input[i];
     }
-    if(openStr.length === closeStr.length) {
+    
+  if(checkStr[0] === ")" || checkStr[0] === "}" || checkStr[0] === "]"  ){
+    return false;
+  } else if(openStr.length === closeStr.length) {
       return true;
     } 
     return false;
-}
+  }
 
 module.exports = balancedParens;
