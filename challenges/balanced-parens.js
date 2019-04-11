@@ -25,7 +25,32 @@
  */
 
 function balancedParens(input){
+    let str = input.toString();
+    let strArr = [];
+    for (let i = 0; i <str.length; i += 1) {
+        strArr.push(str[i]);
+    }
 
+    let cacheObj = {'(':')', '{':'}', '[':']'};
+    let cacheArr = [];
+
+    strArr.forEach(el => {
+        if (Object.keys(cacheObj).includes(el) || Object.values(cacheObj).includes(el)) {
+            cacheArr.push(el);
+        }
+    })
+
+    for (let i = 0; i < cacheArr.length - 1; i += 1) {
+        let par = cacheArr[i];
+        let j = i + 1;
+        while (cacheArr[j]) {
+            if (cacheArr[j] === 
+        }
+    }
 }
+
+console.log(balancedParens('(tt(test)t)')); // true
+//console.log(balancedParens(')(')) // false
+//console.log(balancedParens('[](){}')) // true
 
 module.exports = balancedParens;
