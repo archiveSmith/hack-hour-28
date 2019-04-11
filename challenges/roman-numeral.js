@@ -34,22 +34,34 @@ function romanNumeral(n) {
     result += romanNums[closestNum];
     console.log(closestNum)
     console.log(result)
-    
+
+    while ((n - closestNum) >= 1000) {
+        result += 'M';
+        closestNum = closestNum + 1000;
+    }
+    while ((n - closestNum) >= 900) {
+        result += 'CM';
+        closestNum = closestNum + 900;
+    }
+    while ((n - closestNum) >= 500) {
+        result += 'D';
+        closestNum = closestNum + 500;
+    }
+    while ((n - closestNum) >= 400) {
+        result += 'CD';
+        closestNum = closestNum + 400;
+    }
     while ((n - closestNum) >= 100) {
         result += 'C';
         closestNum = closestNum + 100;
-        console.log(closestNum)
     }
     while ((n - closestNum) >= 10) {
         result += 'X';
         closestNum = closestNum + 10;
-        console.log(closestNum)
     }
     while ((n - closestNum) >= 9) {
         result += 'IX';
         closestNum = closestNum + 9;
-        console.log(result)
-        console.log(closestNum)
     }
     while ((n - closestNum) >= 5) {
         result += 'V';
@@ -60,21 +72,18 @@ function romanNumeral(n) {
     while ((n - closestNum) >= 4) {
         result += 'IV';
         closestNum = closestNum + 4;
-        console.log(result)
-        console.log(closestNum)
     }
     while ((n - closestNum) >= 1) {
         let one = 'I';
         result = result.concat(one)
         closestNum = closestNum + 1;
-        console.log(closestNum)
     }
 
     return result;
 
 }
 
-console.log(romanNumeral(19));
+console.log(romanNumeral(1900));
 // console.log(romanNumeral(104));
 // console.log(romanNumeral(342));
 
