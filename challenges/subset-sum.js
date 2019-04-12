@@ -8,21 +8,41 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
+checksCount = 0;
 
 function subsetSum(array, target) {
     let retval = false;
+    // const arraySum = array.reduce(function (acc, val) { return acc += val; })
+    // console.log(`Checking:${array} for ${target}`);
+    //handle single element array
+    if (array.length === 1) {
+        // console.log(`Target: ${target} 1stElm:${array[0]}`);
+        return target === array[0];
+    }
+
     array.forEach((element, index) => {
+
+        if (target === element) {
+            retval = true;
+            // console.log(`Found target in array! ${target}`);
+            return;
+        }
+
         //copy array without current element
         const subArray = array.slice(0, index).concat(array.slice(index + 1))
         // console.log(`subArray: ${element}`, subArray);
         subArray.forEach(subElement => {
             let total = target - element - subElement;
-            if (target < element || target < subElement) return;
-            console.log(`Target:${target} element:${element} - subElement:${subElement} =  Total: ${total}`);
+            // if (target < element || target < subElement) return; //
+            // console.log(`Target:${target} element:${element} - subElement:${subElement} =  Total: ${total}`);
+            checksCount++;
             if (total === 0) {
                 retval = true;
+                return;
             } else {
-                if (subArray.length > 1 && retval === false) retval = subsetSum(subArray, target - element)
+                if (subArray.length > 1 && retval === false) {
+                    retval = subsetSum(subArray, target - element);
+                }
             }
         })
     });
@@ -30,8 +50,14 @@ function subsetSum(array, target) {
 }
 
 
-let array = [1, 2, 3, 4,5]
 
-let out = subsetSum(array, 15);
-out
+
+// let array = [1, 20, -5, 4,-9,6,4];
+
+
+
+// let out = subsetSum(array, 29);
+// out
+// console.log('checksCount: ', checksCount);
+// return checksCount;
 module.exports = subsetSum;
