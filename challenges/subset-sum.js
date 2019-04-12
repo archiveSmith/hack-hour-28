@@ -9,6 +9,32 @@
  */
 
 function subsetSum(array, target) {
+  
+  if (target === undefined || array.length === 0){ return false; }
+
+  function addNums (a , b) { return a + b };
+  
+  let initial = array[0];
+  
+  // iterate through array
+  for (let i = 1; i < array.length; i +=1) {
+
+  //push possible numbers to an array
+    let set = [];
+
+  //check to see if elements add to target
+  if ( addNums(initial, array[i]) !== target) {
+    if( inital < target) {
+      set.push(initial);
+    } else if (array[i] < target) {
+      set.push(array[i]);
+    }
+
+
+
+
+  }
+}
 
 }
 
