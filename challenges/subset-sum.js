@@ -8,8 +8,24 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-
-}
+const subsetSum = (array, target) => {
+    let total = 0;
+  
+    let i = 0;
+    let k = array.length-1;
+    while(i < k){
+      total = array[i] + array[k]
+      if(total === target){
+        return true;
+      }
+      if(total > target){
+        i++
+      total = array[i] + array[k]
+      }
+      i++;
+      k--;
+    }
+    return false;
+  }
 
 module.exports = subsetSum;
