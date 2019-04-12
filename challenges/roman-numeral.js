@@ -35,12 +35,6 @@ function romanNumeral(n) {
     }
 
     let romanNum = '';
-    // for(let key in roman) {
-    //     if(roman[key] < n) {
-    //         n = n - roman[key];
-    //         romanNum += key;
-    //     }
-    // }
     for(let key in roman) {
         while(n >= roman[key]) {
             n = n - roman[key];
@@ -51,7 +45,9 @@ function romanNumeral(n) {
 }
 
 console.log(romanNumeral(2005)) // MMV
-console.log(romanNumeral(200))
-console.log(romanNumeral(1024))
+console.log(romanNumeral(200)) // CC
+console.log(romanNumeral(1024)) // MXXIV
+console.log(romanNumeral(3)) // III
+console.log(romanNumeral(20)) // XX
 
 module.exports = romanNumeral;
