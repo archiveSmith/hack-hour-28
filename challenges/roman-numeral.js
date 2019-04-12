@@ -18,7 +18,56 @@
  */
 
 function romanNumeral(n) {
+  const romanMap = {
 
+  }
+  const num = [];
+  while (n > 0) {
+    const digit = n % 10; //?
+    num.push(digit);
+    n = Math.floor(n / 10);
+  }
+  let romanDigits = '';
+
+  function createDigits(num) {
+    let output = ''
+    if (num < 1) {
+      output += 'X';
+    }
+    if (num < 4) {
+      while (num > 0) {
+        output += 'I';
+        num--;
+      }
+    }
+    if (num === 4) {
+      output += 'IV';
+    }
+    if (num === 5) {
+      output += 'V';
+    }
+    if (num === 6) {
+      output += 'VI';
+    }
+    if (num === 7) {
+      output += 'VII'
+    }
+    if (num === 8) {
+      output += 'VIII'
+    }
+    if (num === 9) {
+      output += 'IX'
+    }
+    return output;
+  }
+  console.log(createDigits(num[0]))
+
+  // for (let i = 0; i < numDigits.length; i++) {
+
+  // }
 }
+
+console.log('romanNumeral: ', romanNumeral(1128));
+
 
 module.exports = romanNumeral;
