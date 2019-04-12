@@ -9,7 +9,39 @@
  */
 
 function subsetSum(array, target) {
-
+  let possibleSubsets = getCombinations(array);
+  console.log("Possible subsets from :", array, "\n are: ", possibleSubsets);
+  for (let i = 0; i < possibleSubsets.length; i++) {
+    let sum = possibleSubsets[i].reduce((acc, cur) => acc + cur);
+    if (sum === target) {
+      console.log("Sum found with array: ", possibleSubsets[i]);
+      return true;
+    }
+  }
+  return false;
 }
+
+function getCombinations(arr) {
+  let result = [];
+  let helper = function (prefix, arr) {
+    for (var i = 0; i < arr.length; i++) {
+      result.push(prefix + arr[i]);
+      helper(prefix + arr[i], arr.slice(i + 1));
+    }
+  }
+  helper('', arr);
+  // console.log("RESULT IS: ", result);
+  let answer = result.map(str => {
+    return str.split('').map(function (item) {
+      return parseInt(item, 10);
+    })
+  });
+  // console.log("ANSWER IS: ", answer);
+  return answer;
+}
+
+
+console.log(subsetSum([3, 2, 4, 5], 9));
+console.log(subsetSum([8, 2, 4, 12], 13))
 
 module.exports = subsetSum;
