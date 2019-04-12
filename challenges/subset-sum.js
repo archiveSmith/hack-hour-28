@@ -9,7 +9,37 @@
  */
 
 function subsetSum(array, target) {
+    //sort arrays to go from lowest to highest
+    let arrSort = array.sort((a,b) => a-b);
+    //create a hash table to link numbers in array to numbers that could match target
+    let table = {};
+    let sum = 0;
+    let counter = target;
+    for (let i=0; i<array.length; i++) {
+        if (array[i] <= target) {
+            table[array[i]] = target-array[i];
+        } 
+    }
+    let valuesOfTable = Object.values(table);
+    console.log(valuesOfTable)
+    console.log(sum)
+    console.log(counter)
+    for (let j=0; j<valuesOfTable.length; j++) {
+        if ((valuesOfTable[j]+sum) <= counter) {
+            console.log(counter);
+            sum = sum + valuesOfTable[j];
+            console.log(sum)
+            counter = target-sum;
+            if (counter===0) {
+                return true;
+            }
+            console.log(counter)
+        }
+    }
+
+    return false;
 
 }
-
+console.log(subsetSum([3, 7, 4, 2], 5))
 module.exports = subsetSum;
+
