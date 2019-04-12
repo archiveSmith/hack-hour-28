@@ -18,7 +18,7 @@
  */
 
 function romanNumeral(n) {
-  let lookUp = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
+  /*let lookUp = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
   let rom = '';
 
   for(let x in lookUp)
@@ -33,9 +33,30 @@ function romanNumeral(n) {
     }
   }
   //Return converted number.
+  return rom;*/
+
+  let mapper = new Map();
+
+  let lookUp = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
+  let rom = '';
+
+  for(let x in lookUp)
+  {
+    mapper.set(x , lookUp[x]);
+  }
+
+  for(let x in lookUp)
+  {
+    if(n >= lookUp[x])
+    {
+       rom += x
+       n -= lookUp[x];
+    }
+  }
   return rom;
 }
-
+//Will try to improve time complexity of this with a Map(), currently O(n^2).
+//Go An 
 console.log(romanNumeral(5));
 console.log(romanNumeral(901));
 
