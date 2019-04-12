@@ -9,7 +9,43 @@
  */
 
 function subsetSum(array, target) {
+    // If any numbers in an array sums up to the target, return true, else return false.
+
+    array = array.filter(function (value) {
+        return value <= target;
+    });
+
+    array.sort(function (a, b) {
+        return b - a;
+    });
+
+    let result = [];
+
+    while (array.length > 0) {
+        let i;
+        let sum = 0;
+        let addedIndices = [];
+
+        for (i = 0; i < array.length; i++) {
+            if (sum + array[i] <= target) {
+                sum += array[i];
+                addedIndices.push(i);
+            }
+        }
+        let subset = [];
+        for (i = addedIndices.length - 1; i >= 0; i--) {
+            subset.unshift(array[addedIndices[i]]);
+            array.splice(addedIndices[i], 1);
+        }
+        result.push(subset);
+    }   
+    return result;
 
 }
+console.log(subsetSum([3, 7, 4, 2], 5))
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))      //-> true, 3 + 12 + 5 + 12 = 32
+console.log(subsetSum([8, 2, 4, 12], 13))//-> false
+console.log(subsetSum([8, -2, 1, -3], 6)) 
+
 
 module.exports = subsetSum;
