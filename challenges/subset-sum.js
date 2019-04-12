@@ -18,10 +18,6 @@ const subsetSum = (array, target) => {
       if(total === target){
         return true;
       }
-      if(total > target){
-        i++
-      total = array[i] + array[k]
-      }
       i++;
       k--;
     }
