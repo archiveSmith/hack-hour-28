@@ -13,9 +13,9 @@
 function subsetSum(array, target) {
    let j = 0;
    let total = 0;
-   for(let i = 0; i < array.length; i++)
+   for(let i = 1; i < array.length; i++)
    {
-     total = array[i] + array[j];
+     total += array[i] + array[j];
      console.log(total);
    }
    j++;
