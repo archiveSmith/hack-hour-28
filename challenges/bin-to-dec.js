@@ -15,6 +15,10 @@
 
 function binToDec(binary) {
 
+    let decimal = parseInt(binary, 2);
+    return decimal
 }
+
+console.log(binToDec('0101'))
 
 module.exports = binToDec;
