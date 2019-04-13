@@ -40,10 +40,8 @@ function balancedParens(input){
         else return false;
       }
   }
-  //if length of bracks is 0, we had all pairs removed from
-  if(bracks.length == 0) {
-    return true;
-  } else return false; // we didn't remove all pairs so something didn't balance
+  //if length of bracks is 0, we had all pairs removed OR we didn't remove all pairs so something didn't balance
+  return !bracks.length 
 }
 
 //console.log(balancedParens("{(turtles)[are]{so(cool}}"));
