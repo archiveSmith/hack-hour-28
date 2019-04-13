@@ -14,7 +14,14 @@
  */
 
 function binToDec(binary) {
-
+    let binParse = parseInt(binary, 2);
+    return binParse;
 }
+
+console.log(binToDec('0'));
+console.log(binToDec('11') )  //-> 3
+console.log(binToDec('100')); //-> 4
+console.log(binToDec('101')) //-> 5
+console.log(binToDec('0101')) //-> 5
 
 module.exports = binToDec;
