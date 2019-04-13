@@ -9,7 +9,24 @@
  */
 
 function subsetSum(array, target) {
+  array = array.filter(num => {
+    if (num < target) return true;
+  });
+  array.sort((a, b) => (b - a));
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    let j = i + 1;
+    let sum;
+    while (j < array.length) {
+      if (sum > target) {
+        sum += array[j];
+        j++;
+      }
 
+    }
+  }
 }
+
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));
 
 module.exports = subsetSum;
