@@ -14,7 +14,23 @@
  */
 
 function binToDec(binary) {
+  let parsed = parseInt(binary, 2);
+  console.log(parsed)
+}
 
+function decToBin(decimal){
+  let manipulatedDecimal = decimal;
+  let binaryArray = [];
+  let remainder = 0;
+  while(manipulatedDecimal >= 2){
+    remainder = manipulatedDecimal % 2;
+    binaryArray.push(remainder);
+    manipulatedDecimal = (manipulatedDecimal - remainder) / 2;
+  }
+  binaryArray.push(manipulatedDecimal);
+  return binaryArray.reverse().join("");
 }
 
 module.exports = binToDec;
+console.log(binToDec('101'))
+console.log(decToBin(5))
