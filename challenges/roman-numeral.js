@@ -20,6 +20,7 @@
 function romanNumeral(n) {
 const romans = {
   M: 1000,
+  M: 1000,
   CM: 900,
   D: 500,
   CD: 400, 
@@ -46,10 +47,13 @@ let arr = Object.keys(romans); //[ M , CM, D, CD ...]
 let a = n;   
 let str = '';
 for (let i = 0; i< arr.length; i++) {
+ 
   if (a >= romans[arr[i]]) {
     a -= romans[arr[i]] // a = 747 - 500 = 247 - 100 = 147 = 57 
     str += arr[i]; 
     i = 0;
+   
+
   }
 }
 return str;
@@ -59,6 +63,9 @@ console.log(romanNumeral(90));
 console.log(romanNumeral(100));
 console.log(romanNumeral(546));
 console.log(romanNumeral(747));
+console.log(romanNumeral(834));
+console.log(romanNumeral(654));
+console.log(romanNumeral(2423));
 
 
 
