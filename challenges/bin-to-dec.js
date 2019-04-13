@@ -14,7 +14,20 @@
  */
 
 function binToDec(binary) {
-
+    let sum = 0;
+    let position = 0;
+    for (let i = binary.length - 1; i >= 0; i -= 1) {
+        sum += parseFloat(binary[i]) * Math.pow(2, position);
+        position += 1;
+    }
+    return sum;
 }
+
+
+console.log(binToDec('0'))
+console.log(binToDec('11'))
+console.log(binToDec('100'))
+console.log(binToDec('101'))
+console.log(binToDec('0101'))
 
 module.exports = binToDec;
