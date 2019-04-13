@@ -19,7 +19,7 @@ function binToDec(binary) {
     let place = 1;
     const base = 2;
     let index = array.length - 1;
-    
+
     while (index >= 0) {
         result += parseInt(array[index]) * place;
         place = place * base;
@@ -30,11 +30,14 @@ function binToDec(binary) {
 
 }
 
-console.log(binToDec('0'));
-console.log(binToDec('11'));
-console.log(binToDec('100'));
-console.log(binToDec('101'));
-console.log(binToDec('0101'));
+
+function decToBin(dec){
+    return dec.toString(2);
+}
+
+function decToHex(dec){
+    return dec.toString(16);
+}
 
 
 module.exports = binToDec;
