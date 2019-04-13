@@ -24,7 +24,7 @@ function binToDec(binary) {
 const hexaToDec = (string => {
 	if (typeof string !== "string") {
 		const inputToStr = string.toString();
-		return parseInt(inputToStr, 2);
+		return parseInt(inputToStr, 16);
 	}
 	return parseInt(string, 16)
 })
@@ -36,6 +36,7 @@ console.log(binToDec('100')) //-> 4
 console.log(binToDec('101')) //-> 5
 console.log(binToDec('0101'))
 
+console.log(hexaToDec(1))
 console.log(hexaToDec('0'))   //-> 0
 console.log(hexaToDec('11'))  //-> 3
 console.log(hexaToDec('100')) //-> 4
