@@ -52,4 +52,4 @@ let testArr = [1,2,2,2,3,3,3,3,4,4,4,5,5,5]
 console.log(modemean(testArr))
 console.log(getMean(testArr))
 console.log(getMode(testArr))
-// module.exports = modemean;
+module.exports = modemean;
