@@ -15,6 +15,17 @@
 
 function binToDec(binary) {
 
+  let binArr = binary.split("");
+  let dec = 0;
+
+  for(let i = 0; i < binary.length; i++) {
+    const cur = binArr.pop();
+    dec += parseInt(cur)*Math.pow(2, i);
+  }
+
+  return dec;
 }
+
+
 
 module.exports = binToDec;
