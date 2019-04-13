@@ -8,8 +8,22 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-
+function subsetSum(array, target, sum = 0) {
+  let arrayCopy = [...array];
+  let num = arrayCopy.pop();
+  
+  if (num < target) {
+    if (array.includes(target - num)) {
+      sum += num;
+      return true
+    }
+    console.log(sum);
+    subsetSum(arrayCopy, target - num, sum += num)
+  }
+  return sum === target 
 }
 
 module.exports = subsetSum;
+
+// console.log(subsetSum([3, 7, 4, 2], 5))
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))

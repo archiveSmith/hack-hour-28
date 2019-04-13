@@ -1,21 +1,17 @@
-function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
-}
-
-function stringRotation(s1, s2) {
-  if (isSubstring(s1, s2)) {
-    let temp = s2.split('');
-
-    for (let i = 0; i < temp.length; i++) {
-      temp.push(temp.unshift(temp[0]));
-      if (s1 === temp.join('')) return true;
+function subsetSum(array, target, sum = []) {
+  let arrayCopy = [...array];
+  let num = array.pop();
+  
+  if (num < target) {
+    if (array.includes(target - num)) {
+      sum.push(num);
+      return true
     }
+    subsetSum(arrayCopy.splice(idx, 1), target - num, sum)
   }
-
-  return false;
+  return sum.reduce((total, num) => total + num) === target 
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = subsetSum;
 
-
-console.log(stringRotation("hello", "hello"));
+console.log(subsetSum([3, 7, 4, 2], 5))
