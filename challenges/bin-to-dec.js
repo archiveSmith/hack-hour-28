@@ -22,7 +22,7 @@ const binToDec = (binary) => {
     let strArr = binary.slice()
     let runningTotal = 0;
    
-  
+    console.log(runningTotal)
     for(let i = 0; i < strArr.length; i++){
       if(strArr[i] === "1"){
       runningTotal += Math.pow(2, power)
