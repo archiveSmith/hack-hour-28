@@ -25,26 +25,25 @@
  */
 
 function balancedParens(input){
+  const tracker = []; // our stack
 
-  if (input.length < 2) {
-    return false;
-  }
-  
-  var openParens = ['(']
-  var closingParens = [')']
-  
-  var stack = []; // ['(', '(', ')', ')'  ]
-  
-  
-  let char = input.split('');
-  
+  //object we use as a legend for matching the type of bracket
+  const matches = {
+    '{': '}',
+    '[': ']',
+    '(': ')',
+  };
+
+ // loop through the entire input string
   for (let i = 0; i < input.length; i++) {
-    if (openParens.indexOf(char[i]) > -1) {
-      stack.push(char[i])
-    } else if(closingParens.indexOf(char[i]) > -1) {
-      stack.push(char[i])
+
+    //if the current character is one of the keys in our legend, we push it to our stack
+    if (input[i] in matches) tracker.push(input[i]);
+    else if (input[i] === ')' || input[i] === '}' || input [i] === ']') {  // case if its one of the closing brackets
+      if (input[i] !== matches[tracker.pop()]) return false;
     }
   }
+  return tracker.length === 0; // only true if we went through the entire string. Might have extra closing parens,
   
 }
 
