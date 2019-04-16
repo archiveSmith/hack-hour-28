@@ -12,6 +12,33 @@
 
 function matchWord(str) {
 
+  let strArray = str.match(/[a-zA-Z]+/g) || [];
+  let store = [];
+
+  for (let i=0; i <strArray.length; i++) {
+    let check = strArray[i].toLowerCase().split('').reverse().join('');
+    if (check === store[store.length-1]) {
+      store.pop();
+    } else {
+      store.push(strArray[i].toLowerCase());
+    }
+  }
+  return store.length ? false : true;
+
+    // str = str.trim().split('');
+    // let storedWord = '';
+    // let storedArr = [];
+    // for (let i=0; i<str.length; i++) {
+    //     if (str[i].match(/[a-z]/gi)) {
+    //         storedWord += str[i];
+    //     } else if (!str[i].match(/[a-z]/gi))
+    //         storedArr.push(storedWord);
+    //         storedWord= '';
+    //     }
+    // }
+
 }
 
 module.exports = matchWord;
+
+// console.log(matchWord('__END_DNE-----'))
