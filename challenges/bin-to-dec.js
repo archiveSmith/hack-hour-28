@@ -16,6 +16,16 @@
 function binToDec(binary) {
 
     let decimal = parseInt(binary, 2);
+    // let numbered = parseInt(binary);
+    // let bin =  numbered.toString(2)
+    // let arr = bin.split('');
+    // console.log(arr);
+    // let count = 0;
+    // arr.forEach(el => {
+    //     if (el === '1') {
+    //         count++;
+    //     }
+    // })
     return decimal
 }
 
