@@ -29,8 +29,7 @@ function stringRotation(s1, s2) {
  
   for(let j = firstChar; j < s2.length; j++){
     string2.push(s2[j]);
-  }
-  
+  } 
   for(let k = 0; k < firstChar;k++){
    string2.push(s2[k]);
   }
@@ -43,7 +42,6 @@ function stringRotation(s1, s2) {
 
 }
   
-
   // Using only call to isSubstring, check if the second string is a rotation of the first
 
 console.log(stringRotation('hello', 'hello'));
