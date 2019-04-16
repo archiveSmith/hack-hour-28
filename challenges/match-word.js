@@ -11,7 +11,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    if(str.length === 0) return true;
+    str = str.replace(/[^A-Za-z]/g, " ");
+    const split = str.split(' ');
+    // iterate through and check if 
+    console.log(split);
+    const string = 'end';
+    const reverse = 'dne'.split('').reverse().join('')
+    console.log('dne'.split('').reverse().join('') === string)
+    for(let i = 0; i < split.length; i += 1) {
+        
+    }
 }
+
+// console.log(matchWord('__END_DNE-----'));
 
 module.exports = matchWord;
