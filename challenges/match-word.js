@@ -11,7 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    let array = str.split('');
+    let word = '';
+    let match = [];
+    array.forEach((char)=>{
+        if(char === '_' && char === ' ' && word.length !== 0) match.push(word);
+        if(char !== ' ' && char !== '_') word += char;
+    })
 
 }
 
+
+console.log('F'==='f')
+console.log(typeof ' ')
+console.log('IF()()fi[]'.split(''))
 module.exports = matchWord;
