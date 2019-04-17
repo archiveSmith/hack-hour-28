@@ -22,13 +22,15 @@ function highestProduct(array) {
 
   negArr.sort((a, b) => a - b);
 
-  if (Math.abs(negArr[0]) > sorted[2] || Math.abs(negArr[1]) > sorted[2]) {
-    return negArr[0] * negArr[1] * sorted[0];
-  } else {
-    return sorted[0] * sorted[1] * sorted[2];
+  if (negArr.length > 1) {
+    if (Math.abs(negArr[0]) > sorted[2] || Math.abs(negArr[1]) > sorted[2]) {
+      return negArr[0] * negArr[1] * sorted[0];
+    }
   }
+
+  return sorted[0] * sorted[1] * sorted[2];
 }
 
-console.log(highestProduct([3, 1, -2, 6, -21]));
+console.log(highestProduct([3, 1, 5, 6, -21]));
 
 module.exports = highestProduct;
