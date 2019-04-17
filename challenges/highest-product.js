@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array, maxArr = array.sort((a, b) => b - a).slice()) {
+  if (array.length === 0) return undefined;
   if (maxArr.length === 3) return productOfArray(maxArr);
   maxArr.pop();
   return highestProduct(array, maxArr);
@@ -14,6 +15,6 @@ function productOfArray(arr) {
   })
 }
 
-highestProduct([ 1, 1, 2, 5, 2, 3, 4 ])//?
+highestProduct([])//?
 
 module.exports = highestProduct;
