@@ -23,14 +23,15 @@ function highestProduct(array){
     if(!Array.isArray(array)) return 0;
     if(array.length < 3) return 0;
 
-
+    //sort array then iterate through and make all neg number positive
     array.sort();
     let positiveArray = array.slice();
     for (let i = 0; i < positiveArray.length; i++) {
         const element = positiveArray[i];
         if(element < 0 ) {
             positiveArray[i] *= -1;
-            // negArray.push(i);
+        } else if(element == 0 ) { //change 0 to 1 so it will be ignored. //apparently this isn't needed
+            // positiveArray[i] = 1;
         }
     }
 
@@ -45,7 +46,6 @@ function highestProduct(array){
 
     let negfirst = array[0];
     let negsecond = array[1];
-    let negthird = array[2];
 
     let negProduct = negfirst * negsecond * first;
 
@@ -55,7 +55,7 @@ function highestProduct(array){
     return (negProduct > positveProduct) ? negProduct : positveProduct;
 }
 
-let asdf = highestProduct([ 4, 5, -6, 7, -8, -23]);
+let asdf = highestProduct([1,2,3,4,5,6,7,-76,1]);
 
 asdf
 
