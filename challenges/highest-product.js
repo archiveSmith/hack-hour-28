@@ -22,16 +22,20 @@ function highestProduct(array) {
     arrOfPositives = arrOfPositives.slice(0,3);
     
     arrOfPositives = arrOfPositives.concat(arrOfNegatives);
+    if (arrOfPositives.length < 3) {
+        return "Array is too short";
+    }
     arrOfPositives.sort((a,b,) => b-a);
 
     for (let i =0; i<3; i++) {
         product = product * arrOfPositives[i];
     }
+    return product;
     // console.log(arrOfNegatives);
     // console.log(arrOfPositives);
     // console.log(product)
 }
 
 
-// highestProduct([-20, -4, -40 , 3,4,5, 60, -100])
+// highestProduct([-.5 -.25, -1, .9])
 module.exports = highestProduct;
