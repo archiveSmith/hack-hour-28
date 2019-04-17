@@ -2,8 +2,11 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 const highestProduct = (array) => {
+  if(Array.isArray(array) === false){
+    return 0;;
+  }
   if(array.length < 3){
-    return "Needs at least 3 integers"
+    return 0;
   }
   ///first set of highest postive number
   let thirdHighest = 1;
@@ -38,9 +41,10 @@ const highestProduct = (array) => {
 
   if(firstSet > secondSet){
     return firstSet
-  } 
-
-  return secondSet;
+  } else if(secondSet > firstSet){
+    return secondSet;
+  }
+ 
 
 }
 
