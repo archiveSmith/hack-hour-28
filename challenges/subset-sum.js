@@ -10,21 +10,9 @@
 
 
 //O(n) solution.
-function subsetSum(array, target) {
-   let j = 0;
-   let total = 0;
-   for(let i = 1; i < array.length; i++)
-   {
-     total += array[i] + array[j];
-     console.log(total);
-   }
-   j++;
-
-   if(total === target)
-   {
-     return true;
-   }
-   return false;
+function subsetSum(array, target)
+{
+  
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)); //- > true, 3 + 2 = 5)
