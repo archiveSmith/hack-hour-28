@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+    if(!Array.isArray(array) || array.length < 3) return 0;
     let sortedArr = array.sort((a,b) => b - a);
     console.log(sortedArr);
     let highestVals = sortedArr.slice(0,3);
