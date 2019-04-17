@@ -13,7 +13,7 @@
   * @param {*} target number
   * Output: boolean  
   */
- function subsetSum(array, target) {
+ function subsetSum1(array, target) {
      // declare a tracker object to keep track of numbers I've already seen
      const tracker = {};
      // iterate input array
@@ -32,22 +32,33 @@
      return false;
 }
 
-console.log(subsetSum([3, 7, 4, 2], 5));
-console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
 // console.log(subsetSum([8, 2, 4, 12], 13)) // -> false
 // console.log(subsetSum([8, -2, 1, -3], 6)) // -> true, 8 + 1 + (-3) = 6
 
-// function subsetSum(arr, target) {
-//     const tracker = new Set();
-//     for (let i = 0; i < arr.length; i += 1) {
-//       const current = arr[i];
-//       const complement = target - current;
-//       if (tracker.has(complement)) return true;
-//       tracker.add(current);
-//     }
-//     return false;
-//   }
 
 
+const recursive = function(arr, target, result, temp, depth, dt) {
+    if (target === 0) {
+        result.push(temp);
+    } else {
+        for (let i = depth > dt ? depth : dt; i < arr.length; i += 1) {
+            let newT = target - arr[i];
+            if (newT >= 0) {
+                let t = [].concat(temp);
+                t.push(arr[i]);
+                recursive(arr, newT, result, t, depth++, i);
+            }
+        }
+    }
+}
+
+function subsetSum(arr, target) {
+    const result = [];
+    recursive(arr, target, result, [],0,0);
+    return result;
+}
+
+console.log(subsetSum([3, 7, 4, 2], 5));
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
 
 module.exports = subsetSum;
