@@ -11,7 +11,11 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  // iterate through string
+  // start at begin
 
 }
+
+console.log(matchWord('IF()()fi[]'));
 
 module.exports = matchWord;
