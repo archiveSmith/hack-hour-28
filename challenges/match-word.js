@@ -18,18 +18,30 @@
  *     if the reversed characters are match with last characters after last space return true
  *
  */
+
 function matchWord(str) {
-  // remove symbols except space
-  const pureStr = str.replace(/[^a-zA-Z0-9\s]/g, "").toLowerCase();
+  const keywords = str.match(/[a-zA-Z]+/g) || [];
+  const wordStack = [];
 
-  for (let i = 0; i < pureStr.length; i += 1) {
-    if (pureStr[i] === pureStr[str.length - 1]) {
+  console.log({ str, keywords });
+
+  keywords.forEach(word => {
+    const index = wordStack.length - 1;
+    const stackTop = (wordStack[index] || "").toLowerCase();
+    const reversed = word
+      .split("")
+      .reverse()
+      .join("")
+      .toLowerCase();
+
+    if (reversed === stackTop) {
+      wordStack.pop();
+    } else {
+      wordStack.push(word);
     }
-  }
+  });
 
-  //
-
-  // console.log(purestr);
+  return !wordStack.length;
 }
 
 module.exports = matchWord;

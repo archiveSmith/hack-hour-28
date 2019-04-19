@@ -17,6 +17,7 @@ function highestProduct(array) {
   let product = 1;
 
   // iterate through from the last one to third last one
+
   for (let i = sortedArr.length - 1; i > sortedArr.length - 4; i -= 1) {
     product *= sortedArr[i];
   }
@@ -24,7 +25,7 @@ function highestProduct(array) {
 }
 
 // console.log(highestProduct([1, 2, 3, 4, 5]));
-// console.log(highestProduct([-2, 3, 0, 0, 0, 5]));
+console.log(highestProduct([-2, -3, 0, 0, 0, 5]));
 // console.log(highestProduct([1, 2, -3, -4, -5]));
 
 module.exports = highestProduct;
