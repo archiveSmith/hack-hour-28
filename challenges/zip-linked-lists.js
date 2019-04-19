@@ -16,6 +16,10 @@ function appendList(list, tail) {
 }
 
 function zip(l1, l2) {
+  if(l1 == null && l2 != null) return l2;
+  if(l2 == null && l1 != null) return l1;
+
+
   const newHead = l1;
   let currTail = newHead;
   while (l1 != null && l2 != null) {
@@ -88,6 +92,7 @@ function stringifyList(list) {
 
 let list1 = makeList([1, 2, 3, 4, 5,6,7,8,9,10]);
 let list2 = makeList(['a', 'b', 'c', 'd'])
+list2 = null;
 
 let asdf = stringifyList(list1)
 let qwer = stringifyList(list2)
