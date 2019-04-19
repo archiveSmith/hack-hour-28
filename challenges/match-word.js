@@ -4,14 +4,33 @@
 //punctuation.
 
 // matchWord('__END_DNE-----');  -> true
-// matchWord('__ENDDNE__');  -> false       (not separated by a space)
-// matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
-// matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  let newStr = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() != str[i].toUpperCase()) {
+      newStr += str[i].toLowerCase()
+    } else {
+      newStr += ' ';
+    }
+  }
+  newStr = newStr.split(' ').filter(el => el != '');
+  let stack = [];
+  for (let i = 0; i < newStr.length; i++) {
+    if (stack.length === 0) {
+      stack.push(newStr[i]);
+    }
+    else {
+      if (stack[stack.length - 1] === newStr[i].split('').reverse().join('')) stack.pop();
+      else stack.push(newStr[i]);
+    }
+  }
+  return stack.length === 0;
 }
 
+console.log(matchWord('__ENDDNE__'));  // false       (not separated by a space)
+console.log(matchWord('IF()()fi[]'));  // true        (should be case-insensitive)
+console.log(matchWord('for__if__rof__fi'));  // false     not properly closed. like ( [) ] 
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw')); // -> true
 module.exports = matchWord;

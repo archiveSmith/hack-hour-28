@@ -3,24 +3,19 @@
  */
 
 function highestProduct(array) {
-  let product = 1;
   if (array.length === 0) return 0;
-  else if (array.length < 4) {
-    for (let i = 0; i < array.length; i++) {
-      product *= array[i];
-    }
-  } else {
-    function sortNumber(a,b) {
-      return b - a;
-    }
-    let newArr = array.sort(sortNumber);
-    for (let i = 0; i < 3; i ++) {
-      product *= +newArr[i];
+  if (array.length < 3) return array.reduce((a, b) => a * b, 1);
+  let max = -Infinity;
+  for (let i = 0; i < array.length - 2; i++) {
+    for (let j= i + 1; j < array.length - 1; j++) {
+      for (let k = j + 1; k < array.length; k++) {
+        if (array[i] * array[j ]* array[k] > max) max = array[i]*array[j]*array[k];
+      }
     }
   }
-  return product;
+  return max;
 }
 
-console.log(highestProduct([1,2,-10,4,-5,6]))
+console.log(highestProduct([4, 4, 6, -10, -22, 32]))
 
 module.exports = highestProduct;
