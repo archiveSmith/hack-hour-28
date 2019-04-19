@@ -11,9 +11,38 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if (l1) {
-    
+  let l1Counter = 0;
+  let l2Counter = 0;
+  let head = new Node(null);
+
+
+  if (!l1.value) {
+    return l2;
+  } else if (!l2.value) {
+    return l1;
   }
-};
+    head.value = l1.value;
+    while (l1.next !== null && l2.next !== null) {
+      
+      head.next 
+    }
+  //   l2Counter++;
+
+  // if (l2Counter % 2 === 0) {
+
+  // }
+  // if (l1Counter % 2 === 0) {
+  //   head.next = l2;
+  //   l1 = l1.next;
+  //   l1Counter++;
+  // } else if (l2Counter %2 === 0) {
+  //   head.next = l1;
+  //   l2 = l2.next;
+  //   l2Counter++;
+  // }
+
+  // while (l1.next !== null) {
+  //   newLinked.val === l1.value;};
+  // } 
 
 module.exports = {Node: Node, zip: zip};
