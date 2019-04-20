@@ -10,14 +10,9 @@ function Node(val) {
   this.next = null;
 }
 
-
-function appendList(list, tail) {
-  tail.next = list;
-}
-
 function zip(l1, l2) {
-  if(l1 == null && l2 != null) return l2;
-  if(l2 == null && l1 != null) return l1;
+  if (l1 == null && l2 != null) return l2;
+  if (l2 == null && l1 != null) return l1;
 
 
   const newHead = l1;
@@ -26,43 +21,26 @@ function zip(l1, l2) {
     l1Next = l1.next;
     l2Next = l2.next;
 
-    console.log(`Current Values1: L1: ${l1.value}  L2: ${l2.value}`);
-    
     if (newHead != currTail) {
       // console.log("This should run everytime except the first time throught");
-      console.log(`Current Values2: L1: ${l1.value}  L2: ${l2.value}`);
-      
-      console.log(`Attaching --- ${l1.value} to ${currTail.value}`);
-      
       currTail.next = l1;
       currTail = currTail.next;
     }
-    
-    console.log(`Current Values3: L1: ${l1.value}  L2: ${l2.value}`);
-    console.log(`Attaching ___ ${l2.value} to ${currTail.value}`);
-    
-    
+
     currTail.next = l2
     currTail = l2;
-    
+
     l1 = l1Next;
     l2 = l2Next;
-  }
-
+  } //elihw
 
   //one of the lists is empty at this point
-  console.log(`One of lists empty: l1:${l1} l2${l2}`);
-  console.log(`tail value: ${currTail.value}`);
   if (l1 != null) {
-    console.log(`Attaching L1 to tail`);
     currTail.next = l1;
   }
-  
   if (l2 != null) {
-    console.log(`Attaching L2 to tail`);
     currTail.next = l2;
   }
-
 
   return newHead;
 };
@@ -84,15 +62,16 @@ function makeList(array) {
 function stringifyList(list) {
   let retval = '';
   while (list != null) {
-    retval = retval + list.value;
+    retval = retval + list.value + ' ';
     list = list.next;
   }
   return retval;
 }
 
-let list1 = makeList([1, 2, 3, 4, 5,6,7,8,9,10]);
-let list2 = makeList(['a', 'b', 'c', 'd'])
-list2 = null;
+let list1 = makeList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+let list2 = makeList(['a', 'bQWER', 'c', 'd',4,4,4,4,4,4,4,4,4])
+// list2 = null; 
+list1 = null;
 
 let asdf = stringifyList(list1)
 let qwer = stringifyList(list2)
