@@ -10,21 +10,25 @@ function Stack() {
   // body...
   this.storage = {};
   this.index = 0;
+  this.length = 0;
 }
 
 Stack.prototype.push = function(value) {
   this.storage[this.index] = value
+  this.length++;
   this.index++;
 }; 
 
 Stack.prototype.pop = function() {
   let saved = this.storage[this.index-1];
   delete this.storage[this.index];
+  this.length--;
   this.index--;
   return saved;
 };
 
 Stack.prototype.getMax = function(){
+  if(!this.storage) undefined
   let max = Object.values(this.storage)
   return max;
 }
