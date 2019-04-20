@@ -8,6 +8,19 @@
 
 function Stack() {
   // body...
+  const stack = {
+    body: [],
+    push: val => stack.body.push(val),
+    pop: () => {
+      const val = stack.body.pop(stack.body.length - 1);
+      return val;
+    },
+    getMax: () => {
+      const body = stack.body;
+      return Math.max(...body)
+    }
+  }
+  return stack;
 }
 
 module.exports = Stack;
