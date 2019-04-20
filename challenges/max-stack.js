@@ -8,6 +8,35 @@
 
 function Stack() {
   // body...
+  const stack = [];
+  let maxVal = -Infinity;
+
+  return {
+    push: (data) => {
+      stack.push(data);
+      data > maxVal ? maxVal = data : maxVal = maxVal;
+      return stack.length;
+    },
+    // getStack: () => {
+    //   return stack;
+    // },
+    pop: () => {
+      return stack.pop();
+    },
+    getMax: () => {
+      return maxVal
+    }
+  }
 }
+
+// const myStack = Stack();
+
+// console.log(myStack.push('foo'));
+// console.log(myStack.push('bar'));
+// console.log(myStack.push('weeee'));
+// console.log(myStack.push('aaaaaa'));
+// console.log(myStack.push('zzzzzzzzz'));
+// console.log(myStack.getStack());
+// console.log(myStack.getMax());
 
 module.exports = Stack;
