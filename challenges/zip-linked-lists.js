@@ -11,6 +11,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  let newList = [];
+  
+  let listOneOrNot = true;
+  function addNode(node1, node2){
+      newList.push(node1);
+      newList.push(node2);
+      addNode(node1.next, node2.next)
+  }
+
 };
 
 module.exports = {Node: Node, zip: zip};
