@@ -8,6 +8,24 @@
 
 function Stack() {
   // body...
+  this.length = 0;
+  this.max = -Infinity;
+  this.push = (element) => {
+    if (element > this.max) this.max = element;
+    this[ this.length ] = element;
+    this.length += 1;
+    return this.length;
+  }
+  this.pop = () => {
+    let returnVal = this[ this.length - 1 ];
+    delete this[ this.length - 1 ];
+    this.length -= 1;
+    return returnVal;
+  }
+  this.getMax = () => {
+    return this.max;
+  }
 }
+
 
 module.exports = Stack;
