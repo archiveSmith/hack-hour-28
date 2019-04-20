@@ -1,17 +1,21 @@
-function subsetSum(array, target, sum = []) {
-  let arrayCopy = [...array];
-  let num = array.pop();
-  
-  if (num < target) {
-    if (array.includes(target - num)) {
-      sum.push(num);
-      return true
+function highestProduct(array) {
+  let highQueue = [0, 0, 0];
+
+  array.forEach(num => {
+    //greater than highest
+    if (num > highQueue[2]) {
+      highQueue.shift();
+      highQueue.push(num);
+    } else if (num > highQueue[1]) {
+      highQueue.shift();
+      highQueue.unshift(num);
+    } else if (num > highQueue[0]) {
+      highQueue[0] = num
     }
-    subsetSum(arrayCopy.splice(idx, 1), target - num, sum)
-  }
-  return sum.reduce((total, num) => total + num) === target 
+  });
+
+  return highQueue
+  // highQueue.reduce((sum, num) => sum + num)
 }
 
-module.exports = subsetSum;
-
-console.log(subsetSum([3, 7, 4, 2], 5))
+highestProduct([1, 5, 3, 7, ,4, 8])
