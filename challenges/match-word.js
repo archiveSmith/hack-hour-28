@@ -26,4 +26,93 @@ function matchWord(str) {
 
 // console.log(matchWord('__END_DNE-----'));
 
+// using regex
+function matchWord(str) {
+    const keywords = str.match(/[a-zA-Z]+/g) || [];
+    const wordStack = [];
+  
+    console.log({ str, keywords });
+  
+    keywords.forEach((word) => {
+      const index = wordStack.length - 1;
+      const stackTop = (wordStack[index] || '').toLowerCase();
+      const reversed = word.split('').reverse().join('').toLowerCase();
+  
+      if (reversed === stackTop) {
+        wordStack.pop();
+      } else {
+        wordStack.push(word);
+      }
+    });
+  
+    return !wordStack.length;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function findKeywords(str) {
+    // make sure all chars are lower case
+    const lower = str.toLowerCase();
+  
+    // split the string into elements on spaces
+    const dirty = lower.split(' ');
+    const cleaned = [];
+  
+    // trim each element down to just letters ->
+    //    each trimmed word gets pushed into a clean array
+    dirty.forEach((element) => {
+      let word = '';
+      for (let ix = 0; ix < element.length; ix += 1) {
+        const charCode = element.charCodeAt(ix);
+  
+        // charCodes for lower case letters between a and z
+        if (charCode >= 97 && charCode <= 122) {
+          word += element[ix];
+        } else if (word.length > 0) {
+          cleaned.push(word);
+          word = '';
+        }
+      }
+      // make sure we add the final word
+      // check to make sure the element actually had letters
+      // before pushing to cleaned array;
+      if (word.length > 0) cleaned.push(word);
+  
+    });
+  
+    return cleaned;
+  }
+  
+  
+  
+  
+  
+  // without regex
+  function matchWord(str) {
+    var keywords = findKeywords(str);
+    var wordStack = [];
+  
+    console.log({ str, keywords });
+  
+    keywords.forEach((word) => {
+      const index = wordStack.length - 1;
+      const stackTop = (wordStack[index] || '');
+      const reversed = word.split('').reverse().join('');
+  
+      if (reversed === stackTop) {
+        wordStack.pop();
+      } else {
+        wordStack.push(word);
+      }
+    });
+    return !wordStack.length;
+  }
+
 module.exports = matchWord;

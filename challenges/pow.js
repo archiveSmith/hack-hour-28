@@ -18,4 +18,27 @@ console.log(pow(2,3));``
 console.log(pow(2,5));
 console.log(pow(3, 3));
 
+function powN(base, p) {
+    let result = 1;
+    let power = Math.abs(p);
+    while (power > 0) {
+      result *= base; 
+      power -= 1;
+    }
+    return (p < 0)? 1/result: result;
+  }
+  
+  function powlogN(base, p) {
+    let power = Math.abs(p)
+    let b = base, result = 1;
+    while (power > 0) {
+      if ((power & 1) != 0) {
+          result *= b;
+      }
+        power >>= 1;
+        b *= b;
+      }
+    return (p > 0)? result : 1 /result;
+  }
+
 module.exports = pow;

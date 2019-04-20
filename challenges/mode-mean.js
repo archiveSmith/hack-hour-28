@@ -46,7 +46,48 @@ function mean(array) {
     return Math.floor(sum/array.length);
 }
 
+
 console.log(modemean([1,1,1,4,]))
 console.log(modemean([0,1,2,3,4]))
 console.log(modemean([]));
+
+// time complexity: O(n)
+// --> where n is the # of elements in array
+
+// space complexity: O(n)
+// --> because we used an Object to store n elements 
+// --> worst case where all elements are unique, size of Object === size of input array
+
+function modemean(array) {
+    return mode(array) === mean(array);
+  }
+  
+  function mode(array) {
+    // find frequency of each element in array and store in object
+    const frequency = {};
+    array.forEach(el => {
+      if (frequency[el] === undefined) frequency[el] = 0;
+      frequency[el] += 1;
+    });
+    let max = -Infinity;
+    let modeOptions = null;
+    // look for possible modes based on frequency
+    for (const num in frequency) {
+      // set new max and reset modeOptions to array with current num
+      if (frequency[num] > max) {
+        max = frequency[num];
+        modeOptions = [num];
+      } else if (frequency[num] === max) {
+        modeOptions.push(num); // add num to list of possible modes
+      }
+    }
+    // return max of the possible modes
+    return Math.max(...modeOptions);
+  }
+  
+  function mean(array) {
+    // calculate the sum of all array elements
+    const sum = array.reduce((acc, cur) => acc + cur);
+    return Math.floor(sum / array.length)
 module.exports = modemean;
+
