@@ -6,39 +6,33 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
-function Stack(arg1,arg2,arg3) {
-  
-  console.log(arg1);
-  console.log(arg2);
-  console.log(arg3);
-  
-  // const storage = [];
-  // let max = -Infinity;
-  // const maxStack = [];
-
-  // function push(val) {
-  //   if (val > max) { 
-  //     maxStack.push(max);
-  //     max = val;
-  //   };
-  //   storage.push(val);
-  // }
-
-  // function pop() {
-  //   const retval = storage.pop();
-  //   if(retval === maxStack[maxStack.length - 1]){
-  //     maxStack.pop();
-  //     max = maxStack[length-1];
-  //   }
-  //   return retval;
-  // }
-
-  // function getMax() {
-  //   return max;
-  // }
+function Stack() {
+  this.storage = [];
+  this.max = -Infinity;
+  this.maxStack = [];
 }
 
+Stack.prototype.push = function (val) {
+  if (val >= this.max) {
+    this.maxStack.push(max);
+    this.max = val;
+  };
+  this.storage.push(val);
+  return this.storage.length;
+}
 
+Stack.prototype.pop = function () {
+  const retval = this.storage.pop();
+  if (retval === this.maxStack[this.maxStack.length - 1]) {
+    this.maxStack.pop();
+    this.max = this.maxStack[length - 1];
+  }
+  return retval;
+}
+
+Stack.prototype.getMax = function () {
+  return this.max;
+}
 
 
 
