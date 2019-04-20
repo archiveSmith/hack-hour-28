@@ -22,10 +22,10 @@ Stack.prototype.push = function (val) {
 }
 
 Stack.prototype.pop = function () {
-  const retval = storage.pop();
-  if (retval === maxStack[maxStack.length - 1]) {
+  const retval = this.storage.pop();
+  if (retval === this.maxStack[this.maxStack.length - 1]) {
     this.maxStack.pop();
-    this.max = maxStack[length - 1];
+    this.max = this.maxStack[length - 1];
   }
   return retval;
 }
