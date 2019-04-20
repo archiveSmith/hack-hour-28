@@ -7,7 +7,7 @@
  */
 
 function Stack() {
-  this.stack = [];
+  this.stack = {};
   this.length = 0;
 }
 
@@ -27,9 +27,12 @@ Stack.prototype.pop = function () {
 
 Stack.prototype.getMax = function () {
   let max = 0; 
-  for (let i = 0; i < this.length; i++) {
-    if (this.stack[i] > max) {
-      max = this.stack[i];
+
+  if(this.length = 0) {return undefined};
+
+  for (let key in this.stack) {
+    if (this.stack[key] > max) {
+      max = this.stack[key];
     }
   }
   return max;
@@ -45,6 +48,8 @@ Stack.prototype.getMax = function () {
 // test.push(2)
 // test.push(4)
 // console.log(test);
+// test.pop();
+// console.log(test)
 
 // console.log(test.getMax());
 
