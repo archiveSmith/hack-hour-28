@@ -21,7 +21,15 @@ function Stack() {
     //   return stack;
     // },
     pop: () => {
-      return stack.pop();
+      if (stack.length === 0) {
+        return undefined;
+      }
+      const poppedVal = stack.pop();
+      // if stack length becomes zero, set maxVal to undefined
+      if (stack.length === 0) maxVal = undefined;
+      // find next highest value and set it to maxVal
+      maxVal = Math.max(...stack);
+      return poppedVal;
     },
     getMax: () => {
       return maxVal
@@ -31,11 +39,7 @@ function Stack() {
 
 // const myStack = Stack();
 
-// console.log(myStack.push('foo'));
-// console.log(myStack.push('bar'));
-// console.log(myStack.push('weeee'));
-// console.log(myStack.push('aaaaaa'));
-// console.log(myStack.push('zzzzzzzzz'));
+// console.log(myStack.pop());
 // console.log(myStack.getStack());
 // console.log(myStack.getMax());
 
