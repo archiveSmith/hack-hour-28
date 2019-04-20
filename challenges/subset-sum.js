@@ -9,7 +9,18 @@
  */
 
 function subsetSum(array, target) {
-
+  if (array.includes(target)) return true;
+  let ordered  = array.sort((a, b) => a - b);
+  for (let i = 0; i < ordered.length; i++) {
+    if (ordered[ordered.length - 1] + ordered[0] > target) {
+    ordered = ordered.slice(0, ordered.length -1 );
+    }
+  }
+  console.log(ordered.reduce((a,b) => a + b));
+  return ordered;
 }
-
+console.log(subsetSum([3, 7, 4, 2], 5)) // true, 3 + 2 = 5
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))// true, 3 + 12 + 5 + 12 = 32
+console.log(subsetSum([8, 2, 4, 12], 13))// false
+console.log(subsetSum([8, -2, 1, -3], 6))// true, 8 + 1 + (-3) = 6
 module.exports = subsetSum;
