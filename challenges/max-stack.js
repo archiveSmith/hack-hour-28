@@ -7,7 +7,32 @@
  */
 
 function Stack() {
-  // body...
+  const storage = [];
+  let max = -Infinity;
+  const maxStack = [];
+
+  function push(val) {
+    if (val > max) { 
+      maxStack.push(max);
+      max = val;
+    };
+    storage.push(val);
+  }
+
+  function pop() {
+    const retval = storage.pop();
+    if(retval === maxStack[maxStack.length - 1]){
+      maxStack.pop();
+      max = maxStack[length-1];
+    }
+    return retval;
+  }
+
+  function getMax() {
+    return max;
+  }
+
+
 }
 
 module.exports = Stack;
