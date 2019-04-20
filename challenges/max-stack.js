@@ -9,12 +9,12 @@
 function Stack() {
   this.storage = [];
   this.max = -Infinity;
-  this.maxStack = [];
+  this.maxStack = [-Infinity];
 }
 
 Stack.prototype.push = function (val) {
   if (val >= this.max) {
-    this.maxStack.push(max);
+    this.maxStack.push(val);
     this.max = val;
   };
   this.storage.push(val);
@@ -23,16 +23,30 @@ Stack.prototype.push = function (val) {
 
 Stack.prototype.pop = function () {
   const retval = this.storage.pop();
-  if (retval === this.maxStack[this.maxStack.length - 1]) {
+  if (retval == this.maxStack[this.maxStack.length - 1]) {
     this.maxStack.pop();
-    this.max = this.maxStack[length - 1];
+    this.max = this.maxStack[this.maxStack.length - 1];
   }
   return retval;
 }
 
 Stack.prototype.getMax = function () {
+  if(this.storage.length === 0 ) return undefined;
   return this.max;
 }
+
+
+let bob = new Stack;
+
+bob.push(4);
+bob.push(8);
+bob.push(4);
+bob.push(12);
+
+let out = bob.pop();
+bob.pop();
+
+console.log(bob.getMax());
 
 
 
