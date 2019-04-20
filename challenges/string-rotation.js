@@ -46,4 +46,33 @@ console.log(stringRotation("hello", "llohe"))
 console.log(stringRotation("hello", "ollhe"))
 console.log(stringRotation("hello", "he"))
 
+function isSubstring(s1, s2) {
+  return s1.indexOf(s2) >= 0;
+}
+
+
+// doesn't work for every string
+// if the first character of s1 occurs more than once in the string
+// it can return false for the rotation in some cases
+function stringRotation(s1, s2) {
+  const head = s2.indexOf(s1[0]);
+
+  // if the strings are different lengths
+  // OR if the first char of s1 doesn't exist in s2
+  if (s1.length !== s2.length || head < 0) return false;
+
+  // chop and screw s2 so that HOPEFULLY it's basically the same as s1
+  const s3 = s2.slice(head, s2.length).concat(s2.slice(0, head));
+  console.log({ s1, s3 });
+  // a string is always a subsrting of itself
+  return isSubstring(s1, s3);
+}
+
+// better solution, handles that edge case
+function stringRotation(s1, s2) {
+  if (s1.length !== s2.length) return false;
+      console.log(s2 + s2);
+  return isSubstring(s1 + s1, s2);
+}
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

@@ -70,6 +70,86 @@ console.log(e);
 
 // console.log(kthToLastNode(2, a));
 
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
 
+
+
+
+// first solution
+function kthToLastNode(k, head) {
+  let length = 0;
+  let curr = head;
+
+  // traverse to calculate length
+  while (curr) {
+    length += 1;
+    curr = curr.next;
+  }
+
+  // calculate the position of kth to last node
+  let i = length - k;
+  curr = head;
+  if (i < 0) {
+    return undefined;
+  }
+
+  // traverse to position
+  while (i--) {
+    curr = curr.next;
+  }
+  return curr.value;
+}
+
+
+
+// my approach -> stores values along the way
+function kthToLastNode(k, head) {
+  if (k < 1) return;
+  const values = [];
+  let currentNode = head;
+
+  // traverse the list, storing values of each node in an array
+  while (currentNode.next) {
+    values.push(currentNode.value);
+    currentNode = currentNode.next;
+  }
+  // the loop exits before the value of the tail is pushed, so do that next
+  values.push(currentNode.value);
+
+  // once the end is reached, grab length and calculate the index in the array of the kth item (length - k)
+  const { length } = values;
+
+  // check if k is going to be greater than or equal the length
+  if (k > length) return undefined;
+
+  // return kth item
+  return values[length - k];
+}
+
+
+
+
+// best? solution
+function kthToLastNode(k, head) {
+  var lead = head;
+  var follow = head;
+
+  // advance lead k nodes ahead of follow
+  for (var i = 0; i < k && lead; i++) {
+    lead = lead.next;
+  }
+
+  // advance both until lead passes the tail
+  while (lead && follow) {
+    lead = lead.next;
+    follow = follow.next;
+  }
+
+  // follow's position is not kth to the last
+  return follow.value;
+}
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
