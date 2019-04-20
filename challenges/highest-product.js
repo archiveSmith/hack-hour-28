@@ -17,8 +17,6 @@ function highestProduct(array) {
     return 0;
   }
 
- 
-
   for(let i = array.length - 3; i < sorted.length; i++)
   {
     total *= sorted[i];
@@ -26,6 +24,6 @@ function highestProduct(array) {
   return total;
 }
 
-console.log(highestProduct([1,3,2,4,5]));
+console.log(highestProduct([2,5,7,3,6]));
 
 module.exports = highestProduct;
