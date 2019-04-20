@@ -23,9 +23,43 @@
  *
  *
  */
+function balancedParens(input) {
 
-function balancedParens(input){
 
+  const tracker = []; // our stack
+
+  //object we use as a legend for matching the type of bracket
+  const matches = {
+    '{': '}',
+    '[': ']',
+    '(': ')',
+  };
+
+ // loop through the entire input string
+  for (let i = 0; i < input.length; i++) {
+    //if the current character is one of the keys in our legend, we push it to our stack
+    if (input[i] in matches) tracker.push(input[i]);
+    else if (input[i] === ')' || input[i] === '}' || input [i] === ']') {  // case if its one of the closing brackets
+      if (input[i] !== matches[tracker.pop()]) return false;
+    }
+  }
+  return tracker.length === 0; // only true if we went through the entire string. Might have extra closing parens, in which case we return false
 }
+
+
+// console.log(balancedParens('[](){}')); // expect -> true
+// console.log(balancedParens('[({})]')); // expect -> true
+// console.log(balancedParens('[(]{)}')); // expect -> false
+
+// same as above
+// console.log(balancedParens('[sdf]fds()fds{}')); // expect -> true
+// console.log(balancedParens('[(dfs{sfd})]')); // expect -> true
+// console.log(balancedParens('[(sdf]dsf{)fdsgsdf}')); // expect -> false
+
+// console.log(balancedParens('0(12)4')); 
+console.log(balancedParens('('));  // false
+// balancedParens('()'); // true
+// balancedParens(')(');  // false
+// balancedParens('(())');  // true
 
 module.exports = balancedParens;
