@@ -38,14 +38,20 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.getMax = function () {
-  return this.max;
+  return this.length > 0 ? this.max : undefined;
 }
+
 
 /*
 let stack = new Stack;
 
 console.log(stack.push(3))
+stack.pop();
+console.log(stack.getMax())
+
 console.log(stack.push(10));
+stack.push(13);
+stack.push(2)
 stack.push(13);
 stack.push(4);
 
