@@ -11,9 +11,8 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if(!l1 || !l2) return undefined;
-
-  //check if lists are of different size
+  if(!l1) return l2;
+  if(!l2) return l1;
 
   let l1Cur = l1;
   let l2Cur = l2;

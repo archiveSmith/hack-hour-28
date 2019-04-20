@@ -30,7 +30,7 @@ console.log(highestProduct([5,6,7,8, -9, -10]))
 
 console.log(highestProduct([-3, -6, - 8, -2]));
 
-console.log(highestProduct([12, 5, 7, -8, -12]))
+console.log(highestProduct([12, 5, 7, 8, -12]))
 
 
 module.exports = highestProduct;
