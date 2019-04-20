@@ -7,7 +7,31 @@
  */
 
 function Stack() {
-  // body...
+  this.name = name;
+  this.storage = [];
+  this.length = 0
 }
 
+Stack.prototype.push = function(element) {
+  this.length++
+  return this.storage.push(element)
+}
+Stack.prototype.pop = function() {
+  this.length--
+  return this.storage.pop()
+}
+Stack.prototype.getMax = function() {
+ return Math.max(...this.storage)
+}
+
+let jasonStack = new Stack();
+console.log(jasonStack)
+
+jasonStack.push(12)
+
+console.log(jasonStack.getMax())
 module.exports = Stack;
+
+
+
+
