@@ -24,7 +24,9 @@ Stack.prototype.pop = function () {
 }
 
 Stack.prototype.getMax = function() {
-  console.log(this.index)
+if (this.index === 0) {
+  return undefined;
+}
   let max = 0;
   for (let i = 0; i < this.index; i++) {
     if (this.storage[i] > max)
