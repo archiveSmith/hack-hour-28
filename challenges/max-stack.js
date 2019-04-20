@@ -19,7 +19,11 @@ function Stack() {
   this.pop = () => {
     let returnVal = this[ this.length - 1 ];
     delete this[ this.length - 1 ];
+    this//?
     this.length -= 1;
+    let remainingMax = Object.values(this).sort((a, b) => b - a);
+    remainingMax
+    if (returnVal === this.max) this.max = remainingMax[ 1 ];
     return returnVal;
   }
   this.getMax = () => {
