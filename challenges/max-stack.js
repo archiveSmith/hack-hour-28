@@ -12,9 +12,16 @@ function Stack() {
   // getMax should return largest value in the stack
   this.storage = {};
   this.length = 0;
+  this.max;
 }
 
 Stack.prototype.push = function(val) {
+  if(Object.keys(this.storage).length === 0) {
+    this.max = val;
+  } 
+  if(this.max < val) {
+    this.max = val;
+  }
   this.storage[this.length] = val;
   this.length++;
   return this.length;
@@ -24,22 +31,29 @@ Stack.prototype.pop = function() {
   const poppedVal = this.storage[this.length-1];
   this.length--;
   delete this.storage[this.length];
+  if(poppedVal === this.max) {
+    const maxVal = Object.values(this.storage);
+    const value = Math.max(...maxVal);
+    this.max = value;
+  }
   return poppedVal;
 }
 
 Stack.prototype.getMax = function() {
-  let vals = Object.values(this.storage);
-  return Math.max(...vals);
+  if(!this.storage[this.length-1]) {
+    return undefined;
+  }
+  return this.max;
 }
 
-// let stack = new Stack
-// console.log(stack.push(1));
-// console.log(stack.push(2));
-// console.log(stack.push(10));
-// console.log(stack);
-// console.log(stack.getMax());
-// console.log(stack.pop())
-// console.log(stack)
-// console.log(stack.getMax());
+let stack = new Stack
+console.log(stack.push(1));
+console.log(stack.push(2));
+console.log(stack.push(10));
+console.log(stack);
+console.log(stack.getMax()); // 10
+console.log(stack.pop())
+console.log(stack)
+console.log(stack.getMax()); // 10
 
 module.exports = Stack;
