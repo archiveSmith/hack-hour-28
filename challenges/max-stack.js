@@ -6,12 +6,12 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
-function Stack() {
+function Stack()
+{
   // body...
   let newArr = [];
 
-
-   this.push = function(element)
+  this.push = function(element)
   {
     newArr.push(element);
     return newArr.length;
@@ -28,5 +28,15 @@ function Stack() {
     return Math.max(...newArr);
   }
 }
+
+let stacky = new Stack();
+stacky.push('1');
+stacky.push('2');
+stacky.push('6');
+console.log(stacky.push('3'));
+console.log(stacky.getMax());
+
+
+
 
 module.exports = Stack;

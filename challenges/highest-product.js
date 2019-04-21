@@ -7,7 +7,7 @@ function highestProduct(array) {
   let sorted = array.sort((a,b) => a - b);
   //console.log(sorted);
 
-  if (array.length < 3)
+  if (sorted.length < 3)
   {
     return 0;
   }
@@ -17,7 +17,7 @@ function highestProduct(array) {
     return 0;
   }
 
-  for(let i = array.length - 3; i < sorted.length; i++)
+  for(let i = sorted.length - 3; i < sorted.length; i++)
   {
     total *= sorted[i];
   }
