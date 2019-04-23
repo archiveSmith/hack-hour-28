@@ -9,31 +9,53 @@
 function Stack() {
   // body...
   this.storage = {};
-  this.idx = 0;
+  this.length = 0;
+  this.max = {
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY
+  };
 }
+Stack.prototype.setNewMax = function() {
+  for (let i in this.storage) {
+    if (this.storage[i] > this.max.val) {
+      this.max.val = this.storage[i];
+      this.max.idx = i;
+    }
+  }
+};
+
+Stack.prototype.resetMax = function() {
+  this.max.val = Number.NEGATIVE_INFINITY;
+  this.max.idx = -1;
+  return;
+};
 
 Stack.prototype.push = function(val) {
-  this.storage[this.idx++] = val;
-  return this.idx;
+  if (val > this.max.val) {
+    this.max.idx = this.length;
+    this.max.val = val;
+  }
+  this.storage[this.length] = val;
+  this.length++;
+  return this.length;
 };
 
 Stack.prototype.pop = function(val) {
-  if (!this.idx) return undefined;
-  const pop = this.storage[--this.idx];
-  delete this.storage[this.idx];
+  if (!this.length) return undefined;
+  else {
+    const pop = this.storage[this.length - 1];
+    if (pop === this.max.val) {
+      this.resetMax();
+    }
+    delete this.storage[this.length - 1];
+    this.setNewMax();
+  }
+  this.length -= 1;
   return pop;
 };
 
 Stack.prototype.getMax = function(val) {
-  //return the largest value currently in the stack
-  let max = 0;
-  let curVal = 0;
-  for (let i = storage.length - 1; i >= 0; i -= 1) {
-    curVal = this.storage[i];
-    max = curVal;
-    delete this.storage[i];
-  }
-  return max;
+  return this.length === 0 ? undefined : this.max.val;
 };
 
 module.exports = Stack;
