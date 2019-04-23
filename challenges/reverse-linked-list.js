@@ -14,6 +14,25 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+if (head === null) {
+    return head; 
+}
+
+let node = head;
+let prev = null;
+
+
+while(node) {
+
+let tracker = node.next;
+
+node.next = prev;
+prev = node;
+node = tracker;
+
+}
+return prev;
+
 
 }
 
