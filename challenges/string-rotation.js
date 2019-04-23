@@ -13,10 +13,17 @@
 
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
+
 }
 
 function stringRotation(s1, s2) {
-
+  for(let i = 0; i < s1.length; i += 1){
+    s1.slice(0)
+    s1.concat(s2, 0)
+  }
+  return s1
 }
+
+console.log(stringRotation('hello', 'hello'))
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

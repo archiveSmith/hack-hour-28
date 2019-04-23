@@ -8,9 +8,9 @@ function highestProduct(array) {
   for(let i = array.length - 1; i >= array.length - 3; i -= 1){
     newArr.push(array[i])
   }
-  const add = (a, b) => a + b;
-  const sum = newArr.reduce(add)
-  return sum;
+  const product = (a, b) => a * b;
+  const result = newArr.reduce(product)
+  return result;
 }
 
 
@@ -18,3 +18,4 @@ function highestProduct(array) {
 module.exports = highestProduct;
 console.log(highestProduct([4, 3, 7, 1, 90]))
 console.log(highestProduct([25, 1, 3, 6, 2, 2, 5]))
+console.log(highestProduct([-1, -4, 3, 4, 5]))

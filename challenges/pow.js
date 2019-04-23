@@ -12,13 +12,6 @@ function pow(base, power) {
   return value * pow(base,tracker);
 }
 
-console.log(pow(2, 3))
-console.log(pow(4, 6))
-console.log(pow(4, 0))
-console.log(pow(2, 1))
-
-
-
-
+console.log(pow(3, 2))
 
 module.exports = pow;
