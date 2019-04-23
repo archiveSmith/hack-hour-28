@@ -24,11 +24,13 @@ function reverseLinkedList(head) {
   for(let x = nodeArr.length - 1; x > 0; x -= 1){
     nodeArr[x].next = nodeArr[x - 1];
   }
-  console.log(nodeArr);
-  nodeArr[0].next = null;
   return nodeArr[nodeArr.length - 1];
 }
 
-
+// const head = new Node(1);
+// head.next = new Node(2);
+// head.next.next = new Node(3);
+//
+// console.log(reverseLinkedList(head));
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
