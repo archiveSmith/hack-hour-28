@@ -51,3 +51,62 @@ console.log(bob.getMax());
 
 
 module.exports = Stack;
+
+
+
+
+function CSStack() {
+  this.length = 0
+  this.store = {}
+  this.max = {
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY
+  }
+}
+
+CSStack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i]
+      this.max.idx = i
+    }
+  }
+}
+
+CSStack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY
+  this.max.idx = -1
+  return
+}
+
+CSStack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.idx = this.length
+    this.max.val = v
+  }
+  this.store[this.length] = v
+  this.length++
+  return this.length
+}
+
+CSStack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+  else {
+    var popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax()
+    }
+    delete this.store[this.length - 1]
+    this.setNewMax()
+  }
+  this.length -= 1
+  return popped
+}
+
+CSStack.prototype.getMax = function () {
+  return this.length === 0
+    ? undefined
+    : this.max.val
+}
+
+module.exports = Stack;

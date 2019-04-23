@@ -10,6 +10,31 @@ function Node(val) {
   this.next = null;
 }
 
+function zipArray(l1,l2){
+  array = [];
+
+  //read all nodes into array until one list runs out.
+  while(l1 && l2){
+    array.push(l1)
+    array.push(l2);
+
+    l1 = l1.next;
+    l2 = l2.next;
+  }
+
+  //point all nodes in the array at the next one
+  let head = array[0]; //this will be our return value
+  let temp = head;
+  array.forEach((node,i) => {
+    if(array[i+1]) node.next = array[i+1];
+  });
+
+  //tack on the remaining list
+  array[array.length -1 ].next = (l1 === null) ? l2 : l1;
+
+  return head;
+}
+
 function zip(l1, l2) {
   if (l1 == null && l2 != null) return l2;
   if (l2 == null && l1 != null) return l1;
@@ -69,15 +94,14 @@ function stringifyList(list) {
 }
 
 let list1 = makeList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-let list2 = makeList(['a', 'bQWER', 'c', 'd',4,4,4,4,4,4,4,4,4])
+let list2 = makeList(['a', 'b', 'c', 'd','e'])
 // list2 = null; 
-list1 = null;
 
 let asdf = stringifyList(list1)
 let qwer = stringifyList(list2)
 
 
-let zipped = zip(list1, list2);
+let zipped = zipArray(list1, list2);
 let answer = stringifyList(zipped);
 
 console.log(answer);
