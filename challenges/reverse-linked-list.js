@@ -15,6 +15,7 @@ function Node(value) {
 
 function reverseLinkedList(head, prior) {
   if ( head.next  === null ) {
+      head.next = prior;
       return head
   }
 
