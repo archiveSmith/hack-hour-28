@@ -13,7 +13,28 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+   let highestStock = Math.max(...stock_prices_yesterday);
+   //console.log(highestStock);
+
+   /*for(let i = 0; i < stock_prices_yesterday; i++)
+   {
+      if(highestStock === stock_prices_yesterday[i])
+      {
+        return stock_prices_yesterday[i];
+      }
+      else*/
+       if(!Array.isArray(stock_prices_yesterday)) {
+         console.log('Input is Invalid.')
+      }
+      else if(highestStock) {
+        return highestStock;
+      }
+      else {
+        return 0;
+      }
 
 }
+
+console.log(bestProfit([1,2,3,4,6]))
 
 module.exports = bestProfit;

@@ -12,7 +12,19 @@
 //O(n) solution.
 function subsetSum(array, target)
 {
-  
+  let sets = [];
+  for(let i = 0; i < array.length; i++)
+  {
+    for(let j = 0; j < array.length; j++)
+    {
+      //BitWise Logic
+      if((i & (1 << j)) > 0)
+      {
+         sets.push(array[j]);
+      }
+    }
+  }
+  console.log(sets);
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)); //- > true, 3 + 2 = 5)
