@@ -15,16 +15,10 @@
 function bestProfit(array) {
     if (Array.isArray(array) == false) return 0;
 
-    //handle best case where the highest value of the day is after the lowest
-    // let totalMax = Math.max.apply(Math, array)
-    // let totalMin = Math.min.apply(Math, array)
-    // if (array.indexOf(totalMin) < array.indexOf(totalMax)) {
-    //     return totalMax - totalMin;
-    // }
-
     let lows = [];
     let highs = [];
 
+    //get the high and low points of the array
     let prev = array[0];
     let curr = array[0];
     for (let i = 0; i < array.length; i++) {
@@ -33,42 +27,33 @@ function bestProfit(array) {
         next = (array[i+1] != undefined)?  array[i+1] : next;
 
         if( prev <= curr && curr > next) highs.push(i);
-
         if(prev >= curr && curr < next) lows.push(i);
 
     }
-
     //if last price of the day is higher than its previos price ad it to the list of highs to check
     if(array[array.length -1] > array[array.length -2]){
         highs.push(array.length -1);
     }
 
-    // console.log(`Highs: ${highs}`);
-    // console.log(`Lows: ${lows}`);
-
+    //for each possible buy time, check selling it later on
     let buyTime,sellTime;
     let maxProfit = 0;
+
+    //highs and lows are both arrays of indexs in the main array
     for (let i = 0; i < lows.length; i++) {
-        
         const lowPrice = array[lows[i]];
 
         for (let j = 0; j < highs.length; j++) {
             if(lows[i] > highs[j]) continue;     // current low index is higher than this high, skip comparison
-            // console.log(`Comparing ${lows[i]} and ${highs[j]}`);
             const highPrice = array[highs[j]];
 
             let currProfit = highPrice - lowPrice;
-            // console.log(`We Can make ${currProfit}  buying @:${lowPrice} and selling @:${highPrice}`);
             if(currProfit > maxProfit) {
-                // console.log(`=========================================New max profit! ${maxProfit}`);
                 buyTime = lows[i];
                 sellTime = highs[j];
                 maxProfit = currProfit
-                // console.log(`1We Can make ${maxProfit}  buying @:${buyTime} and selling @:${sellTime}`);
             }
-            // console.log(`2We Can make ${maxProfit}  buying @:${buyTime} and selling @:${sellTime}`);
         }
-        // console.log(`3We Can make ${maxProfit}  buying @:${buyTime} and selling @:${sellTime}`);
     }
 
     // console.log(`max Profit: ${maxProfit}`);
