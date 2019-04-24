@@ -13,7 +13,36 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    // get max value and min value and check if the min value index is before max value
+    let maxVal = Math.max(...stock_prices_yesterday);
+    let minVal = Math.min(...stock_prices_yesterday);
+    if(stock_prices_yesterday.indexOf(maxVal) > stock_prices_yesterday.indexOf(minVal)) {
+        const profit = maxVal - minVal;
+        if(profit > 0.01) {
+            return profit;
+        } else {
+            return 0
+        }
+    } else {
+        let sum = 0;
+        for(let i = 0; i < stock_prices_yesterday.length; i += 1) {
+            for(let j = i + 1; j < stock_prices_yesterday.length; j += 1) {
+                let diff = stock_prices_yesterday[j] - stock_prices_yesterday[i]
+                if(diff > sum) {
+                    sum = diff;
+                }
+            }
+        }
+        if(sum > 0.01) return sum;
+        return 0;
+    }
 
 }
+
+stock_prices_yesterday = [1,4,5,3,2,6] // 5
+stock_prices_yesterday1 = [6, 6, 2, 3,4] // 2
+stock_prices_yesterday2 = [10,5,2,1,0] // 0 
+// stock_prices_yesterday3
+console.log(bestProfit(stock_prices_yesterday2))
 
 module.exports = bestProfit;
