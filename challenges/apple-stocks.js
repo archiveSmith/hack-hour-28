@@ -13,7 +13,18 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+	if (!Array.isArray(stock_prices_yesterday)) { return 0 };
+	const arg = stock_prices_yesterday;
+	const maxPurchase = arg.reduce((acc, current) => {
+		acc = Math.max(acc, current);
+		return acc;
+	})
+	const minPurchase = arg.reduce((acc, current) => {
+		acc = Math.min(acc, current);
+		return acc;
+	})
+	const bestProfit = Number(maxPurchase) - Number(minPurchase);
+	return bestProfit <= 0 || NaN ? 0 : bestProfit;
 }
 
 module.exports = bestProfit;
