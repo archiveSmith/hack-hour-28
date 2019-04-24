@@ -8,13 +8,22 @@
  *
  */
 
-function Node(value) {
+const Node = (value) => {
     this.value = value;
     this.next = null;
 }
 
-function reverseLinkedList(head) {
+const reverseLinkedList = (head) =>{
+    let preNode = head;
+
+    while(head) {
+        head = this.next;
+        this.value = this.next
+
+    }
+
 
 }
+
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
