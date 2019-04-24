@@ -20,8 +20,8 @@ function bestProfit(stock_prices_yesterday) {
     //can only sell after purchasing so sale has to always be at least one behind purchase
 
     for (let i =stock_prices_yesterday.length-2; i>1; i--) {
-        if (typeof stock_prices_yesterday.length !== integer) return 0;
-        if (typeof i !== integer) return 0;
+        if (typeof stock_prices_yesterday.length !== 'integer') return 0;
+        if (typeof i !== 'integer') return 0;
         if (stock_prices_yesterday[i] > max) {
             max = stock_prices_yesterday[i];
         } 
