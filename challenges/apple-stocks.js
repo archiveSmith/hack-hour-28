@@ -13,7 +13,21 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if(!Array.isArray(stock_prices_yesterday)) return 0;
 
+  //find earliest min stock price to buy
+  let minPrice = Math.min(...stock_prices_yesterday);
+  let minIndex = stock_prices_yesterday.indexOf(minPrice);
+
+  //find max stock price after purchase to sell
+  let maxPrice = Math.max(...(stock_prices_yesterday.slice(minIndex)));
+
+  //handle if all were decreasing (e.g. min was at last index)
+  if (maxPrice <= minPrice) return 0;
+
+  return maxPrice - minPrice;
 }
+
+let arr = [500, 400, 300, 600, 200, 1000, 500];
 
 module.exports = bestProfit;
