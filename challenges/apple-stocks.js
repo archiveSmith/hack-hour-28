@@ -12,8 +12,39 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+// input: array
+// output: number
 
+function bestProfit(stock_prices_yesterday) {
+  // buy when the price is the lowest
+  // sell when the price is the highest
+  // max(sellingPrice - buyingPrice)
+  let minIdx = 0;
+  let maxIdx = 1;
+  let currMin = 0;
+  let maxProfit = 0;
+
+  if (stock_prices_yesterday.length < 2) {
+    return "need more than two time periods to make profit";
+  }
+
+  for (let i = 1; i < stock_prices_yesterday.length; i += 1) {
+    // new current min
+    if (stock_prices_yesterday[i] < stock_prices_yesterday[currMin])
+      currMin = i;
+
+    // new best profit
+    if (
+      stock_prices_yesterday[maxIdx] - stock_prices_yesterday[minIdx] <
+      stock_prices_yesterday[i]
+    ) {
+      maxIdx = i;
+      minIdx = currMin;
+    }
+  }
+
+  maxProfit = stock_prices_yesterday[maxIdx] - stock_prices_yesterday[minIdx];
+  return maxProfit;
 }
 
 module.exports = bestProfit;
