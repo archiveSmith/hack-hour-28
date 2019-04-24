@@ -13,7 +13,26 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  let max;
+  let min;
+  for(let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    max = -Infinity;
+    min = stock_prices_yesterday[0];
+    if(stock_prices_yesterday[i] > max){
+      max = stock_prices_yesterday[i];
+    } if(stock_prices_yesterday[i] < min) {
+      min = stock_prices_yesterday[i];
+    }
+    console.log('min and max: ', min, max)
+  }
+  return max - min;
 }
-
+  //iterate over array
+  //find max value in array
+  //find min value in array
+  //get difference between min and max value to determine largest possible profit
+  //return max - min;
 module.exports = bestProfit;
+
+let stock_prices_yesterday = [500, 500, 503, 520, 580]
+console.log(bestProfit(stock_prices_yesterday));
