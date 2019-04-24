@@ -1,4 +1,4 @@
-/**
+ /**
  *  I have an array stock_prices_yesterday where:
  *
  *    - The indices are the time in minutes past trade opening time, which was 9:30am local time
@@ -13,6 +13,31 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    let min = +Infinity;
+    let max = -Infinity;
+    
+    if (!Array.isArray(stock_prices_yesterday)) return 0;
+    //can only sell after purchasing so sale has to always be at least one behind purchase
+
+    for (let i =stock_prices_yesterday.length-2; i>1; i--) {
+        if (typeof stock_prices_yesterday.length !== integer) return 0;
+        if (typeof i !== integer) return 0;
+        if (stock_prices_yesterday[i] > max) {
+            max = stock_prices_yesterday[i];
+        } 
+        if (stock_prices_yesterday[i-1] < min) {
+            min = stock_prices_yesterday[i-1];
+            if (min > max) {
+              min = +Infinity;
+            }
+        }
+    }
+
+    if (min > max) {
+        return 0;
+    } else if (max > min) {
+        return max-min;
+    }
 
 }
 
