@@ -1,21 +1,21 @@
-function highestProduct(array) {
-  let highQueue = [0, 0, 0];
+function bestProfit(stock_prices_yesterday) {
+  let sorted = [...stock_prices_yesterday].sort((a, b) => b - a); 
+  let highestProfit = 0;
+  let startIdx, stocksAfter, profit;
 
-  array.forEach(num => {
-    //greater than highest
-    if (num > highQueue[2]) {
-      highQueue.shift();
-      highQueue.push(num);
-    } else if (num > highQueue[1]) {
-      highQueue.shift();
-      highQueue.unshift(num);
-    } else if (num > highQueue[0]) {
-      highQueue[0] = num
-    }
-  });
+  sorted.forEach((price) => {
+    startIdx = stock_prices_yesterday.indexOf(price);
+    console.log(startIdx);
+    stocksAfter = stock_prices_yesterday.slice(startIdx);
+    profit = price - Math.min(...stocksAfter);
 
-  return highQueue
-  // highQueue.reduce((sum, num) => sum + num)
+    if (profit > highestProfit) highestProfit = profit;
+  })
+
+  return highestProfit;
 }
 
-highestProduct([1, 5, 3, 7, ,4, 8])
+module.exports = bestProfit;
+
+
+console.log(bestProfit([500, 510, 520, 480, 450, 700, 600, 580]));
