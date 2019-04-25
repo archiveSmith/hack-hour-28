@@ -19,6 +19,6 @@ function mergeArrays(arr1, arr2) {
   return sorted;
 }
 
-console.log(mergeArrays([1,2,3,4],[3,2,1]));
+//console.log(mergeArrays([1,2,3,4],[3,2,1]));
 
 module.exports = mergeArrays;
