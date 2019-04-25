@@ -14,6 +14,9 @@
 
 function bestProfit(stock_prices_yesterday) {
     // get max value and min value and check if the min value index is before max value
+    if(stock_prices_yesterday.length < 2) {
+        return 0;
+    }
     let maxVal = Math.max(...stock_prices_yesterday);
     let minVal = Math.min(...stock_prices_yesterday);
     if(stock_prices_yesterday.indexOf(maxVal) > stock_prices_yesterday.indexOf(minVal)) {
