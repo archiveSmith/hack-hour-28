@@ -13,8 +13,18 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
-
+const mergeArrays = (arr1, arr2) => {
+    let myObj = {};
+    let concatArr = arr1.concat(arr2);
+    
+   concatArr.forEach((ele)=>{
+     if(myObj[ele] === undefined){
+       myObj[ele] = ele
+     } 
+     ele++
+   })
+     return Object.values(myObj) 
+    
 }
 
 module.exports = mergeArrays;
