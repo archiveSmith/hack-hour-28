@@ -14,7 +14,37 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    let newArr = [];
+    if(newArr[0] === undefined){
+        if(arr1[0] < arr2[0]) {
+            newArr.push(arr1.shift());
+        }
+    }
+    while(arr1.length != 0 && arr2.length != 0){   
+            if(arr1[0] < arr2[0]) {
+                newArr.push(arr1.shift());
+            } else {
+                newArr.push(arr2.shift());
+            }   
+    }
 
+    arr1.forEach(item => {
+        newArr.push(item)
+    })
+    arr2.forEach(item => {
+        newArr.push(item)
+    })
+
+
+    return newArr
 }
 
+
+var my_array = [3,4,6,10,11,15,21]
+var another_array = [1,5,8,12,14,19]
+
+console.log(mergeArrays(my_array, another_array))
+console.log(my_array)
+// console.log(my_array.sort())
+console.log([1,2,3].concat([1,2,3]))
 module.exports = mergeArrays;

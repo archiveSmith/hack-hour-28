@@ -13,7 +13,23 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    let highest = {time: 0, price: stock_prices_yesterday[0]}; // selling point
+    let lowest = {time: 0, price: stock_prices_yesterday[0]}; // buying point
+    let profit = highest.price - lowest.price;
 
+    stock_prices_yesterday.forEach(function(price, time){
+        if(price > highest.price && time > lowest.time) {
+            highest.price = price;
+            highest.time = time;
+        }
+
+        if(price < lowest.price && time < highest.time) {
+            lowest.price = price;
+            lowest.time = time;
+        }
+    })
+
+    return profit
 }
 
 module.exports = bestProfit;
