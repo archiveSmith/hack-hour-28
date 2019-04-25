@@ -15,6 +15,44 @@
 
 function mergeArrays(arr1, arr2) {
 
+    let i = j = 0;
+    let newArray = [];
+    while(arr1[i] !== undefined && arr2[j] !== undefined){
+        if(arr1[i] > arr2[j]){
+            newArray.push(arr2[j]);
+            j++;
+        }else{
+            newArray.push(arr1[i]);
+            i++;
+        }
+    }
+
+    let leftOvers;
+    let leftIndex;
+    if(arr1[i] == undefined){
+        leftOvers = arr2;
+        leftIndex = j;
+    }else if(arr2[j] == undefined){
+        leftOvers = arr1
+        leftIndex = i;
+    }else{
+        console.log('Both empty (should not happen)');
+    }
+
+    for (let index = leftIndex; index < leftOvers.length; index++) {
+        const element = leftOvers[index];
+        newArray.push(element);
+    }
+
+    return newArray;
 }
+
+
+ var my_array = [3,4,6,10,11,15,21];
+ var another_array = [1,5,8,12,14,19];
+
+ let out = mergeArrays( another_array,my_array,); 
+
+console.log(out);
 
 module.exports = mergeArrays;
