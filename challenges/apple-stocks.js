@@ -25,7 +25,7 @@ function bestProfit(stock_prices_yesterday) {
   let maxProfit = 0;
 
   if (stock_prices_yesterday.length < 2) {
-    return "need more than two time periods to make profit";
+    return 0;
   }
 
   for (let i = 1; i < stock_prices_yesterday.length; i += 1) {
