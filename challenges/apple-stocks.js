@@ -12,22 +12,28 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-  if(!Array.isArray(stock_prices_yesterday)) return 0;
+function bestProfit(prices) {
+  if(!Array.isArray(prices)) return 0;
 
-  //find earliest min stock price to buy
-  let minPrice = Math.min(...stock_prices_yesterday);
-  let minIndex = stock_prices_yesterday.indexOf(minPrice);
+  // potential profits array
+  const potProfit = [0]; //at worst no profit
+  let minIndex = 0;
 
-  //find max stock price after purchase to sell
-  let maxPrice = Math.max(...(stock_prices_yesterday.slice(minIndex)));
+  for(let i = 0; i < prices.length; i++) {
+    // smaller price in the day
+    if(prices[i] < prices[minIndex]) {
+      minIndex = i;
+    } else if (prices[i] > prices[minIndex]){
+      potProfit.push(prices[i] - prices[minIndex]);
+    }
+  }
 
-  //handle if all were decreasing (e.g. min was at last index)
-  if (maxPrice <= minPrice) return 0;
-
-  return maxPrice - minPrice;
+  //return max of potential profits
+  return Math.max(...potProfit);
 }
 
-let arr = [500, 400, 300, 600, 200, 1000, 500];
+let arr = [500, 1100, 300, 600, 200, 1000, 500];
+
+console.log(bestProfit(arr));
 
 module.exports = bestProfit;
