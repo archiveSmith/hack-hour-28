@@ -11,6 +11,10 @@
 
 
 function modemean(array) {
+    let mean = array.reduce(function (acc, curr) {
+        acc + curr 
+        return acc;
+    }) 
 
 }
 

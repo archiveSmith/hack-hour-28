@@ -35,4 +35,6 @@ function fizzbuzz(num) {
     return fullArr;
 }
 
+console.log(fizzbuzz(16)) 
+
 module.exports = fizzbuzz;
