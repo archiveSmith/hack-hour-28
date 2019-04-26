@@ -13,6 +13,31 @@
  */
 
 function numToWords(num) {
+  const output = []; // Where number strings will be stored and joined
+  // Get number of digits in given number
+  let numLen = num.length;
+
+  // Base case
+  if(numLen == 0){return "empty string"};
+  if(numLen > 4) {return "Too many digits"};
+
+  // array for indexing
+  let singleDig = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+  let twoDig = ["", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+  let tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",  "ninety"];
+  let tensBig = ["hundred", "thousand"];
+
+  if (numLen == 1){
+    return singleDig[num[0] - '0'];
+  }
+
+  let x = 0;
+
+  while (x < num.length):
+
+
+
+
 
 }
 
