@@ -49,3 +49,27 @@ stock_prices_yesterday2 = [10,5,2,1,0] // 0
 console.log(bestProfit(stock_prices_yesterday2))
 
 module.exports = bestProfit;
+
+
+// time-complexity: O(N) - constant # of operations on N elements of array
+// space-complexity: O(1) - only storing values in variables
+function bestProfit(prices) {
+    let maxProfit = 0; // keeps track of max profit
+    let minI = 0; // keeps track of the index of the minimum value
+    // we want to proceed with our logic only if prices array exists
+    if (prices) {
+      for (let i = 1; i < prices.length; i++) {
+        // check if current index is the index of new minimum value
+        if (prices[i] < prices[minI]) {
+          minI = i; // set minI to the current index
+        }
+        // calculate possible profit of current price - lowest price
+        const possibleProfit = prices[i] - prices[minI];
+        // reset max profit if current possible profit is greater than current max profit
+        if (possibleProfit > maxProfit) {
+          maxProfit = possibleProfit;
+        }
+      }
+    }
+    return maxProfit;
+  }
