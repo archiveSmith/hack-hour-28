@@ -10,6 +10,10 @@
  */
 
 function permPalin(str) {
+  //edgecase
+  if(str.length === 1){
+    return true;
+  }
   //clean strings
   let cleanstrings = str.replace(/[^0-9a-z]/gi, '');
   let word = cleanstrings.toLowerCase();
