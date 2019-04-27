@@ -10,6 +10,7 @@
  */
 
 function permPalin(str) {
+    console.log(`Test String:${str}`);
     let countObj = {}
     let strArray = str.split('');
 
