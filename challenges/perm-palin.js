@@ -15,7 +15,7 @@
 
 function permPalin(str) {
   // Parse string and add to object via key-value pairs
-  str = str.replace(/\s/g,'')
+  str = str.replace(/\s/g,'').toLowerCase();
   let charObj = {};
 
   // loop through string and count occurances of each char.
