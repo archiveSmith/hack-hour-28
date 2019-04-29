@@ -18,6 +18,14 @@
 
 function rotateGrid(grid, n) {
 
+    //make n blank arrays
+
+    //for loop through grid array
+
+    //make newArray0 = grid[0][0], grid[1][0],grid[2][0] etc
+    //make newArray1 = grid[0][1], grid[1][1],grid[2][1] etc
+
+
 }
 
 module.exports = rotateGrid;
