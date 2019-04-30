@@ -3,8 +3,26 @@
  */
 
 function Stack() {
-  this.stack = [];
+  this.length = 0;
+  this.stack = {};
 }
+
+Stack.prototype.push = function (item) {
+  this.store[this.length] = v;
+  this.length += 1;
+  return this.length;
+}
+
+Stack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+
+  const popped = this.store[this.length - 1];
+
+  delete this.store[this.length - 1];
+
+  this.length -= 1;
+  return popped;
+};
 
 /**
 * Queue Class
@@ -22,7 +40,7 @@ Queue.prototype.enqueue = function (element) {
 
 Queue.prototype.dequeue = function () {
   if (this.stack2.length === 0) {
-    if (this.stack1.length === 0) { return 'Cannot dequeue because queue is empty'; }
+    if (this.stack1.length === 0) { return undefined; }
     while (this.stack1.length > 0) {
       var p = this.stack1.pop();
       this.stack2.push(p);
