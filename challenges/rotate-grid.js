@@ -17,9 +17,6 @@
  */
 
 function rotateGrid(grid, n) {
-  // elements of first array will be every arrays' last elements
-  // elements of secone array will be every arrays' second elements
-  // elements of thrid array will be every arrays' first elements
   const x = Math.floor(n / 2);
   const y = n - 1;
   for (let i = 0; i < x; i += 1) {
