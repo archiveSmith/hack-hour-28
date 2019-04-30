@@ -29,11 +29,11 @@ function Queue() {
  this.popStack = new Stack;
 }
 
-Queue.prototype.push = function(ele) {
+Queue.prototype.enqueue = function(ele) {
   this.pushStack.push(ele);
 }
 
-Queue.prototype.pop = function() {
+Queue.prototype.dequeue = function() {
   if(this.popStack.length === 0) {
     if (this.pushStack.length === 0) {
       return undefined;
