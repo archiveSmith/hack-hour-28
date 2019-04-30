@@ -34,24 +34,24 @@ function Queue() {
   this.lenght2 = 0;
 }
 
-Queue.prototype.push = function(value) {
+Queue.prototype.enqueue = function(value) {
   this.stack1[this.length1++] = value
   return this.length1;
 }; 
 
-Queue.prototype.push2 = function(val) {
+Queue.prototype.enqueue2 = function(val) {
   this.stack2[this.length2++] = val
   return this.lengt2h;
 }
 
-Queue.prototype.pop = function(){
+Queue.prototype.dequeue = function(){
   let stack1Last = this.stack1[this.length-1];
   delete this.stack1[this.length-1];
   this.length1--;
   Queue.prototype.push2(this.stack1Last);
 }
 
-Queue.prototype.pop2 = function(){
+Queue.prototype.dequeue2 = function(){
   this.saved = this.stack2[this.length2-1];
   delete this.stack2[this.length-2];
   return this.saved;
