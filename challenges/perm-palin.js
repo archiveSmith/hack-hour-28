@@ -45,5 +45,6 @@ function permPalin(str) {
 // console.log(permPalin('cbaba')) // true
 // console.log(permPalin('cbac')) // false
 // console.log(permPalin('a')) // true
+// console.log(permPalin('fasfaesa'))
 
 module.exports = permPalin;
