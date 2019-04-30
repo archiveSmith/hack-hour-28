@@ -48,7 +48,7 @@ Queue.prototype.dequeue = function(){
   let stack1Last = this.stack1[this.length-1];
   delete this.stack1[this.length-1];
   this.length1--;
-  Queue.prototype.push2(this.stack1Last);
+  Queue.prototype.enqueue2(this.stack1Last);
 }
 
 Queue.prototype.dequeue2 = function(){
