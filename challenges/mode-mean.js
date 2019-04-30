@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
   let newObj = {};
   for(let i = 0; i < array.length; i++)
