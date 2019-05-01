@@ -13,7 +13,51 @@
  */
 
 function numToWords(num) {
+    const numbers = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+        10: 'ten',
+        11: 'eleven',
+    }
+
+    const prefix = {
+        2: 'twe',
+        3: 'thir',
+        5: 'fif',
+        9: 'ninty',
+    }
+
+    const length = {
+        3: 'hundred',
+        4: 'thousand',
+        6: 'hundredthousand',
+        7: 'million',
+        9: 'hundredmillion',
+        10: 'billion',
+        12: 'hundredbillion',
+        13: 'trillion',
+        15: 'hundredtrillion',
+    }
+
+    
+
 
 }
+
+console.log(numToWords(0))
+console.log(numToWords(43))
+console.log(numToWords(2999))
+console.log(numToWords(15))
+console.log(numToWords(2483579411))
+console.log(numToWords(300525151340440))
+console.log(numToWords(92120000000000000))
 
 module.exports = numToWords;
