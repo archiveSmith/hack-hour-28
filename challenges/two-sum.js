@@ -11,7 +11,11 @@ const twoSum = (arr, n) => {
 
     //iterate through and subtrack from n
     for(let i = 0; i < arr.length; i++) {
+        if(n > 0){
         let searchVal = Math.abs(n-arr[i]);
+        } else if(n < 0) {
+        let searchVal = n-arr[i];
+        }
         if(numNeeded[searchVal] === undefined){
             numNeeded[searchVal] = searchVal;
         }
