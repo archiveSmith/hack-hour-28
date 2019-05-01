@@ -17,4 +17,9 @@ function mergeArrays(arr1, arr2) {
 
 }
 
+const arr1 = [2, 4, 63, 2, 8, 19];
+const arr2 = [1, 23, 4, 1, 9, 7, 8, 5, 3];
+
+console.log(mergeArrays(arr1, arr2));
+
 module.exports = mergeArrays;
