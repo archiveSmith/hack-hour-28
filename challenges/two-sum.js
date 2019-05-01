@@ -3,6 +3,9 @@
  */
 
 const twoSum = (arr, n) => {
+    //base case
+    if (!target) return true;
+    if (!array.length) return false;
     //store differences that we are searching for
     let numNeeded = {};
 
