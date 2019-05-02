@@ -13,6 +13,7 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    if (tree.left === null && tree.right === null) return true;
     if (tree.left !== null) {
         if (tree.left < tree.value) {
             validBST(tree.left);
