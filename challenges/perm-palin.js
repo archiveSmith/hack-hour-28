@@ -34,4 +34,4 @@ function permPalin(str) {
 
 }
 
-module.exports = permPalin;
+module.exports = permPalin; ``
