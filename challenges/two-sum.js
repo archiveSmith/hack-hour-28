@@ -3,19 +3,15 @@
  */
 
 function twoSum(arr, n) {
-	if (arr.length === 0 || n === undefined) {
-		return false;
-	}
+	const hashObj = {};
 	for (let i = 0; i < arr.length; i++) {
-		while (arr.length >= 1) {
-			if (arr[i] + arr[i + 1] === n) {
-				return true;
-			} else {
-				arr.shift()
-			}
+		if (!hashObj[arr[i]]) {
+			hashObj[n - arr[i]] = true;
+		} else if (hashObj[arr[i]]) {
+			return true;
 		}
-		return false;
 	}
+	return false
 }
 
 
