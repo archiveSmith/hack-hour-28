@@ -13,8 +13,7 @@ function BinaryTree(val) {
 }
 
 function validBST(tree, shouldBeLessThan = null, shouldBeGreaterThan = null) {
-    if (tree === null) return true;
-
+    if (tree == null) return true;
 
     if (shouldBeLessThan)
         if (this.value > shouldBeLessThan) return false;
@@ -27,5 +26,47 @@ function validBST(tree, shouldBeLessThan = null, shouldBeGreaterThan = null) {
 
     return (leftValid && rightValid)
 }
+
+function insert(bst, value) {
+    if (bst.value > value && bst.left === null) {
+        const node = new BinaryTree(value);
+        bst.left = node;
+    } else if (bst.value > value) {
+        insert(bst.left);
+    } else if (bst.value < value && bst.right === null) {
+        const node = new BinaryTree(value);
+        bst.right = node;
+    } else if (bst.value < value) {
+        insert(bst.right);
+    }
+}
+
+function inOrder(tree) {
+    if (tree.left)
+        inOrder(tree.left);
+
+    console.log(` ${tree.value} `);
+
+    if (tree.right)
+        inOrder(tree.right);
+}
+
+const tree = new BinaryTree(5);
+
+let out = validBST(tree);
+
+console.log(`Single Node Tree: ${out}`);
+
+insert(tree, 3)
+insert(tree, 7)
+insert(tree, 2)
+insert(tree, 9)
+insert(tree, 8)
+ out = validBST(tree);
+
+console.log(`Multi Node Tree: ${out}`);
+
+inOrder(tree);
+
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
