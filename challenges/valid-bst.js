@@ -16,19 +16,20 @@ function validBST(tree) {
     // Assuming tree is the root node of the BST, recursively call validBST to check if the value of the next node
     // is less than current value on the left and greater than current value on the right
     if (tree.left === null && tree.right === null) {
-        return true;
+        return;
     }
     if (tree.left.val > tree.val || tree.right.val < tree.val) {
         return false;
     }
     
-    if (tree.val > tree.left.val && tree.left !== null) {
+    if (tree.left !== null && tree.val > tree.left.val) {
         return validBST(tree.left);
     }
 
-    if (tree.val < tree.right.val && tree.right !== null) {
+    if (tree.right !== null && tree.val < tree.right.val) {
         return validBST(tree.right);
     }
+    return true;
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
