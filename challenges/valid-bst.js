@@ -25,7 +25,6 @@ function validBST(tree,  shouldBeGreaterThan = null,shouldBeLessThan = null) {
         }
     }
 
-    
     if (shouldBeGreaterThan) {
         console.log(`Should be greater than ${shouldBeGreaterThan}`);
         if (tree.value < shouldBeGreaterThan) {
@@ -39,71 +38,71 @@ function validBST(tree,  shouldBeGreaterThan = null,shouldBeLessThan = null) {
     return (leftValid && rightValid)
 }
 
-function insert(bst, value) {
-    console.log(`Insert Value: ${value}`);
-    if (bst.value > value && bst.left === null) {
-        const node = new BinaryTree(value);
-        bst.left = node;
-    } else if (bst.value > value) {
-        insert(bst.left, value);
-    } else if (bst.value < value && bst.right === null) {
-        const node = new BinaryTree(value);
-        bst.right = node;
-    } else if (bst.value < value) {
-        insert(bst.right, value);
-    }
-}
+// function insert(bst, value) {
+//     console.log(`Insert Value: ${value}`);
+//     if (bst.value > value && bst.left === null) {
+//         const node = new BinaryTree(value);
+//         bst.left = node;
+//     } else if (bst.value > value) {
+//         insert(bst.left, value);
+//     } else if (bst.value < value && bst.right === null) {
+//         const node = new BinaryTree(value);
+//         bst.right = node;
+//     } else if (bst.value < value) {
+//         insert(bst.right, value);
+//     }
+// }
 
-function makeBadTree(bst, value) {
-    if (bst.value > value && bst.left === null) {
-        const node = new BinaryTree(value);
-        bst.left = node;
-    } else if (bst.value < value) {
-        makeBadTree(bst.left, value);
-    } else if (bst.value < value && bst.right === null) {
-        const node = new BinaryTree(value);
-        bst.right = node;
-    } else if (bst.value > value) {
-        makeBadTree(bst.right, value);
-    }
-}
+// function makeBadTree(bst, value) {
+//     if (bst.value > value && bst.left === null) {
+//         const node = new BinaryTree(value);
+//         bst.left = node;
+//     } else if (bst.value < value) {
+//         makeBadTree(bst.left, value);
+//     } else if (bst.value < value && bst.right === null) {
+//         const node = new BinaryTree(value);
+//         bst.right = node;
+//     } else if (bst.value > value) {
+//         makeBadTree(bst.right, value);
+//     }
+// }
 
-function inOrder(tree) {
+// function inOrder(tree) {
 
-    if (tree.left)
-        inOrder(tree.left);
+//     if (tree.left)
+//         inOrder(tree.left);
 
-    console.log(` ${tree.value} `);
+//     console.log(` ${tree.value} `);
 
-    if (tree.right)
-        inOrder(tree.right);
-}
+//     if (tree.right)
+//         inOrder(tree.right);
+// }
 
-const tree = new BinaryTree(5);
+// const tree = new BinaryTree(5);
 
-let out = validBST(tree);
+// let out = validBST(tree);
 
-console.log(`Single Node Tree: ${out}`);
-insert(tree, 3)
-insert(tree, 7)
-insert(tree, 2)
-insert(tree, 9)
-insert(tree, 8)
-out = validBST(tree);
+// console.log(`Single Node Tree: ${out}`);
+// insert(tree, 3)
+// insert(tree, 7)
+// insert(tree, 2)
+// insert(tree, 9)
+// insert(tree, 8)
+// out = validBST(tree);
 
-console.log(`Multi Node Tree: ${out}`);
+// console.log(`Multi Node Tree: ${out}`);
 
-inOrder(tree);
+// inOrder(tree);
 
-const badTree = new BinaryTree(5);
-insert(badTree, 3)
-insert(badTree, 7)
-makeBadTree(badTree, 2);
-insert(badTree, 9)
-insert(badTree, 8)
+// const badTree = new BinaryTree(5);
+// insert(badTree, 3)
+// insert(badTree, 7)
+// makeBadTree(badTree, 2);
+// insert(badTree, 9)
+// insert(badTree, 8)
 
-inOrder(badTree);
+// inOrder(badTree);
 
-console.log(validBST(badTree));
+// console.log(validBST(badTree));
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
