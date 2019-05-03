@@ -13,7 +13,24 @@
  */
 
 function numToWords(num) {
-
+  if (num === 0) return 'Zero';
+  let ones = ['', 'One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten', 'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+  let prefix = ['','','Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+  let split = num.toString().split('').reverse();
+  let result = '';
+  if (num < 20) return ones[num];
+  else if (split.length === 2) result = prefix[split[1]] + ones[split[0]];
+  else if (split.length === 3) result = ones[split[2]] + 'Hundred' + prefix[split[1]] + ones[split[0]];
+  else if (split.length === 4) result = ones[split[3]] + 'Thousand' + ones[split[2]] + 'Hundred' + prefix[split[1]] + ones[split[0]];
+  else if (split.length === 5) result = ones[split[4]+split[3]] + 'Thousand' + ones[split[2]] + 'Hundred' + prefix[split[1]] + ones[split[0]];
+  else if (split.length === 6) result = ones[split[5]] + 'Hundred' + ones[split[4]+split[3]] + 'Thousand' + ones[split[2]] + 'Hundred' + prefix[split[1]] + ones[split[0]];
+  else if (split.length === 7) result = ones[split[6]] + 'Million' + ones[split[5]] + 'Hundred' + ones[split[4]+split[3]] + 'Thousand' + ones[split[2]] + 'Hundred' + prefix[split[1]] + ones[split[0]];
+  return result;
 }
+console.log(numToWords(0)) //'Zero'
+console.log(numToWords(1000000)) //'FortyThree'
+console.log(numToWords(452)) //'FortyThree'
+console.log(numToWords(1112999)) //'TwoThousandNineHundredNintyNine'
+console.log(numToWords(15)) //'Fifteen'
 
 module.exports = numToWords;
