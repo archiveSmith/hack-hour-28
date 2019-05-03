@@ -27,8 +27,8 @@ function subsetSum(array, target)
   console.log(sets);
 }
 
-console.log(subsetSum([3, 7, 4, 2], 5)); //- > true, 3 + 2 = 5)
+/*console.log(subsetSum([3, 7, 4, 2], 5)); //- > true, 3 + 2 = 5)
 console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) //-> true, 3 + 12 + 5 + 12 = 32
-console.log(subsetSum([8, 2, 4, 12], 13)) //-> false
+console.log(subsetSum([8, 2, 4, 12], 13)) //-> false*/
 
 module.exports = subsetSum;
