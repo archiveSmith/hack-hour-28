@@ -8,8 +8,8 @@
  */
 
 function gcd(a, b) {
-  if (a % b === 0) return a;
-  else if (b % a === 0) return b;
+  if (a % b === 0) return b;
+  else if (b % a === 0) return a;
   else {
     let aDiv = [1];
     let bDiv = [1];
@@ -25,6 +25,8 @@ function gcd(a, b) {
   }
 }
 
-console.log(gcd(100, 90));
+console.log(24 % 6);
+
+console.log(gcd(24, 6));
 
 module.exports = gcd;
