@@ -6,4 +6,6 @@ function twoSum(arr, n) {
 
 }
 
+
+console.log(twoSum([1,5,100,2,5,8,-5], 0))
 module.exports = twoSum;

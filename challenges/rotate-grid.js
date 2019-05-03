@@ -17,7 +17,15 @@
  */
 
 function rotateGrid(grid, n) {
+const moves = grid.length - 1;
 
 }
 
+const arr = [   [1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9,10,11,12],
+                [13,14,15,16]  ];
+
+console.log([arr[0][0],arr[1][2]] = [arr[1][2],arr[0][0]])
+console.log(arr);
 module.exports = rotateGrid;

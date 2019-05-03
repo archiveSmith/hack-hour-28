@@ -8,7 +8,12 @@
  */
 
 function gcd(a, b) {
+    let divisors = [];
+    for( let i = a > b? b : a; i !== 0; i = i > 0? i-1: i+1){
+        if(a % i === 0 && b % i === 0) divisors.push(i)
+    }
 
+    return Math.max(...divisors)
 }
 
 module.exports = gcd;
