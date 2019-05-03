@@ -8,7 +8,19 @@
  */
 
 function gcd(a, b) {
-
+	if (typeof a !== "number" || typeof b !== "number") {
+		return false;
+	}
+	newA = Math.abs(a);
+	newB = Math.abs(b);
+	while (newB) {
+		let c = newB;
+		newB = newA % newB;
+		newA = c
+	}
+	return newA
 }
 
+//console.log(gcd(49, 7));
+console.log(gcd(10, 9));
 module.exports = gcd;
