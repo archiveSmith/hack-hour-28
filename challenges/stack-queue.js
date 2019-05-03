@@ -49,6 +49,8 @@ keke.enqeue('2');
 keke.enqeue('3');
 
 console.log(keke.enqeue('4'));
+console.log(keke.dequeue());
 console.log(keke.dequeue());*/
+
 
 module.exports = {Stack: Stack, Queue: Queue};
