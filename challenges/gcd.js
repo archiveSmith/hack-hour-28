@@ -19,6 +19,7 @@ function grabFactors(num) {
     results.push(1);
     results.push(num);
   }
+  results.push(num)
   return results;
 }
 
@@ -38,5 +39,5 @@ function gcd(a, b) {
   return 1
 }
 
-
+console.log(gcd(24,6))
 module.exports = gcd;
