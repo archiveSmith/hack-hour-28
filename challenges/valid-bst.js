@@ -15,17 +15,17 @@ function BinaryTree(val) {
 function validBST(tree) {
     if (tree.left === null && tree.right === null) return true;
     if (tree.left !== null) {
-        if (tree.left < tree.value) {
-            validBST(tree.left);
-        } else {
+        if (tree.left > tree.value) {
             return false;
+        } else {
+            validBST(tree.left);
         }
     }
     if (tree.right !== null) {
         if (tree.right > tree.value) {
-            validBST(tree.right);
-        } else {
             return false;
+        } else {
+            validBST(tree.right);
         }
     }
     return true;
