@@ -11,8 +11,10 @@ function gcd(a, b) {
     let result;
     let storedVals = [];
 
-    if (a===0 || b === 0) {
-        return 0;
+    if (a===0) {
+        return b;
+    } else if (b === 0) {
+        return a;
     }
 
     // gets the maximum number that a or b an be divided by
