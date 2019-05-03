@@ -5,6 +5,8 @@
  * Assume that each value in the tree is unique.
  */
 
+ // Push all values into an array by iterating over BST in order and then checking if they are sorted
+ 
 
 function BinaryTree(val) {
     this.value = val;
@@ -15,21 +17,23 @@ function BinaryTree(val) {
 function validBST(tree) {
     // Assuming tree is the root node of the BST, recursively call validBST to check if the value of the next node
     // is less than current value on the left and greater than current value on the right
-    if (tree.left === null && tree.right === null) {
-        return;
-    }
-    if (tree.left.val > tree.val || tree.right.val < tree.val) {
-        return false;
-    }
-    
-    if (tree.left !== null && tree.val > tree.left.val) {
+
+
+    if (tree.left.val !== null && tree.left.val > tree.val) return false;
+    if (tree.right.val !== null && tree.right.val < tree.val) return false;
+
+    if (tree.left !== null) {
         return validBST(tree.left);
     }
 
-    if (tree.right !== null && tree.val < tree.right.val) {
+    if (tree.right !== null) {
         return validBST(tree.right);
     }
     return true;
-}
+    }
+
+    if (tree.left === null && tree.right === null) {
+        return true;
+    }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
