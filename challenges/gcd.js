@@ -8,7 +8,16 @@
  */
 
 function gcd(a, b) {
-
+  while(a % b > 0){
+    let modBy = a % b;
+    a = b;
+    b = modBy;
+  }
+  return b;
 }
 
+
+console.log(gcd(2, 3))
+console.log(gcd(4, 2))
+console.log(gcd(6, 3))
 module.exports = gcd;
