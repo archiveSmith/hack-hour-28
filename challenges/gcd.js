@@ -9,6 +9,13 @@
 
 function gcd(a, b) {
 
+  let M = Math.max(a, b); // take the larger and smaller
+  let m = Math.min(a, b);
+
+  if (m === 0) return M;
+
+  return gcd(m, M % m);
+
 }
 
 module.exports = gcd;
