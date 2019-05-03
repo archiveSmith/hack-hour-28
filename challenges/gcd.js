@@ -6,17 +6,17 @@
  * gcd(10, 9) -> 1
  *
  */
-function gcd(x, y) {
-    if ((typeof x !== 'number') || (typeof y !== 'number')) 
+function gcd(a, b) {
+    if ((typeof a !== 'number') || (typeof b !== 'number')) 
       return false;
-    x = Math.abs(x);
-    y = Math.abs(y);
-    while(y) {
-      var t = y;
-      y = x % y;
-      x = t;
+    a = Math.abs(a);
+    b = Math.abs(b);
+    while(b) {
+      let temp = b;
+      b = a % b;
+      a = temp;
     }
-    return x;
+    return a;
   }
 
 module.exports = gcd;
