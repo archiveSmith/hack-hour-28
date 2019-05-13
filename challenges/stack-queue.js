@@ -11,19 +11,20 @@
  */
 
 function Stack() {
-    this.storage = {};
-    this.index = 0;
+    this.items = [];
+};
 
-    this.push = function (val) {
-        storage[this.index++] = value;
-    };
-    this.pop = function (val) {
-        if (!index) return undefined;
-        const poppedVal = storage[--index];
-        delete storage[index];
-        return poppedVal;
-    };
-}
+Stack.prototype.push = function (item) {
+    this.items.push(item);
+};
+
+Stack.prototype.pop = function () {
+    return this.items.pop();
+};
+
+Stack.prototype.isEmpty = function () {
+    return this.items.length;
+};
 
 /**
 * Queue Class
@@ -35,22 +36,16 @@ function Queue() {
 }
 
 Queue.prototype.enque = function (val) {
-    this.pushS[this.length++] = val;
+    this.pushS.push(val);
 }
 
-Queue.prototype.deque = function (val) {
-    let poping = this.popS;
-    let pushing = this.pushS;
-
-    if (poping.top) {
-        let deq = poping.pop();
-        console.log('Dequeing ' + deq + ' from stack.');
-        return deq;
+Queue.prototype.deque = function () {
+    if (this.popS.isEmpty()) {  // if(this.popS.index > 0)
+        while (!this.pushS.isEmpty()) {
+            this.popS.push(this.pushS.pop());
+        }
     }
-
-    while (pushing.top) {
-        poping.push(pusing.pop());
-    }
+    return this.popS.pop();
 }
 
 module.exports = { Stack: Stack, Queue: Queue };
@@ -58,13 +53,19 @@ module.exports = { Stack: Stack, Queue: Queue };
 let q1 = new Queue();
 
 q1.enque(1);
+console.log(q1);
 q1.enque(2);
+console.log(q1);
 q1.enque(3);
+console.log(q1);
 q1.enque(4);
+console.log(q1);
 q1.enque(5);
+console.log(q1);
 q1.deque();
+console.log(q1);
 q1.deque();
-q1.deque();
-q1.deque();
+// q1.deque();
+// q1.deque();
 console.log('Current stat of the Queue is stored saved in the popS');
 console.log(q1);
