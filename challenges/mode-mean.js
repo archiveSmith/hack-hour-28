@@ -9,39 +9,36 @@
  *
  */
 
-
 function modemean(array) {
-
-  function findMean(array) {
-    return Math.floor(array.reduce((acc, curr) => {
+  function calcMean(array) {
+    const sum = array.reduce((acc, curr) => {
       acc += curr;
       return acc;
-    }) / array.length);
+    }, 0);
+    return Math.floor(sum / array.length);
   }
-
-  function findMode(array) {
-    // count how many times each number occurs
-    // then find if one or more numbers have that frequency
-    // create variable to store max frequency
+  function calcMode(array) {
     const freq = {};
-
-    for (let num of array) {
-      if (!freq[num]) {
-        freq[num] = 1;
-      } else {
-        freq[num] += 1;
+    array.forEach(el => {
+      if (freq.hasOwnProperty(el)) freq[el]++;
+      else freq[el] = 1;
+    });
+    let max = -Infinity;
+    const modes = [];
+    for (let key in freq) {
+      if (freq[key] >= max) {
+        max = freq[key];
+        modes.push(key);
       }
     }
-    const highestFreq = Math.max(...Object.values(freq));
-
-
-
-    // return (findMean(array) === findMode(array)) ? true : false;
-
+    if (modes.length === 0) return modes[0];
+    return Math.max(...modes);
   }
-  findMode(array);
+  if (calcMean(array) === calcMode(array)) return true;
+  else return false;
 }
 
-console.log(modemean([1, 2, 4, 5, 4, 4, 6, 2, 7, 2]));
+const arr1 = [10, 10, 8];
+const result = modemean(arr1); //?
 
 module.exports = modemean;
