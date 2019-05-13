@@ -16,6 +16,7 @@ class BinaryTree
   end
 end
 
+
 def validBST(tree)
 
 end
@@ -37,6 +38,7 @@ class TestValidBST < Test::Unit::TestCase
     assert_equal(true, validBST(@tree), "returns true for tree with single node")
     expect(validBST(tree)).to.eql(true)
   end
+
 
   def test_2
     @tree.left = BinaryTree.new(5)
