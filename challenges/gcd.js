@@ -11,11 +11,12 @@
  * @param {*} a number 
  * @param {*} b number
  * @output number
+ * find all numbers which can dived input number a, b both and store them in the tracker array
+ * find the biggest number in the tracker
  * 
  */
 
 function gcd(a, b) {
-    // find all numbers which can dived input number a and store it in the tracker
     let dividerArr = [];
     if (a === 0 || b === 0) return 0;
 
