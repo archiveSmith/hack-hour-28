@@ -10,7 +10,19 @@
 
 
 function countTwos(num) {
+  //loop through all numbers and store Twos 
+  let twos = 0
+  //try a shallow equal
+
+  for (let i = 0; i <= num; i++) {
+     let digit = i.toString().split('')
+     for (let j = 0; j < digit.length; j++) {
+       if (digit[j] == 2) {
+         twos++
+       }
+     }
+  }
+  return twos
 
 }
-
 module.exports = countTwos;
