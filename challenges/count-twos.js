@@ -8,9 +8,46 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
+//insanely slow nested version
+// function countTwos(num) {
+//   let count = 0;
+
+//   for (let i = 1; i <= num; i++) {
+//     const numSplit = i.toString().split('');
+//     for (let j = 0; j < numSplit.length; j++) {
+//       if (numSplit[j] === '2') {
+//         count++;
+//       }
+//     }
+//   }
+//   return count;
+// }
+
 
 function countTwos(num) {
+  let count = 0;
+  let numArr = [];
 
+  for (let i = 0; i <= num; i++) {
+    let split = i.toString().split('');
+
+    for (let j = 0; j < split.length; j++) {
+      numArr.push(split[j]);
+    }
+    numArr.push(split);
+  }
+
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] === '2') {
+      count++;
+    }
+  }
+
+  return count;
 }
+
+
+
+console.log(countTwos(11420));
 
 module.exports = countTwos;
