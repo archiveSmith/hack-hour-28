@@ -10,7 +10,18 @@
 
 
 function countTwos(num) {
-
+  if (num < 0) {
+    num = Math.abs(num);
+  }
+  let count = 0;
+  for (let i =1; i<=num; i++) {
+    let temp = i;
+    temp = temp.toString().split('');
+    for (let j=0; j<temp.length; j++) {
+      if (temp[j] === '2') count++;
+    }
+  }
+  return count;
 }
 
 module.exports = countTwos;
