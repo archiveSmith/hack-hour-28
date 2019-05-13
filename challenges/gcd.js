@@ -15,11 +15,12 @@ function gcd(a, b) {
     return gcd;
 }
 
-// console.log(gcd(10, 8));
-// console.log(gcd(10, 9));
-// console.log(gcd(50, 5));
-// console.log(gcd(100, 80));
-// console.log(gcd(100, 99))
-// console.log(gcd(99, 6))
+console.log(gcd(10, 8));
+console.log(gcd(10, 9));
+console.log(gcd(50, 5));
+console.log(gcd(100, 80));
+console.log(gcd(100, 99));
+console.log(gcd(99, 6));
+console.log(gcd(120, 100));
 
 module.exports = gcd;
