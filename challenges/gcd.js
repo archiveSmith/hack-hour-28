@@ -8,21 +8,21 @@
  */
 
 function gcd(a, b) {
-    let tracker = 0;
+    let tracker = 1;
     if(a === 0 || b === 0) {
         return tracker;
     }
 
     if(typeof a === 'number' && typeof b === 'number') {
         if(a > b) {
-            for(let i = 1; i < b; i++) {
+            for(let i = 1; i <= b; i++) {
                 if(a % i === 0 && b % i === 0) {
                     tracker = i;
                     console.log(tracker)
                 }
             } 
         } else {
-            for(let i = 1; i < a; i++) {
+            for(let i = 1; i <= a; i++) {
                 if((a % 2 === 0) && (b % 2 === 0)) {
                     tracker = i;
                 }
@@ -35,7 +35,8 @@ function gcd(a, b) {
 // console.log(gcd(10, 8))
 // console.log(gcd(10, 9))
 // console.log(gcd(10, 0))
-// console.log(gcd(24, 8))
+// console.log(gcd(24, 6))
+console.log(gcd(44, 8));
 
 
 module.exports = gcd;
