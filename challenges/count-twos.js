@@ -10,7 +10,23 @@
 
 
 function countTwos(num) {
+    let count = 0;
+    for (let i = 1; i <= num; i++) {
+        let str = i.toString().split("");
+        // console.log(str);
+        if (str.indexOf('2') != -1) {
+            // console.log(`Found a 2: ${str.indexOf('2')}`);
+            let rejoin = str.join('').replace(/[^2]/g,'')
+            // console.log(rejoin);
+            count = count + rejoin.length;
+        }
+    }
+    return count;
 
 }
+
+// let out = countTwos(1000);
+
+// console.log(out);
 
 module.exports = countTwos;
