@@ -10,7 +10,22 @@
 
 
 const countTwos = (num) => {
+let holderArr = [];
 
+for(let i=0; i < num; i++){
+    holderArr.push(i);
+}
+
+let joinArr = holderArr.join('');
+let strArr = joinArr.split('');
+
+return strArr.reduce((sum, ele)=>{
+  if(ele === '2'){
+    sum++
+  }
+  return sum;
+},0)
+}
 
 }
 
