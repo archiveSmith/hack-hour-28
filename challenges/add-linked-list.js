@@ -21,7 +21,7 @@ function addLinkedList(l1, l2) {
   if(l1 === null) return l2;
   if(l2 === null) return l1;
 
-  const head = null;
+  let head = null;
   let tail= null
   let carry = 0;
 
@@ -59,7 +59,7 @@ function addLinkedList(l1, l2) {
     tail = l2
   }
 
-  if(tail.next.value == 9 && carry === 1){
+  if(tail.value == 9 && carry === 1){
     tail.value = 0;
     const lastNode = new Node(1);
     tail.next = lastNode;
@@ -70,5 +70,35 @@ function addLinkedList(l1, l2) {
 
   return head;
 }
+
+function makeList(array) {
+  let head = new Node(array[0]);
+  let curr = head;
+  array.forEach((val, index) => {
+    if (index === 0) return; //skip first element
+    const newNode = new Node(val);
+    curr.next = newNode;
+    curr = newNode;
+  });
+  // console.log(head.value);
+  return head;
+}
+
+function stringifyList(list) {
+  let retval = '';
+  while (list != null) {
+    retval = retval + list.value + ' ';
+    list = list.next;
+  }
+  return retval;
+}
+
+let l1 = makeList([1,2]);
+let l2 = makeList([3]);
+
+let out = addLinkedList(l1,l2);
+
+let str = stringifyList(out);
+console.log(str);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
