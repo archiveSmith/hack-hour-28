@@ -18,7 +18,20 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let head1 = l1;
+  let head2 = l2;
+  
+  while (head1 && head2) {
+    // this modifies the value of l1
+    head1.value = head1.value + head2.value;
+    if (head1.value > 9) {
+      head1.value -= 10;
+      head1.next.value += 1;
+    }
+    head1 = head1.next
+    head2 = head2.next
+  }
+  return l1;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
