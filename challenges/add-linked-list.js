@@ -55,18 +55,23 @@ function addLinkedList(l1, l2) {
 
     cur = cur.next;
   }
+  // possible extra digit
+  if(carry > 0) {
+    let node = new Node(carry);
+    next.next = node;
+  }
   return newList;
 }
 
 
 /*
-let a = new Node(2)
-let b = new Node(1)
-let c = new Node(5)
+let a = new Node(9)
+let b = new Node(9)
+let c = new Node(9)
 a.next = b;
 b.next = c;
 
-let d = new Node(5)
+let d = new Node(2)
 //let e = new Node(9)
 //let f = new Node(2)
 //d.next = e;
