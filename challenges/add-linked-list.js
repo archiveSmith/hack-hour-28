@@ -118,7 +118,6 @@ let l1 = makeList([9, 9, 9, 8]);
 let l2 = makeList([3, 8]);
 
 let out = addLinkedList(l1, l2);
-
 let str = stringifyList(out);
 
 console.log("Result:");
