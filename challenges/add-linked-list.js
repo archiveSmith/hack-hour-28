@@ -18,7 +18,30 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let current1 = l1;
+  let current2 = l2;
+  let sum;
+  let cache;
+  let newLL;
+  if (current1.val != null && current2.val != null) {
+    sum = current1.val + current2.val;
+    sum > 9 ? (cache = 1) : (cache = 0);
+    newLL = newNode(sum);
+  }
 
+  while (current1 && current2) {
+    sum = current1.val + current2.val;
+    if (sum > 9) {
+      cache = 1;
+      sum = 0;
+    } else {
+      cache = 0;
+    }
+    newLL.next = new Node(sum + cache);
+    current1 = l1.next;
+    current2 = l2.next;
+  }
+  return newLL;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
