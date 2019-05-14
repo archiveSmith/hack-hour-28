@@ -43,6 +43,18 @@ function addLinkedList(l1, l2) {
     cur2 = cur2.next;
   }
 
+  let cur = cur1 || cur2;
+  // get the rest
+  while(cur) {
+    let value = cur.value + carry;
+    let node = new Node(value % 10);
+    carry = Math.floor(value/10);
+
+    next.next = node;
+    next = next.next;
+
+    cur = cur.next;
+  }
   return newList;
 }
 
@@ -55,13 +67,11 @@ a.next = b;
 b.next = c;
 
 let d = new Node(5)
-let e = new Node(9)
-let f = new Node(2)
-d.next = e;
-e.next = f;
+//let e = new Node(9)
+//let f = new Node(2)
+//d.next = e;
+//e.next = f;
 
-console.log(a);
-console.log(d)
 
 console.log(addLinkedList(a, d));
 */
