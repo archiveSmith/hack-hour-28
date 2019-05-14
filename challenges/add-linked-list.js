@@ -19,6 +19,50 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
 
+  if(!l1) return l2;
+  if(!l2) return l1;
+
+  let carry = 0;
+  let cur1 = l1; let cur2 = l2;
+  let newList = null;
+  let next = null;
+  while(cur1 && cur2) {
+    let value = (cur1.value + cur2.value + carry);
+    let node = new Node(value % 10);
+    carry = Math.floor(value / 10);
+
+    if(newList) {
+      next.next = node;
+      next = next.next;
+    } else {
+      newList = node;
+      next = newList;
+    }
+
+    cur1 = cur1.next;
+    cur2 = cur2.next;
+  }
+
+  return newList;
 }
 
+
+/*
+let a = new Node(2)
+let b = new Node(1)
+let c = new Node(5)
+a.next = b;
+b.next = c;
+
+let d = new Node(5)
+let e = new Node(9)
+let f = new Node(2)
+d.next = e;
+e.next = f;
+
+console.log(a);
+console.log(d)
+
+console.log(addLinkedList(a, d));
+*/
 module.exports = {Node: Node, addLinkedList: addLinkedList};
