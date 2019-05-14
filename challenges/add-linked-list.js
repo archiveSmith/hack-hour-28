@@ -23,7 +23,7 @@ function addLinkedList(l1, l2) {
   
   while (list1 !== null && list2 !== null) {
     // this modifies the value of l1
-    list1.value = list1.value + list1.value;
+    list1.value = list1.value + list2.value;
     if (list1.value > 9) {
       list1.value -= 10;
       list1.next.value += 1;
