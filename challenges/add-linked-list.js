@@ -18,23 +18,26 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  if(l1 === null) return l2;
-  if(l2 === null) return l1;
+  if (l1 === null) return l2;
+  if (l2 === null) return l1;
 
   let head = null;
-  let tail= null
+  let tail = null
   let carry = 0;
 
-  while(l1 != null && l2 != null){
+  while (l1 != null && l2 != null) {
     let sum = l1.value + l2.value + carry;
-    if(sum >= 10) {
+    // console.log(`${l1.value} + ${l2.value} + ${carry} = ${sum}`);
+    if (sum >= 10) {
       sum = sum - 10;
       carry = 1;
-    } else{
+    } else {
       carry = 0;
     }
+    // console.log(`Carry the ${carry}`);
     const newNode = new Node(sum);
-    if(head == null){
+    // console.log(`Adding Number:${sum}`);
+    if (head == null) {
       head = newNode;
       tail = newNode;
     } else {
@@ -46,25 +49,43 @@ function addLinkedList(l1, l2) {
     l2 = l2.next;
   }
 
-  if(l1 == null && l2 == null){
-    if(carry){
+
+  if (l1 == null && l2 == null) {
+    if (carry) {
       const newNode = new Node(carry)
       tail.next = newNode;
     }
-  }else if(l2 == null){
+  } else if (l2 == null) {
     tail.next = l1;
     tail = l1;
-  }else if(l1 == null){
+  } else if (l1 == null) {
     tail.next = l2;
     tail = l2
   }
 
-  if(tail.value == 9 && carry === 1){
+  if (tail.value == 9 && carry === 1) {
+
     tail.value = 0;
-    const lastNode = new Node(1);
-    tail.next = lastNode;
-    tail = lastNode;
-  } else {
+    carry = 1;
+    while (tail.next) {
+      tail = tail.next;
+      tail.value = tail.value + carry;
+      if (tail.value == 10) {
+        tail.value = 0
+        carry = 1;
+      } else {
+        carry = 0;
+      }
+    }
+
+    if (carry == 1) {
+      const lastNode = new Node(1);
+      tail.next = lastNode;
+      tail = lastNode;
+    }
+
+
+  } else if (l1 || l2) {
     tail.value = tail.value + carry;
   }
 
@@ -93,12 +114,14 @@ function stringifyList(list) {
   return retval;
 }
 
-let l1 = makeList([1,2]);
-let l2 = makeList([3]);
+let l1 = makeList([9, 9, 9, 8]);
+let l2 = makeList([3, 8]);
 
-let out = addLinkedList(l1,l2);
+let out = addLinkedList(l1, l2);
 
 let str = stringifyList(out);
-console.log(str);
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+console.log("Result:");
+console.log(str.split('').reverse().join(''));
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
