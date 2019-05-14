@@ -18,7 +18,26 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let placeholder = new Node(0)
+  let remainder = 0;
+  let pointer = placeholder; 
+  while(l1 !== null || l2 !== null){
+    let linkedTotal = 0;
+    if(l1 !== null){
+      linkedTotal = l1.value;
+      l1 = l1.next;
+    }
+    if(l2 !== null){
+      linkedTotal = l2.value;
+      l2 = l2.next;
+    }
+    linkedTotal = linkedTotal + remainder;
+    remainder >= 10 ? 1 : 0;
+    pointer.next = new Node(linkedTotal % 10)
+    pointer = pointer.next; 
 
+  }
+  return placeholder.next;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
