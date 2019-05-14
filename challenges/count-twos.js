@@ -10,7 +10,34 @@
 
 
 function countTwos(num) {
+  if (num === 0 || num === 1) {
+    return 0;
+  }
 
+  let counterOfTwos = 0;
+  
+  function numHasTwo (num) {
+    const stringArr = num.toString().split('');
+    let counter = 0;
+    for (let i = 0; i < stringArr.length; i++) {
+      if (stringArr[i] === '2') {
+        counter += 1;
+      }
+    }
+    return counter;
+  }
+  
+  for (let i = 1; i <= num; i++) {
+    if (i % 2 === 0) {
+      if (numHasTwo(i)) {
+        console.log('reached');
+        counterOfTwos++;
+      }
+    }
+  }
+  return counterOfTwos;
 }
+
+console.log(countTwos(21));
 
 module.exports = countTwos;
