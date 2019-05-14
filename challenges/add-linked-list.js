@@ -17,8 +17,23 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+function addLinkedList(l1, l2) {}
 
-}
+let newlSet1 = new Node(2);
+let newl2 = new Node(1);
+let newl3 = new Node(5);
+newlSet1.next = newl2;
+newl2.next = newl3;
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+let newlSet2 = new Node(5);
+let newl5 = new Node(9);
+let newl6 = new Node(2);
+newlSet2.next = newl5;
+newl5.next = newl6;
+
+console.log(newlSet1);
+console.log(newlSet2);
+
+console.log(Object.values(newlSet1));
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };

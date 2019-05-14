@@ -9,13 +9,9 @@
 
 function gcd(a, b) {
   let d = a % b;
-  if (d == 0) {
-    return b;
-  } else if (d == 1) {
-    return 1;
-  } else {
-    return gcd(b, d);
-  }
+  if (d == 0) return b;
+  else if (d == 1) return 1;
+  else return gcd(b, d);
 }
 console.log(gcd(10, 8));
 console.log(gcd(10, 9));
