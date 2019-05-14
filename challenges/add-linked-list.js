@@ -12,13 +12,38 @@
  *
  */
 
+// Traverse both lists. One by one pick nodes of both lists and add the values. If sum is more than 10
+// then make carry as 1 and reduce sum. If one list has more elements than the other then consider
+// remaining values of this list as 0.
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function addLinkedList(l1, l2) {
+  let head = null;
+  let prev = null;
+  let temp = null;
+  let carry = 0;
+  let sum = 0;
 
+  while (l1 && l2) {
+    sum = carry + (l1 !== null ? head.value : 0) + (l2 !== null ? l2.value : 0);
+    carry = sum >= 10 ? 1 : 0;
+    sum = sum % 10;
+    temp = new Node(sum);
+
+    if (head === null) head = temp;
+    else prev.next = temp;
+    prev = temp;
+
+    if (l1 !== null) l1 = l1.next;
+    if (l2 !== null) l2 = l2.next;
+  }
+
+  if (carry > 0) temp.next = new Node(carry);
+  return head;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };
