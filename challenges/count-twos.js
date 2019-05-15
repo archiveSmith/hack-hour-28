@@ -12,7 +12,7 @@
  *
  * @param {*} num
  * output: number
- * gs: iterate numbers until the input number
+ * gs: iterate numbers until the input number and change the number to string
  *    if n === 2 count 1
  */
 function countTwos(num) {
@@ -34,8 +34,10 @@ function countTwos(num) {
   }
   return count;
 }
-
-// console.log(countTwos(1)); // -> 0
-console.log(countTwos(1000)); //  -> 1
+console.log(countTwos(1)); // -> 0
+console.log(countTwos(3)); // -> 1
+console.log(countTwos(13)); // -> 2
+console.log(countTwos(1000)); // -> 300
+console.log(countTwos(11420)); // -> 4483
 
 module.exports = countTwos;

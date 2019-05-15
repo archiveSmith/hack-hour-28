@@ -13,8 +13,33 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+let test = new BinaryTree();
 
+/**
+ * Determines the minimum depth of a binary tree node.
+ * @param { BinaryTreeNode } node The node to check
+ * @return The minimum depth of a binary search tree node
+ */
+
+function minDepth(node) {
+  if (typeof node === "undefined") return 0;
+  return 1 + Math.min(minDepth(node.left), minDepth(node.right));
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+/**
+ * Determines the maximum depth of a binary tree node
+ * @param { BinaryTreeNode } node The node to check
+ * @return The maximum depth of a binary search tree node
+ */
+
+function maxDepth(node) {
+  if (typeof node === "undefined") return 0;
+  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+}
+
+function superbalanced(tree) {
+  if (typeof tree === "undefined") return undefined;
+  return maxDepth(tree) - minDepth(tree) <= 1;
+}
+
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
