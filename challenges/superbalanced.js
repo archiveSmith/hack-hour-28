@@ -14,7 +14,34 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  //counting each side
+  let countLeft = 0;
+  let countRight = 0;
 
+  //traverse
+  if(this.value === null) {
+    return true;
+  } else if(this.value < tree && this.right !== null) {
+    countRight++;
+  }
+
+  if(this.value === null) {
+    return true;
+  } else if(this.value > tree && this.left !== null) {
+    countLeft++;
+  }
+  
+  let difference = 0;
+  if(countLeft > countRight){
+    difference = countLeft - countRight;
+  } else {
+    difference= countRight - countLeft;
+  }
+
+  if(difference >= 2){
+    return true;
+  }
+  return false;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
