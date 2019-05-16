@@ -20,12 +20,12 @@ function validBST(tree) {
     return true;
 }
 
-let a = new BinaryTree(7);
-let b = new BinaryTree(5);
+let a = new BinaryTree(6);
+let b = new BinaryTree(4);
 let c = new BinaryTree(8);
-let d = new BinaryTree(3);
-let e = new BinaryTree(6);
-let f = new BinaryTree(2);
+let d = new BinaryTree(2);
+let e = new BinaryTree(5);
+let f = new BinaryTree(7);
 let g = new BinaryTree(9);
 a.left = b;
 a.right = c;
