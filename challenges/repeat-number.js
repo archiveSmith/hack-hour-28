@@ -11,7 +11,7 @@
  */
 
 function repeatNumbers(array) {
-
+console.log(array);
 }
 
 module.exports = repeatNumbers;
