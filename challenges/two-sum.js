@@ -10,4 +10,23 @@ function twoSum(arr, n) {
   return false;
 }
 
+function twoSum2(arr, n) {
+
+  if (!arr || !n) return false;
+
+  let terms = new Set;
+  for (let i = 0; i < arr.length; i++) {
+    if (terms.has(n - arr[ i ])) return true;
+
+    terms
+    terms.add(arr[ i ]);
+  }
+
+  return false;
+}
+
+
+let numArr = [ 1, 2, 3, 4 ];
+
+twoSum2(numArr, 8)//?
 module.exports = twoSum;

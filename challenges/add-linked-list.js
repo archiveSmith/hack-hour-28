@@ -12,13 +12,38 @@
  *
  */
 
+ /*
+ pull number out then add
+ OR
+ add each node (what i tried)
+ */
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function addLinkedList(l1, l2, addedNode) {
+  // return addLinkedList(nodeAdd(l1,l2))
+  let head;
+  if (!addedNode) {
+    head = new Node(nodeAdd(l1, l2))
+  } else {
+    addedNode =
+  }
+  return addLinkedList(l1, l2, addedNode)
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+function nodeAdd(n1, n2) {
+  return new Node((n1.value || 0) + (n2.value || 0));
+}
+let link1 = new Node(1);
+link1.next = new Node(2);
+link1.next.next = new Node(3);
+
+let link2 = new Node(4)
+link2.next = new Node(5);
+link2.next.next = new Node(6);
+link2
+addLinkedList(link1, link2)//?
+module.exports = { Node: Node, addLinkedList: addLinkedList };

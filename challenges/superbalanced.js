@@ -13,6 +13,20 @@ function BinaryTree(value) {
   this.right = null;
 }
 
+/**
+ *  TO CHECK DEPTH OF BST ON LEFT AND RIGHT OF each Node
+ need the height of each side ? or can we compare in place ?
+ order of operations is find if each side is balanced, record the depth, then see if the height difference is no greater than 1.
+
+ how to find the depth of a node for both
+each this.left/right is depth
+do we have to refer to the parent node?
+how do we refer to it
+
+
+ */
+
+
 function superbalanced(tree) {
 
 }
