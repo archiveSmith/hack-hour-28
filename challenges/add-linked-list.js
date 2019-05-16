@@ -18,6 +18,13 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let sum = l1.value + l2.value
+  let p1 = l1.next;
+  let p2 = l2.next;
+  while(p1) {
+    let node = new Node(sum);
+    l1.next = 
+  }
 
 }
 
