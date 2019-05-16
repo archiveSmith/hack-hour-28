@@ -11,7 +11,19 @@
  */
 
 function repeatNumbers(array) {
-
+    let numCount = {};
+    let repeatedNum = null;
+    array.forEach(num => {
+        if (numCount[num]) {
+            repeatedNum = num;
+            return;
+        } else {
+            numCount[num] = true;
+        }
+    })
+    return repeatedNum;
 }
+
+console.log(repeatNumbers([, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 12, 13, 14, 15]))
 
 module.exports = repeatNumbers;
