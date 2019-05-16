@@ -17,14 +17,11 @@ function BinaryTree(value) {
 function getHeightIfBalenced(tree) {
   let leftHeight = (tree.left) ? getHeightIfBalenced(tree.left) : 0;
   let rightHeight = (tree.right) ? getHeightIfBalenced(tree.right) : 0;
-  
-  console.log('leftHeight: ', leftHeight);
-  console.log('rightHeight: ', rightHeight);
 
   let diff = Math.abs(leftHeight - rightHeight);
-  if(diff > 1 || leftHeight === -1 || rightHeight === -1 ) return - 1;  //This tree is unbalenced or unbalenced tree found somewhere, propogate up
+  if (diff > 1 || leftHeight === -1 || rightHeight === -1) return - 1;  //This tree is unbalenced or unbalenced tree found somewhere, propogate up
 
-  return Math.max(leftHeight,rightHeight) + 1;
+  return Math.max(leftHeight, rightHeight) + 1;
 }
 
 
@@ -33,50 +30,94 @@ function superbalanced(tree) {
 
   const height = getHeightIfBalenced(tree);
 
-  if(height === -1){
+  if (height === -1) {
     return false;
   } else {
     return true;
   }
 }
 
-// const tree = new BinaryTree(5);
+const tree = new BinaryTree(50);
 
 
-// function insert(bst, value) {
-//     // console.log(`Insert Value: ${value}`);
-//     if (bst.value > value && bst.left === null) {
-//         const node = new BinaryTree(value);
-//         bst.left = node;
-//     } else if (bst.value > value) {
-//         insert(bst.left, value);
-//     } else if (bst.value < value && bst.right === null) {
-//         const node = new BinaryTree(value);
-//         bst.right = node;
-//     } else if (bst.value < value) {
-//         insert(bst.right, value);
-//     }
-// }
+function insert(bst, value) {
+  // console.log(`Insert Value: ${value}`);
+  if (bst.value > value && bst.left === null) {
+    const node = new BinaryTree(value);
+    bst.left = node;
+  } else if (bst.value > value) {
+    insert(bst.left, value);
+  } else if (bst.value < value && bst.right === null) {
+    const node = new BinaryTree(value);
+    bst.right = node;
+  } else if (bst.value < value) {
+    insert(bst.right, value);
+  }
+}
 
-// function inOrder(tree) {
 
-//     if (tree.left)
-//         inOrder(tree.left);
 
-//     console.log(` ${tree.value} `);
+function inOrder(tree, str = '') {
+  
+  if (tree.left)
+  str = inOrder(tree.left, str);
+  
+  // console.log(` ${tree.value} `);
+  str = `${str} ${tree.value}`
 
-//     if (tree.right)
-//         inOrder(tree.right);
-// }
+  if (tree.right)
+    str = inOrder(tree.right, str);
 
-// insert(tree,3)
-// insert(tree,2)
-// insert(tree,7)
-// insert(tree,8)
-// insert(tree,6)
-// // insert(tree,1)
+return str
+}
+function preOrder(tree, str = '') {
+  // console.log(` ${tree.value} `);
+  str = `${str} ${tree.value}`
 
-// let out = superbalanced(tree);
+  if (tree.left)
+    str = preOrder(tree.left, str);
+
+
+  if (tree.right)
+    str = preOrder(tree.right, str);
+
+return str
+}
+
+
+function height(tree) {
+  if (tree === null) return 0;
+  return 1 + Math.max(height(tree.left), height(tree.right));
+}
+
+function superbalanced2(tree) {
+  if (tree === null) return true;
+  return Math.abs(height(tree.left) - height(tree.right)) <= 1 && superbalanced2(tree.left) && superbalanced2(tree.right);
+}
+
+insert(tree, 30)
+insert(tree, 75)
+insert(tree, 12)
+insert(tree, 45)
+insert(tree, 83)
+insert(tree, 66)
+// insert(tree, 6)
+// insert(tree,1)
+console.time("mein")
+let out = superbalanced(tree);
+console.timeEnd("mein")
+
+out
+
+console.time("theres")
+superbalanced2(tree);
+console.timeEnd("theres")
+
+let inOrd = inOrder(tree);
+let pre = preOrder(tree);
+
+inOrd
+pre
 
 module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
 
