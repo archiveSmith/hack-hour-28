@@ -13,8 +13,9 @@
 function mergeRanges(array) {
     if (!array || !Array.isArray(array)) { console.log("Invalid input array:", array); return -1 };
 
-    const activeTimes = new Set();
     //process array and add all active hours into a set
+    // ie for [0,3] add 0,1,2 to set
+    const activeTimes = new Set();
 
     array.forEach(meeting => {
         // assume number in meeting array are sorted and only 2 elements
