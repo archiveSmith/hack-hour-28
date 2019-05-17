@@ -11,7 +11,15 @@
 
 
 function mergeRanges(array) {
+  let result = [];
+  let last;
 
+  array.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  array.forEach((range) => {
+    if (!last || range[0] > last[1]) result.push(last = range);
+    else if (range[1] > last[1]) last[1] = range[1];
+  });
+  return result;
 }
 
 module.exports = mergeRanges;
