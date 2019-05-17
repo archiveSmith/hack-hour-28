@@ -11,6 +11,8 @@
 
 // assuming numbers never go past 24 and each meeting is 1 hour.
 function mergeRanges(array) {
+    if (!array || !Array.isArray(array)) { console.log("Invalid input array:", array); return -1 };
+
     const activeTimes = new Set();
     //process array and add all active hours into a set
 
@@ -18,6 +20,7 @@ function mergeRanges(array) {
         // assume number in meeting array are sorted and only 2 elements
         if (meeting.length !== 2) { console.log("Imporoper formatted meeting information", meeting); return -1 }
         if (meeting[0] >= meeting[1]) { console.log("Improper formatted meeting information", meeting); return -1 }
+
         const start = meeting[0]
         const end = meeting[1]
 
@@ -53,7 +56,6 @@ function mergeRanges(array) {
 }
 var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
 let out = mergeRanges(times)
-
 
 
 // console.log("Out Array");
