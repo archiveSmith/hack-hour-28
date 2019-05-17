@@ -54,6 +54,8 @@ function mergeRanges(array) {
 var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
 let out = mergeRanges(times)
 
+
+
 // console.log("Out Array");
 // console.log(out);
 
