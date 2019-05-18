@@ -30,10 +30,21 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let ahead = head;
+  let follow = head;
 
+  while (ahead && ahead.next) {
+    follow = follow.next;
+    ahead = ahead.next;
+    if (follow === ahead) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle };
