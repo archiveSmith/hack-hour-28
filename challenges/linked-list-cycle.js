@@ -50,13 +50,43 @@ var node3 = node2.next = new Node('3');
 var node4 = node3.next = new Node('4');
 var node5 = node4.next = new Node('5');
 
+console.time("mein");
 out = hasCycle(node1);
-out
+console.timeEnd("mein");
+
 // => false
 node5.next = node2;
+console.time("meinloop");
 out = hasCycle(node1);
-out
+console.timeEnd("meinloop");
+
 // => true
+console.time("best");
+out = hasCycleBest(node1);
+console.timeEnd("best");
+
+// => false
+node5.next = node2;
+console.time("bestloop");
+out = hasCycleBest(node1);
+console.timeEnd("bestloop");
+
+//best solution from results:
+
+// "Tortoise & Hare"
+function hasCycleBest(linkedList) {
+  if (linkedList && linkedList.next) {
+    return findCycle(linkedList, linkedList.next);
+  }
+  return false;
+}
+
+function findCycle(tortoise, hare) {
+  if (tortoise === hare) {
+    return true;
+  }
+  return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next);
+}
 
 
 module.exports = { Node: Node, hasCycle: hasCycle }
