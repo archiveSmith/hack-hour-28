@@ -33,7 +33,21 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  //create slow and fast pointer
+  let tortoise = head;
+  let hare = head;
 
+  //while pointers exist and fast pointer has next value
+  while(hare != null && hare.next != null) {
+    //move slow by 1 and fast by 2 hops
+    tortoise = tortoise.next;          // 1 hop
+    hare = hare.next.next;     // 2 hops 
+
+    //if slow and fast meet then linked list contains a cycle
+    if(tortoise == hare)  // fast caught up to slow, so there is a loop
+      return true;
+  }
+  return false;  // fast reached null, so the list terminates
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
