@@ -12,14 +12,6 @@
  *
  * Create a function that accepts a linked list and returns true if the linked list has a cyclical reference
  *
- * var node1 = new Node('1');
- * var node2 = node1.next = new Node('2');
- * var node3 = node2.next = new Node('3');
- * var node4 = node3.next = new Node('4');
- * var node5 = node4.next = new Node('5');
- * hasCycle(node1); // => false
- * node5.next = node2;
- * hasCycle(node1); // => true
  *
  * Challenge 1: Do this in linear time
  * Challenge 2: Do this in constant space
@@ -30,10 +22,24 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
-
+  let store = [];
+  while (head.next && !store.includes(head.value)) {
+    store.push(head.value);
+    head = head.next;
+  }
+  if (store.includes(head.value)) return true;
+  if (!head.next) return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+var node1 = new Node("1");
+var node2 = (node1.next = new Node("2"));
+var node3 = (node2.next = new Node("3"));
+var node4 = (node3.next = new Node("4"));
+var node5 = (node4.next = new Node("5"));
+hasCycle(node1); //?
+node5.next = node3;
+hasCycle(node1); //?
+module.exports = { Node: Node, hasCycle: hasCycle };
