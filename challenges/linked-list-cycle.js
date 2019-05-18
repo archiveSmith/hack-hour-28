@@ -37,6 +37,7 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
+  debugger;
   let cache = {};
 
   function helper(currentNode) {
@@ -46,8 +47,8 @@ function hasCycle(head) {
       currentNode in cache) {
       return true
     } else {
-      cache[currentNode] = '';
-      helper(currentNode.next)
+      cache[currentNode.value] = '';
+      return helper(currentNode.next)
     }
   }
 
