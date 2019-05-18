@@ -38,7 +38,7 @@ function hasCycle(head) {
 
   while (ahead && ahead.next) {
     follow = follow.next;
-    ahead = ahead.next;
+    ahead = ahead.next.next;
     if (follow === ahead) {
       return true;
     }
