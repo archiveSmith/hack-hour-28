@@ -31,7 +31,8 @@ function hasCycle(head) {
     head = head.next;
   }
   if (store.includes(head.value)) return true;
-  if (!head.next) return false;
+  else if (!head.next) return false;
+  else return false;
 }
 
 var node1 = new Node("1");
