@@ -33,7 +33,26 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head) return false;
+  if (head.next === null) return false;
+  const targetNode = head.next;
+  let currNode = targetNode;
+  while (currNode) {
+    if (currNode.next === targetNode) return true;
+    if (currNode.next === null) return false;
+    currNode = currNode.next;
+  };
+};
 
-}
+
+const node1 = new Node('1');
+const node2 = node1.next = new Node('2');
+const node3 = node2.next = new Node('3');
+const node4 = node3.next = new Node('4');
+const node5 = node4.next = new Node('5');
+console.log(`${hasCycle(node1)} -> Should be: false`);
+node5.next = node2;
+console.log(`${hasCycle(node1)} -> Should be: true`);
+
 
 module.exports = {Node: Node, hasCycle: hasCycle}
