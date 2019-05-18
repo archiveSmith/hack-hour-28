@@ -19,6 +19,22 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
 
+
+
 }
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+
+console.log(addLinkedList('A'))
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

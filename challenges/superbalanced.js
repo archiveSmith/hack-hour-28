@@ -14,7 +14,16 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  if (!root) return -1;
 
+ const leftHeight = superbalanced(tree.left);
+ if (leftHeight === -Infinity) return -Infinity;
+
+ const rightHeight = superbalanced(tree.right);
+ if (rightHeight === -Infinity) return -Infinity;
+
+ const heightDiff = Math.abs(leftHeight - rightHeight);
+ return heightDiff > 1 ? -Infinity : Math.max(leftHeight, rightHeight) + 1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
