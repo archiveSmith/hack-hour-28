@@ -33,7 +33,28 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  // loop through linked list and for each node, save the value to the cache object
+  // if the value of the next node equals a value in the cache object, then return true
+  let current = head;
+  let cache = {};
+  while (current.next != null) {
+    if (cache[current.next.value]) {
+      return true;
+    }
+    // set cache value
+    cache[current.next.value] = true;
+    current = current.next;
+  }
+  return false;
 }
+
+//  var node1 = new Node('1');
+//  var node2 = node1.next = new Node('2');
+//  var node3 = node2.next = new Node('3');
+//  var node4 = node3.next = new Node('4');
+//  var node5 = node4.next = new Node('5');
+//  console.log(hasCycle(node1));
+//  node5.next = node2;
+//  console.log(hasCycle(node1));
 
 module.exports = {Node: Node, hasCycle: hasCycle}
