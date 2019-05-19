@@ -37,14 +37,14 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
-  debugger;
   let cache = {};
-
   function helper(currentNode) {
+    if (currentNode.value === null) return false;
     if (currentNode.next === null) {
       return false
     } else if (
-      currentNode.value in cache) {
+
+      cache.hasOwnProperty(currentNode.value)) {
       return true
     } else {
       cache[currentNode.value] = '';
@@ -53,7 +53,6 @@ function hasCycle(head) {
   }
 
   return helper(head);
-
 }
 
 module.exports = { Node: Node, hasCycle: hasCycle }
