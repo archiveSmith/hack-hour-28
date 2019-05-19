@@ -12,7 +12,7 @@ function twoSum(arr, n) {
     {
       mapper.set(i, n - arr[i])
     }
-     console.log(mapper.get(i));
+     mapper.get(i);
   }
 
   for(let i = 0; i < arr.length; i++)
@@ -28,6 +28,6 @@ function twoSum(arr, n) {
 return false;
 }
 
-console.log(twoSum([2,3,4,5],7))
+console.log(twoSum([2,3,4,6],8))
 
 module.exports = twoSum;
