@@ -33,20 +33,26 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  //If there are only one or two nodes a cycle cant exist.
   if(head === null || head.next === null)
   {
     return false;
   }
 
+  //Set first node to Slow and fast node to Fast.
   let slow = head;
   let fast = head.next;
 
+  //While both node are not equal to each other.
   while(slow !== fast)
   {
+    //If fast runner hits null there is no cycle, return fasle.
     if(fast === null || fast.next === null)
     {
       return false;
     }
+
+    //Move Slow runner one Nodes and Fast runner two Nodes.
     slow = slow.next;
     fast = fast.next.next;
   }
