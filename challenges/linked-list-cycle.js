@@ -44,7 +44,7 @@ function hasCycle(head) {
     if (currentNode.next === null) {
       return false
     } else if (
-      currentNode in cache) {
+      currentNode.value in cache) {
       return true
     } else {
       cache[currentNode.value] = '';
