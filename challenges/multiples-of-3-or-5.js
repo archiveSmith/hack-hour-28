@@ -19,10 +19,28 @@ function sumMultiples3Or5Below1000() {
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
+  console.log(`x:${x} y:${y} z:${z}`);
   let sum = 0;
+  if( typeof x !== 'number' || typeof y !== 'number' || typeof z !== 'number') {
+    console.log('entries must be of type number');
+    return -1;
+  }
 
+  for (let i = 0; i <= z ; i++) {
+    if(i % x === 0) sum += i; 
+    if(i % y === 0) sum += i; 
+  }
   return sum;
 }
+
+let out;
+
+out = sumMultiples3Or5Below1000();
+out
+
+out = sumMultiplesXOrYBelowZ(3,5,1000)
+out
+
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
