@@ -7,9 +7,8 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-  for (let i = 0; i <= 1000 ; i++) {
-    if(i % 3 === 0) sum += i; 
-    if(i % 5 === 0) sum += i; 
+  for (let i = 0; i < 1000 ; i++) {
+    if(i % 3 === 0 || i % 5 === 0) sum += i;
   }
   return sum;
 }
@@ -26,9 +25,8 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
     return -1;
   }
 
-  for (let i = 0; i <= z ; i++) {
-    if(i % x === 0) sum += i; 
-    if(i % y === 0) sum += i; 
+  for (let i = 0; i < z ; i++) {
+    if(i % x === 0 || i % y === 0) sum += i; 
   }
   return sum;
 }
@@ -38,7 +36,7 @@ let out;
 out = sumMultiples3Or5Below1000();
 out
 
-out = sumMultiplesXOrYBelowZ(3,5,1000)
+out = sumMultiplesXOrYBelowZ(3,5,10)
 out
 
 
