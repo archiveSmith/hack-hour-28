@@ -33,6 +33,6 @@ function repeatNumbers(array) {
   return false;
 }
 
-console.log(repeatNumbers([1,2,3,4,5]));
+//console.log(repeatNumbers([1,2,3,4,5]));
 
 module.exports = repeatNumbers;
