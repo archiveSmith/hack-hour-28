@@ -35,11 +35,11 @@ var Node = function(value) {
 function hasCycle(head) {
   let value = [];
   while(head){
-    if(head.next === null) return false;
     if(value.includes(head.value)) return true;
     value.push(head.value);
     head = head.next;
   }
+  return false
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
