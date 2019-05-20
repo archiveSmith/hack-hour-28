@@ -6,7 +6,20 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
+  let sumArr = [];
+  for(let i = 0; i < 1000; i++){
+    if(i % 3 === 0 || i % 5 === 0){
+      sumArr.push(i);
+    }
+  }
+  const total = sumArr.reduce((rt, ele)=>{
+    rt += ele;
+    return rt;
+  }, 0)
+
+  
   let sum = 0;
+  sum = total;
 
   return sum;
 }
