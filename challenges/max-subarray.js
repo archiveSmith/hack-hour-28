@@ -7,8 +7,32 @@
  *
  */
 
-function maxSubarray(arr) {
-
+function sumArray(arr){
+    return arr.reduce((acc,curr)=>{
+        return acc + curr;
+    })
 }
+
+
+function maxSubarray(arr) {
+    const maxArray = [];
+    for (let i = 0; i <= array.length; i++) {
+        for (let j = i + 1; j <= array.length; j++) {
+            
+            const subArray = arr.slice(i,j);
+            console.log(`Summing: ${subArray}`);
+            maxArray.push(sumArray(subArray));
+        }
+        const element = array[i];
+        
+    }
+    return Math.max(...maxArray);
+}
+
+// let array = [1, -2, 3, 10, -4, 7, 2, -5];
+
+// out = maxSubarray(array)
+// out  
+
 
 module.exports = maxSubarray;
