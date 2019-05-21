@@ -23,11 +23,12 @@ function maxSubarray(arr) {
 
   // Iterate through the array from the beginning to find negative numbers and compare them to totalSum of array 
   // to see if the sum is greater without those elements
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i] < 0) {
       let testArr = arr.slice(i + 1);
-      if (testArr.reduce(getSum) > solutionArr) {
+      if (testArr.reduce(getSum) > totalSum) {
         solutionArr = testArr;
+        totalSum = solutionArr.reduce(getSum);
       }
     }
   }
@@ -36,8 +37,9 @@ function maxSubarray(arr) {
   for (let i = solutionArr.length - 1; i > 0; i--) {
     if (solutionArr[i] < 0) {
       let testArr = solutionArr.slice(0, i);
-      if (testArr.reduce(getSum) > solutionArr) {
+      if (testArr.reduce(getSum) > totalSum) {
         solutionArr = testArr;
+        totalSum = solutionArr.reduce(getSum);
       }
     }
   }
