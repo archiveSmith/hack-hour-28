@@ -15,35 +15,37 @@ function sumArray(arr) {
 
 
 function maxSubarray(arr) {
-    const maxArray = [];
+    let max = -Infinity;
+
     for (let i = 0; i <= arr.length; i++) {
         for (let j = i + 1; j <= arr.length; j++) {
 
             const subArray = arr.slice(i, j);
-            maxArray.push(sumArray(subArray));
+            let sum = sumArray(subArray)
+            if(sum > max) max = sum;
         }
         const element = arr[i];
-
     }
-    return Math.max(...maxArray);
+    
+
+    return max;
 }
 
 
-// let array = [1, -2, 3, 10, -4, 7, 2, -5];
+function makeArray(size) {
+    const newArr = [];
+    for (let i = 0; i < size; i++) {
+        newArr.push(Math.floor(Math.random() * 200) - 100) //random number between -100 and 100
+    }
+    return newArr;
+}
 
-// out = maxSubarray(array)
-// out  
+let randArr = makeArray(1000);
 
-// function makeArray(size) {
-//     const newArr = [];
-//     for (let i = 0; i < size; i++) {
-//         newArr.push(Math.floor(Math.random() * 200) - 100) //random number between -100 and 100
-//     }
-//     return newArr;
-// }
+console.log("Array Created");
 
-// let randArr = makeArray(1000);
-
-// bigMax = maxSubarray(randArr); 
+console.time("max");
+bigMax = maxSubarray(randArr); 
+console.timeEnd("max");
 
 module.exports = maxSubarray;
