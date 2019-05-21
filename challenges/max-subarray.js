@@ -8,7 +8,18 @@
  */
 
 function maxSubarray(arr) {
-
+  let max = -Infinity
+  let maxEnding = 0
+  for (let i = 0; i < arr.length; i += 1) {
+    maxEnding += arr[i]
+    if (max < maxEnding) max = maxEnding;
+    if (maxEnding < 0) maxEnding = 0;
+  }
+  return max
 }
+
+console.log(`${maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])} -> Should equal: 18`);
+console.log(`${maxSubarray([15,20,-5,10])} -> Should equal: 40`);
+
 
 module.exports = maxSubarray;
