@@ -12,7 +12,7 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
+const anagrams = (string) => {
 
 }
 
