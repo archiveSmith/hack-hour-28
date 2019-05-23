@@ -16,6 +16,19 @@ var Node = function (value) {
   }
 
 function deleteDups(head) {
+
+
+    function stringifyList(list) {
+        let retval = '';
+        while (list != null) {
+          retval = retval + list.value + ' ';
+          list = list.next;
+        }
+        return retval;
+      }
+      console.log(stringifyList(head));
+    
+
     let length = 0;
     curr = head;
     if(head === null) return;
@@ -85,15 +98,15 @@ function stringifyList(list) {
     }
     return retval;
   }
+  console.log(stringifyList(list));
 
 array = [1,2,3,4,5,3,6,6,7,3]
 list = makeList(array);
 
-// console.log(stringifyList(list));
 
 deleteDups(list);
 
-// console.log(stringifyList(list));
+console.log(stringifyList(list));
 
 
 
