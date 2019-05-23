@@ -18,10 +18,12 @@ function deleteDups(head) {
     while (current.next){
         if (values[current.value]){
             previous.next = current.next;
+            current = previous.next;
+        } else {
+            values[current.value] = true;
+            previous = current;
+            current = current.next;
         }
-        values[current.value] = true;
-        previous = current;
-        current = current.next;
     }
     if (values[current.value]) {
         previous.next = null;
@@ -35,8 +37,8 @@ let Node = function (value) {
 }
 
 const nodeA = new Node(1);
-const nodeB = new Node(2);
-const nodeC = new Node(3);
+const nodeB = new Node(1);
+const nodeC = new Node(1);
 const nodeD = new Node(4);
 const nodeE = new Node(5);
 
