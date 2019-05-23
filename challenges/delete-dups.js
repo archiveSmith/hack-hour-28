@@ -24,7 +24,7 @@ function deleteDups(head) {
         length++
         curr = curr.next;
     }
-    // console.log(`Length is ${length}`);
+    console.log(`Length is ${length}`);
 
     // console.log('Get value of ith node');
     for (let i = 0; i < length; i++) {
