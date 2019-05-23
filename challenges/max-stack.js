@@ -6,6 +6,8 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
+ //Hello
+
 function Stack() {
   this.storage = [];
   this.max = -Infinity;
@@ -48,12 +50,7 @@ bob.pop();
 
 console.log(bob.getMax());
 
-
-
 module.exports = Stack;
-
-
-
 
 function CSStack() {
   this.length = 0
