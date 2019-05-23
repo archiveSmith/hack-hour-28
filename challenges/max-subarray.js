@@ -8,7 +8,16 @@
  */
 
 function maxSubarray(arr) {
+  let mapper = new Map();
+  let total = 0;
 
+  for(let i = 0; i < arr.length; i++)
+  {
+    if(mapper.has(arr[i]))
+    total += total + arr
+  }
+  mapper.set(arr[i] + arr[i + 1]);
 }
 
+console.log(maxSubarray([[15,20,-5,10]]));
 module.exports = maxSubarray;

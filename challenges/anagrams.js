@@ -13,7 +13,12 @@
   */
 
 function anagrams(string) {
+  let newArr = [];
 
+  for(let i = 0; i < string.length; i++)
+  {
+    
+  }
 }
 
 module.exports = anagrams;
