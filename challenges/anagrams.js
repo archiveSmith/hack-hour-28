@@ -13,6 +13,17 @@
   */
 
 const anagrams = (string) => {
+  let outputArr = [];
+
+  //two pointers, begin and end
+  let i = string.length-2
+  let k = string.length-1;
+
+  while(k > 0 && i === 0){
+    [string[k], string[i]] = [string[i], string[k]]
+    i--
+    k--;
+  }
 
 }
 
