@@ -13,7 +13,7 @@
 var Node = function (value) {
     this.value = value;
     this.next = null;
-  }
+}
 
 function deleteDups(head) {
 
@@ -21,19 +21,19 @@ function deleteDups(head) {
     function stringifyList(list) {
         let retval = '';
         while (list != null) {
-          retval = retval + list.value + ' ';
-          list = list.next;
+            retval = retval + list.value + ' ';
+            list = list.next;
         }
         return retval;
-      }
-      console.log(stringifyList(head));
-    
+    }
+    console.log(stringifyList(head));
+
 
     let length = 0;
     curr = head;
-    if(head === null) return;
+    if (head === null) return;
     // console.log('get Length');
-    while( curr !== null){  //traverse list to find out how long we need to go
+    while (curr !== null) {  //traverse list to find out how long we need to go
         length++
         curr = curr.next;
     }
@@ -46,8 +46,8 @@ function deleteDups(head) {
         curr = head;
         position = 0;
         valToRemove = null;
-        while(curr !== null){
-            if(position === i ){ 
+        while (curr !== null) {
+            if (position === i) {
                 valToRemove = curr.value;
                 break;
             }
@@ -58,20 +58,35 @@ function deleteDups(head) {
         // console.log(`Looking for ${valToRemove}`);
         //remove any repeats from the list - can start at curr
         prev = curr;
-        if(curr) curr = curr.next;
-        while(curr !== null){
-            if(curr.value === valToRemove){
+        if (curr) curr = curr.next;
+        while (curr !== null) {
+            if (curr.value === valToRemove) {
                 // console.log(`Found ${valToRemove} - cutting out`);
                 prev.next = curr.next;
 
-                length--;                
+                length--;
             }
             prev = curr;
             curr = curr.next;
             // console.log('');
             // console.log(stringifyList(head));
         }
-        
+
+    }
+    return head;
+}
+
+
+function deleteDupsTim(head) {
+    let current = head;
+
+    while (current !== null && current.next !== null) {
+        if (current.val === current.next.val) {
+            current.next = current.next.next;
+        }
+        else {
+            current = current.next;
+        }
     }
     return head;
 }
@@ -93,18 +108,18 @@ function makeList(array) {
 function stringifyList(list) {
     let retval = '';
     while (list != null) {
-      retval = retval + list.value + ' ';
-      list = list.next;
+        retval = retval + list.value + ' ';
+        list = list.next;
     }
     return retval;
-  }
-  console.log(stringifyList(list));
+}
 
-array = [1,2,3,4,5,3,6,6,7,3]
+array = [1, 2, 3, 4, 5, 3, 6, 6, 7, 3]
 list = makeList(array);
 
+console.log(stringifyList(list));
 
-deleteDups(list);
+deleteDupsTim(list);
 
 console.log(stringifyList(list));
 
