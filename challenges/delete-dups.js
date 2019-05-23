@@ -12,22 +12,17 @@
 
 
 function deleteDups(head) {
-  let nodes = {};
+  let curr = head;
 
-  let pointer1 = this.head;
-  let pointer2 = pointer1.next;
-  nodes[pointer1.val] = true;
-
-  while(pointer2){
-    let val = pointer2.val;
-    if(nodes[val]){
-      pointer1.next = pointer2.next;
-    } else {
-      nodes[val] = true
-      pointer1 = pointer2
+  while(curr && curr.next){
+    if(curr.val = curr.next.val){
+      curr.next = curr.next.next
+    } else{
+      curr = curr.next
     }
-    pointer2 = pointer2.next
   }
+  return head;
+  
 };
 
 module.exports = deleteDups;
