@@ -11,9 +11,23 @@
  */
 
 
-
 function deleteDups(head) {
-
+  let current = head;
+  let nextPointer = current.next;
+  if(head === null) {return undefined};
+  while(nextPointer != null){
+    if(current != nextPointer){
+      current = nextPointer;
+      nextPointer = nextPointer.next;
+    }
+    if(current === nextPointer){
+      current = nextPointer
+      nextPointer = nextPointer.next;
+      delete current;
+    } 
+  }
+  return head;
 }
+
 
 module.exports = deleteDups;
