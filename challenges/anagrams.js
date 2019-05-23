@@ -13,7 +13,28 @@
   */
 
 function anagrams(string) {
+  let combinations = [];
 
+  //if there's only one letter in the string, return it out in the array.
+  if (string.length === 0 || string.length === 1) {
+    combinations.push(string);
+    return combinations;
+  }
+  
+  for (var i = 0; i < string.length; i++) {
+    let firstChar = string[i];
+    console.log(firstChar)
+    let charsLeft = string.substring(0, i) + string.substring(i + 1);
+    console.log(charsLeft)
+    let innerPermutations = anagrams(charsLeft);
+    console.log(innerPermutations)
+    for (let j = 0; j < innerPermutations.length; j++) {
+      combinations.push(firstChar + innerPermutations[j]);
+    }
+  }
+  return combinations;
 }
+
+console.log(anagrams('abc'))
 
 module.exports = anagrams;
