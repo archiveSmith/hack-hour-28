@@ -26,9 +26,8 @@ function deleteDups(head) {
         }
         return retval;
     }
-    console.log(stringifyList(head));
-
-
+    
+    
     let length = 0;
     curr = head;
     if (head === null) return;
@@ -38,9 +37,10 @@ function deleteDups(head) {
         curr = curr.next;
     }
     console.log(`Length is ${length}`);
-
+    
     // console.log('Get value of ith node');
     for (let i = 0; i < length; i++) {
+        console.log(stringifyList(head));
         // console.log(`i:${i}   length:${length}`);
         //get value of i-th thing in list
         curr = head;
@@ -55,15 +55,15 @@ function deleteDups(head) {
             position++;
         }
 
-        // console.log(`Looking for ${valToRemove}`);
+        console.log(`Looking to Remove ${valToRemove}==========================`);
         //remove any repeats from the list - can start at curr
         prev = curr;
         if (curr) curr = curr.next;
         while (curr !== null) {
+            console.log(`Looking at: ${curr.value}`);
             if (curr.value === valToRemove) {
-                // console.log(`Found ${valToRemove} - cutting out`);
+                console.log(`Found ${valToRemove} - cutting out`);
                 prev.next = curr.next;
-
                 length--;
             }
             prev = curr;
@@ -114,12 +114,12 @@ function stringifyList(list) {
     return retval;
 }
 
-array = [1, 2, 3, 4, 5, 3, 6, 6, 7, 3]
+array = [1, 2, 3, 4, 5, 3, 6,6,6, 7, 3]
 list = makeList(array);
 
 console.log(stringifyList(list));
 
-deleteDupsTim(list);
+deleteDups(list);
 
 console.log(stringifyList(list));
 
