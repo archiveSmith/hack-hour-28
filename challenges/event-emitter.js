@@ -26,29 +26,99 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-    
-    this.funcObj[funcName] = func;
+    if(this.funcObj[funcName]){
+        this.funcObj[funcName].add(func); 
+    }else{
+        this.funcObj[funcName] = new Set();  //set prevents duplications
+        this.funcObj[funcName].add(func);
+    }
     console.log(`Func ${funcName}: ${func}  --- added`);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
+    console.log(`func:${funcName} Args:${args}`);
     if(!this.funcObj[funcName]) return;    
-    const func = this.funcObj[funcName];
 
-    func(...args);
+    this.funcObj[funcName].forEach(func => {
+        func(...args);        
+    });;
+
 };
 
-const mitter = new EventEmitter;
+// const mitter = new EventEmitter;
 
-const myFunc = function(arg1 = "de", arg2 = "fault"){
-    console.log(`1:${arg1}${arg2}:2`);
-}
+// let counter = 0;
+// let counter2 = 0;
 
-mitter.on('say',myFunc);
+// mitter.on('increment',()=>{
+//     counter++;
+// })
+// // mitter.on('increment_2',()=>{
+// //     counter2++;
+// // })
+// // mitter.on('increment',()=>{
+// //     counter2++;
+// // })
 
-mitter.trigger('say');
-mitter.trigger('say',1);
-mitter.trigger('say',1,2);
+// mitter.trigger("increment",1,2,3,4);
+// console.log('counter: ', counter);
+// console.log('counter2: ', counter2);
+// mitter.trigger("increment");
+// console.log('counter: ', counter);
+// console.log('counter2: ', counter2);
+// mitter.trigger("increment");
+// // mitter.trigger("increment_2");
+// // mitter.trigger("increment_2");
+// console.log('counter: ', counter);
+// console.log('counter2: ', counter2);
+
+
+// const myFunc = function(arg1 = "de", arg2 = "fault"){
+//     console.log(`1:${arg1}${arg2}:2`);
+// }
+// const myFunc2 = function(arg1 = "de", arg2 = "fault"){
+//     console.log(`One:${arg1}${arg2}:two`);
+// }
+
+// mitter.on('say',myFunc);
+// mitter.on('say',myFunc);
+// mitter.on('say',myFunc2);
+
+// mitter.trigger('say');
+// console.log("================");
+// mitter.trigger('say',1);
+// console.log("================");
+
+// mitter.trigger('say',1,2);
 
 
 module.exports = EventEmitter;
+
+
+
+// // Func say: 
+
+ 
+// //  Func increment: 
+//  function () { count++; } 
+ 
+//  --- added 
+// //  Func  increment: 
+//  function () { count++; } 
+ 
+// //  --- added 
+ 
+// //  Func increment_2: 
+//  function () { count_2++; } 
+// //  --- added 
+ 
+//  Func 
+// //  increment: 
+//  function () { count++; } 
+// //  --- added 
+ 
+// //  Func increment: 
+ 
+//  function () { count_2++; } 
+ 
+// //  --- added
