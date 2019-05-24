@@ -22,15 +22,21 @@
  */
 
 function EventEmitter() {
-
+    //[listener] = [arr of funcs to do when triggered]
+    this.listeners = {}
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+    if(this.listeners[funcName]) this.listeners[funcName].push(func)
+    else this.listeners[funcName] = [func]
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+    this.listeners[funcName].forEach(func=>{func(...args)})
 };
+
+
+const obj = new EventEmitter();
+
 
 module.exports = EventEmitter;
