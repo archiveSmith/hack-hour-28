@@ -22,7 +22,7 @@
  */
 
 function EventEmitter() {
-    const funcObj = {};
+    this.funcObj = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
@@ -33,7 +33,20 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
     if(!this.funcObj[funcName]) return;    
     const func = this.funcObj[funcName];
 
-    func(args);
+    func(...args);
 };
+
+const mitter = new EventEmitter;
+
+const myFunc = function(arg1 = "de", arg2 = "fault"){
+    console.log(`1:${arg1}${arg2}:2`);
+}
+
+mitter.on('say',myFunc);
+
+mitter.trigger('say');
+mitter.trigger('say',1);
+mitter.trigger('say',1,2);
+
 
 module.exports = EventEmitter;
