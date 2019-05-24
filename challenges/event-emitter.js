@@ -30,12 +30,29 @@ EventEmitter.prototype.on = function(funcName, func) {
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-  for (const funcOption in triggerOptions) {
+  for (const funcOption in this.triggerOptions) {
     if (funcName === funcOption) {
-      let storedFunc = this.store[funcOption];
+      let storedFunc = this.triggerOptions[funcOption];
       storedFunc(...args);
     }
   }
 };
+
+const instance = new EventEmitter();
+let count = 0;
+
+instance.on("increment", function() {
+  count++;
+});
+
+instance.on("decrement", function() {
+  count--;
+});
+
+instance.trigger("increment");
+console.log(count);
+
+instance.trigger("decrement");
+console.log(count);
 
 module.exports = EventEmitter;
