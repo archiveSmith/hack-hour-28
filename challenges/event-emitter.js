@@ -26,7 +26,9 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
+    
     this.funcObj[funcName] = func;
+    console.log(`Func ${funcName}: ${func}  --- added`);
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
