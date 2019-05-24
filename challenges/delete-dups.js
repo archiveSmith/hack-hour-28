@@ -39,6 +39,8 @@ function deleteDups(head) {
     console.log(`Length is ${length}`);
     
     // console.log('Get value of ith node');
+    // looking back I realized I didn't need to keep track of things with a for loop
+    // a pointer would have been fine and not require an extra traversal.
     for (let i = 0; i < length; i++) {
         console.log(stringifyList(head));
         // console.log(`i:${i}   length:${length}`);
@@ -64,6 +66,10 @@ function deleteDups(head) {
             if (curr.value === valToRemove) {
                 console.log(`Found ${valToRemove} - cutting out`);
                 prev.next = curr.next;
+                while(curr.next && curr.next.value === valToRemove){
+                    prev.next = curr.next.next;
+                    curr = curr.next
+                }
                 length--;
             }
             prev = curr;
@@ -114,14 +120,14 @@ function stringifyList(list) {
     return retval;
 }
 
-array = [1, 2, 3, 4, 5, 3, 6,6,6, 7, 3]
-list = makeList(array);
+// array = [1, 2, 3, 4, 5, 3, 6,6,6, 7, 3]
+// list = makeList(array);
 
-console.log(stringifyList(list));
+// console.log(stringifyList(list));
 
-deleteDups(list);
+// deleteDups(list);
 
-console.log(stringifyList(list));
+// console.log(stringifyList(list));
 
 
 
