@@ -14,8 +14,7 @@ function pow(base, power, flag = false) {
         return negative;
     }
 }
-
-
+ 
 function powShift(base, power) {
 
     let result = 1;

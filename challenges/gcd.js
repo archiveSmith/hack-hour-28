@@ -18,7 +18,7 @@ function gcd(a, b) {
 
     return undefined;
 }
-
+ 
 
 // console.log(gcd(10,8));
 // console.log(gcd(10,8));

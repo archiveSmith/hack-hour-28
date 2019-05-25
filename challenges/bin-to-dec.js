@@ -12,7 +12,7 @@
  * Extension:
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
-
+ 
 function binToDec(binary) {
     const array = binary.split('');
     let result = 0;

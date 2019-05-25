@@ -24,7 +24,7 @@ function countTwos(num) {
     return count;
 
 }
-
+ 
 
 function bruteForce(num) {
     var count = 0;

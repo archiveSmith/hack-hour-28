@@ -4,7 +4,7 @@
  *
  * BONUS: Do this in place
  */
-
+ 
 function Node(val) {
   this.value = val;
   this.next = null;

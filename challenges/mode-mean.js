@@ -1,4 +1,4 @@
-
+ 
 //returns the Math.floor of the mean of the numbers in array
 function getMean(array){
     //VALIDATION: ARRAY is all integers

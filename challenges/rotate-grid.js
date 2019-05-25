@@ -17,15 +17,33 @@
  */
 
 function rotateGrid(grid, n) {
+    const newGrid = [];
 
-    //make n blank arrays
+    //create blank grid
+    for (let i = 0; i < n; i++) {
+        newGrid.push([]);        
+    }
 
-    //for loop through grid array
+    for (let i = 0; i < grid.length; i++) {
+        const row = grid[i];
+        for (let j = 0; j < row.length; j++) {
+            const element = row[j];
+            console.log(`Adding to ${j},${n - 1 - i}`);
+            newGrid[j][n-1-i] = element;
+        }
 
-    //make newArray0 = grid[0][0], grid[1][0],grid[2][0] etc
-    //make newArray1 = grid[0][1], grid[1][1],grid[2][1] etc
-
-
+    }
+    return newGrid;
 }
+
+grid = [[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]]
+
+newGrid = rotateGrid(grid,3);
+
+console.log("\nResults:");
+console.log(grid);
+console.log(newGrid);
 
 module.exports = rotateGrid;

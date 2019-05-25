@@ -18,7 +18,7 @@
 //     product = first * second * third;
 //     return product;
 // }
-
+ 
 function highestProduct(array){
     if(!Array.isArray(array)) return 0;
     if(array.length < 3) return 0;

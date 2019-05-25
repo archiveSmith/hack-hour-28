@@ -23,7 +23,7 @@
  *
  *
  */
-
+ 
 function balancedParens(input){
     const parenArray = [];
     for (let i = 0; i < input.length; i++) {

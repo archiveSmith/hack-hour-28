@@ -14,6 +14,7 @@
 
 const foundGrams = new Set();
 
+
 function arrayGrams(strArr) {
   if (strArr.length == 1) return [strArr];
   // console.log(strArr);

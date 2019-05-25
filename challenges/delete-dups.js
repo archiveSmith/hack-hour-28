@@ -20,7 +20,7 @@ var Node = function (value) {
 // and use that to keep track of which elements I was looking at.
 
 // still O(n^2) but more like 3n^2 
-
+ 
 function deleteDups(head) {
 
     let length = 0;

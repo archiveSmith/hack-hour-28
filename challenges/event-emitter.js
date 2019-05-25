@@ -20,7 +20,7 @@
  *   listeners.
  * - It is not necessary to write a way to remove listeners.
  */
-
+ 
 function EventEmitter() {
     this.funcObj = {};
 }

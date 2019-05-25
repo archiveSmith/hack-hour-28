@@ -12,7 +12,7 @@
 ******
 
 */
-
+ 
 //returns a string of length total, 
 function makeLevel(total,currLen){
     let output = '';

@@ -18,7 +18,7 @@ function Stack() {
         return this.storage.length;
     }
 }
-
+ 
 
 /**
 * Queue Class

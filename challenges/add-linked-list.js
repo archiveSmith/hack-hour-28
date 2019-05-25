@@ -17,6 +17,7 @@ function Node(val) {
   this.next = null;
 }
 
+
 function addLinkedList(l1, l2) {
   if (l1 === null) return l2;
   if (l2 === null) return l1;
