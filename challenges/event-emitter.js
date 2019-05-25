@@ -22,15 +22,36 @@
  */
 
 function EventEmitter() {
-
+  this.funcs = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if(!this.funcs.hasOwnProperty(funcName)) {
+    this.funcs[funcName] = [func];
+  } else {
+    this.funcs[funcName].push(func);
+  }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  let funcs = this.funcs[funcName];
+  funcs.forEach((f) => {
+    f(args);
+  })
 };
+/*
+let e = new EventEmitter();
+let counter = 0;
+e.on('increment', function() {
+  counter ++
+});
+e.on('increment', function() {
+  counter ++
+});
+console.log(e.funcs);
+e.trigger('increment');
+e.trigger('increment');
 
+console.log(counter);
+*/
 module.exports = EventEmitter;
