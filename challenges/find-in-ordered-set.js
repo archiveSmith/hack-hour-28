@@ -9,9 +9,24 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
-
+  let half = parseInt(arr.length/2);
+  if (arr[half] === target) {
+    return true;
+  } else if (arr[half] > target) {
+    for (let i =0; i<half; i++) {
+      if (arr[i] === target) {
+        return true;
+      }
+    }
+  } else if (arr[half] < target) { 
+    for (let i=half; i<arr.length; i++) {
+      if (arr[i] === target) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 
