@@ -9,10 +9,13 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
+const findInOrderedSet = (arr, target) => {
+  const noDupeSet = new Set(arr);
 
-function findInOrderedSet(arr, target) {
-
-}
-
+  if (noDupeSet.has(target)) {
+    return true;
+  }
+  return false;
+};
 
 module.exports = findInOrderedSet;
