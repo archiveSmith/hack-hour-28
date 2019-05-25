@@ -13,7 +13,19 @@
   */
 
 function anagrams(string) {
-
+  const ag = [];
+  for(let i = 0; i < string.length; i++) {
+    let as = `${string[i]}`
+    for(let j = string.length; j >= 0; j--) {
+      if(string[j] !== string[i]) {
+        as += string[j]
+      }
+    }
+    ag.push(as);
+  }
+  return ag;
 }
+
+// console.log(anagrams('abc'))
 
 module.exports = anagrams;

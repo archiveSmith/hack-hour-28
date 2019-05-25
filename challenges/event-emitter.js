@@ -22,11 +22,11 @@
  */
 
 function EventEmitter() {
-
+    let event = new EventEmitter();
+    
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {

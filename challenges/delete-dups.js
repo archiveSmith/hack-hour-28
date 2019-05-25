@@ -13,7 +13,8 @@
 
 
 function deleteDups(head) {
-
+    // assign head.value and check next.value 
+    
 }
 
 module.exports = deleteDups;
