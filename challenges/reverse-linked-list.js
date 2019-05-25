@@ -26,7 +26,7 @@ function reverseLinkedList(head) {
     }
     return t2;
 }
-
+ 
 
 function makeList(array) {
     let head = new Node(array[0]);

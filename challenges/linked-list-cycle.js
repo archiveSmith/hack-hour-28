@@ -23,7 +23,7 @@ var Node = function (value) {
   this.value = value;
   this.next = null;
 }
-
+ 
 // a circular reference will result in an infanite loop
 // if code is still running after checktime, see if the current node appears again
 // checkTime should be much longer than expected to run through entire list

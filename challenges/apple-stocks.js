@@ -11,7 +11,7 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-
+ 
 function bestProfit(array) {
     if (Array.isArray(array) == false) return 0;
 

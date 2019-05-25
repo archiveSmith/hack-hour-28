@@ -36,7 +36,7 @@ Stack.prototype.getMax = function () {
   if(this.storage.length === 0 ) return undefined;
   return this.max;
 }
-
+ 
 
 let bob = new Stack;
 

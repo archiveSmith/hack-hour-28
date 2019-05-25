@@ -31,7 +31,7 @@ function maxSubarray(arr) {
     return max;
 }
 
-
+ 
 function makeArray(size) {
     const newArr = [];
     for (let i = 0; i < size; i++) {

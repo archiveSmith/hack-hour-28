@@ -20,7 +20,7 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
+ 
 //Way of doing it will a parelle linked list, should be more time effecient, 
 //but wouldn't be suprised if array native methods are fast enought to make up for it
 function kthToLastNodeList(k, head) {

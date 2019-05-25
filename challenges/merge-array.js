@@ -13,7 +13,7 @@
  *
  */
 
- 
+  
 function mergeArrays(arr1, arr2) {
 
     let i = j = 0;

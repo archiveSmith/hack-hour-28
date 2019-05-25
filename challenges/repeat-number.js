@@ -23,7 +23,7 @@ function repeatNumbers(array) {
     }
     return null;
 }
-
+ 
 function repeatNumbersSpace(array){
     array = array.sort((a,b) => a - b);
     let prev;

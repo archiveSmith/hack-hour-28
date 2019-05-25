@@ -21,7 +21,7 @@
 // 2. The smaller letter must be 1/5th or 1/10th of the larger one.
 // 3. The smaller letter must either be the first letter or preceded by a letter at least ten times larger than it.
 // 4. If another letter follows the larger one, it must be smaller than the number preceding the larger one.
-
+ 
 table = [
     { 1000: 'M' },
     { 900: 'CM' },

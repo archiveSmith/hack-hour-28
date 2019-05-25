@@ -14,7 +14,7 @@
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
-
+ 
 //runtime is still O(N) but we do a descent amount of prework to eliminate bad strings at the beginning
 function stringRotationMein(s1, s2) {
 

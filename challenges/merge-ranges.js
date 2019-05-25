@@ -8,7 +8,7 @@
  *
  * Do not assume the ranges are in order
  */
-
+ 
 // assuming numbers never go past 24 and each meeting is 1 hour.
 function mergeRanges(array) {
     if (!array || !Array.isArray(array)) { console.log("Invalid input array:", array); return -1 };

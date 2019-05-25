@@ -18,7 +18,7 @@ function linerSearch(arr, target) {
     }
     return false;
 }
-
+ 
 function findInOrderedSet(arr, target, threshHold = 3) {
 
     console.log(`Searching for ${target} array of size:${arr.length}`);
