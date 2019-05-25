@@ -19,7 +19,6 @@ function linerSearch(arr, target) {
     return false;
 }
 
-
 function findInOrderedSet(arr, target, threshHold = 3) {
 
     console.log(`Searching for ${target} array of size:${arr.length}`);
@@ -34,9 +33,9 @@ function findInOrderedSet(arr, target, threshHold = 3) {
     // console.log(arr);
     // look in left or right array depending on 
     for (; ;) { //only way out is the return of linerSearch
-        if (right - left < threshHold){
-            console.log('Runs:',runs);
-              return linerSearch(arr.slice(left,right), target);    
+        if (right - left < threshHold) {
+            console.log('Runs:', runs);
+            return linerSearch(arr.slice(left, right), target);
         }
 
         const mid = Math.floor((right - left) / 2) + left;
@@ -52,9 +51,9 @@ function findInOrderedSet(arr, target, threshHold = 3) {
             return true;
         }
 
-        runs++;   
+        runs++;
     }
-    
+
 }
 
 function makeOrderedArray(size) {
@@ -69,7 +68,7 @@ function makeOrderedArray(size) {
 }
 
 // console.time("Make Array")
-// let array = makeOrderedArray(70000000);
+// let array = makeOrderedArray(7000000);
 // console.timeEnd("Make Array")
 // console.log();      
 
@@ -88,8 +87,7 @@ function makeOrderedArray(size) {
 // console.time(`Time for: ${target}`)
 // out = findInOrderedSet(array, target, threshHold);
 // console.timeEnd(`Time for: ${target}`);
-// console.log(`${target} in array?:${out}`);
-// console.log();
+
 
 
 module.exports = findInOrderedSet;
