@@ -27,6 +27,6 @@ return strArr.reduce((sum, ele)=>{
 },0)
 }
 
-}
+
 
 module.exports = countTwos;
