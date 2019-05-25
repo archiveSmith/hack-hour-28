@@ -29,7 +29,8 @@
 			inner(copy, newStr.concat(stringy[i]));
 		}
 	}
-	inner(string, []);
+  inner(string, []);
+  result = [...new Set(result)];
 	return result;
 }
 anagrams('dog');
