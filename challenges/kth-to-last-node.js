@@ -21,8 +21,16 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
-
+function kthToLastNode(k, head, arrayOfVals = []) {
+  if(this.head === undefined) {
+    this.head = head;
+  }
+  arrayOfVals.push(head.value)
+  if (head.next === null && k > arrayOfVals.length){
+    return "k is greater than length of your array";
+  }
+  if (head.next === null) return arrayOfVals[arrayOfVals.length - k];
+  return kthToLastNode(k, head.next, arrayOfVals)
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
