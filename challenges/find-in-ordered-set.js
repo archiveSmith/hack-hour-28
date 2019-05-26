@@ -21,7 +21,7 @@ function findInOrderedSet(arr, target) {
 
   // ! BASE CASE
   // If we've narrowed down to our final item... check if it's our target.
-  if (arr.length === 1) {
+  if (arrayLength === 1) {
     if (arr[0] === target) {
       return true;
     } else {
