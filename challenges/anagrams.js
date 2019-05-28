@@ -31,6 +31,6 @@ function anagrams(string) {
 
 }
 
-//console.log(anagrams('abc'));
+console.log(anagrams('abc'));
 
 module.exports = anagrams;
