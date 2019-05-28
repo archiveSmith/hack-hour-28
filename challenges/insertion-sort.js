@@ -17,9 +17,7 @@ function insertionSort(array) {
   });
 }
 
-
 // const array = [1,3,6,14,2,7,8,7]
-
 // console.log(array);
 // insertionSort(array);
 // console.log();
