@@ -19,7 +19,8 @@ function deleteDups(head) {
     {
       current.next = current.next.next;
     }
-    else {
+    else
+    {
       current = current.next;
     }
   }
