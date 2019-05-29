@@ -33,6 +33,8 @@ function findInOrderedSet(arr, target, threshHold = 3) {
     // console.log(arr);
     // look in left or right array depending on 
     for (; ;) { //only way out is the return of linerSearch
+
+        //at a certain point, liner search will be faster than cutting things in half
         if (right - left < threshHold) {
             console.log('Runs:', runs);
             return linerSearch(arr.slice(left, right), target);

@@ -18,24 +18,26 @@ function returnZeroArray(length) {
 }
 
 function getAllProducts(array) {
-  //if 0 is in the array 2x then everything is 0
   console.log(array);
   let zeroIndex = null;
   const newArray = [];
   let product = 1;
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
+
     if (element === 0 && zeroIndex !== null)
+      //if 0 is in the array 2x then everything is 0
       return returnZeroArray(array.length);
 
-    if (element === 0 && zeroIndex === null) zeroIndex = i;
+    if (element === 0 && zeroIndex === null) zeroIndex = i; //flag the first time we see 0
 
-    if (element !== 0) product = element * product;
+    if (element !== 0) product = element * product; //multiply everything thats not 0;
   }
 
   // if only 1 zero is in the array, all numbers besides that one index will be 0
   // this product was caluclated above.
   if (zeroIndex !== null) {
+
     // zero in array
     console.log(`zero Array`);
     const zeroArray = returnZeroArray(array.length);
