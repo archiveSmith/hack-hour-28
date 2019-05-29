@@ -12,7 +12,7 @@
 // Why u lookin at my solution bruh?
 function getAllProducts(array) {
   return array.map((prod, i, arr) => arr.slice(0).filter((el, j) => j!=i).reduce((acc, ele) => acc * ele))
-}
+} 
 
 //console.log(getAllProducts([1, 7, 3, 4]));
 
