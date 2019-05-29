@@ -27,7 +27,6 @@ function makeLevel(total,currLen){
     }
     return output + '\n';
 }
-<<<<<<< HEAD
 
 //returns a string of length total, 
 function makeLevel(total,currLen){
@@ -43,8 +42,6 @@ function makeLevel(total,currLen){
     }
     return output + '\n';
 }
-=======
->>>>>>> master-Hack_Hour_repo
 
 //using str.repeat would be helpful here
 function drawStairs(n) {
