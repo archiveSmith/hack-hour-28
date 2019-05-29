@@ -30,6 +30,7 @@
 // }
 
 function getAllProducts(numbers) {
+  if (numbers.length === 0) return [0];
   var arrayProduct = numbers.reduce(function(product, value) {
     return product * value;
   }, 1);
@@ -40,6 +41,6 @@ function getAllProducts(numbers) {
   });
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
+console.log(getAllProducts([]));
 
 module.exports = getAllProducts;
