@@ -19,6 +19,8 @@ function returnZeroArray(length) {
 
 function getAllProducts(array) {
   console.log(array);
+  if(!Array.isArray) return null;
+  if(array.length === 0 ) return [0];
   let zeroIndex = null;
   const newArray = [];
   let product = 1;
@@ -55,8 +57,8 @@ function getAllProducts(array) {
   }
 }
 
-// let out = getAllProducts([1, 0, 4, 0, 3, 4]);
+let out = getAllProducts([1, -8, 4, -6, 3, 4]);
 
-// console.log(out);
+console.log(out);
 
 module.exports = getAllProducts;
