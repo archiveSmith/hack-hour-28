@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) return [0];
   const len = array.length;
   const products = [];
   let temp = 1;
