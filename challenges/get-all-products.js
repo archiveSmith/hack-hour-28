@@ -10,7 +10,26 @@
  */
 
 function getAllProducts(array) {
-
+  //  create copy of arr
+  let copyArr = array.slice();
+  let i = 0;
+  let arrOfProducts = [];
+  //  remove one element at a time and return shortened arr
+  while (copyArr[ i ] !== undefined) {
+    //  done when no more el to remove
+    const cache = copyArr[ i ];
+    copyArr[ i ] = 1;
+    //  find product of shortened array
+    arrOfProducts.push(copyArr.reduce((acc, el, i) => {
+      //  push to result array
+      acc = el * acc;
+      return acc;//?
+    }));
+    copyArr[ i ] = cache;
+    i += 1;
+  }
+  return arrOfProducts;
 }
 
+getAllProducts([ 1, 2, 3, 4 ])//?
 module.exports = getAllProducts;
