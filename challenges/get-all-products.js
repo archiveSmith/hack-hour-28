@@ -10,7 +10,25 @@
  */
 
 function getAllProducts(array) {
-
+    // set two pointers 
+    // if pointers equal each other do not multiple them
+    if(array.length === 0) return 0;
+    let arr = [];
+    for(let i = 0; i < array.length; i += 1) {
+        let multiply = 1;
+        for(let j = array.length - 1; j >= 0; j -= 1) {
+                if(array[i] !== array[j]) {
+                    multiply *= array[j];
+                    // console.log(multiply)
+                    
+                }
+        }
+        arr.push(multiply);
+        multiply = 1;
+    }
+    return arr;
 }
+
+console.log(getAllProducts([1, 7, 3, 4]))
 
 module.exports = getAllProducts;
