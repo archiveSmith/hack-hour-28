@@ -17,14 +17,56 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  if(!this.tail) { // empty list
+    this.tail = new Node(val);
+    this.head = this.tail;
+  } else if(this.tail === this.head) { // exactly 1 element
+    this.tail.next = new Node(val);
+    this.tail = this.tail.next;
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+  } else { //otherwise
+    this.tail.next = new Node(val);
+    this.tail.next.prev = this.tail;
+    this.tail = this.tail.next;
+  }
+
 };
+
+/*
+let l = new LinkedList();
+
+l.add(1);
+l.add(2);
+l.add(3);
+l.add(4);
+*/
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  
+  let cur = this.head;
+  while(cur) {
+    if(cur.val === val) {
+      if(cur.prev) {
+        cur.prev.next = cur.next;
+      } else {
+        cur = cur.next;
+      }
+      return;
+    }
+    cur = cur.next;
+  }
+
 };
+/*
+l.remove(3);
+let cur = l.head;
+while(cur) {
+  console.log(cur.val)
+  cur = cur.next;
+}
+*/
 
 module.exports = LinkedList;
