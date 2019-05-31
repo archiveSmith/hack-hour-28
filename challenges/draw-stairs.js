@@ -28,21 +28,6 @@ function makeLevel(total,currLen){
     return output + '\n';
 }
 
-//returns a string of length total, 
-function makeLevel(total,currLen){
-    let output = '';
-    for(let i = 1 ; i <= total;i++){
-        let newChar;
-        if(i > currLen){
-            newChar = ' '
-        } else {
-            newChar = '*'
-        }
-        output = newChar + output;
-    }
-    return output + '\n';
-}
-
 //using str.repeat would be helpful here
 function drawStairs(n) {
     let output =''
