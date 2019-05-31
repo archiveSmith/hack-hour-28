@@ -67,49 +67,84 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
 // Encountered the following errors running your code: * ** *** 
 
-let x,y,r,startX,startY,endX,endY,out;
+// let x,y,r,startX,startY,endX,endY,out;
 
-x = [0]
-y = [0]
-r = [2]
-startX = 0;
-startY = 0;
-endX = 2;
-endY = 2
+// x = [0]
+// y = [0]
+// r = [2]
+// startX = 0;
+// startY = 0;
+// endX = 2;
+// endY = 2
 
-out = circleCountry(x,y,r,startX,startY,endX,endY);
+// out = circleCountry(x,y,r,startX,startY,endX,endY);
 
-console.log(out);
+// console.log(out);
 
-x = [0,0]
-y = [0,0]
-r = [2,3]
-startX = 0;
-startY = 0;
-endX = 4;
-endY = 0;
+// x = [0,0]
+// y = [0,0]
+// r = [2,3]
+// startX = 0;
+// startY = 0;
+// endX = 4;
+// endY = 0;
 
-out = circleCountry(x,y,r,startX,startY,endX,endY);
+// out = circleCountry(x,y,r,startX,startY,endX,endY);
 
-console.log(out);
-// x:0, y:0, r:2, start_X0, Start_y0, end_x2, end_y2 
-// x:0,0, y:0,0, r:2,3, start_X 0, Start_y 0, end_x 4, end_y 0 
-// x:0,0, y:0,0, r:2,3, start_X -5, Start_y 5, end_x 5, end_y -5 
-x = [0,0]
-y = [0,0]
-r = [2,3]
-startX = -5;
-startY = 5;
-endX = 5;
-endY = -5;
+// console.log(out);
+// // x:0, y:0, r:2, start_X0, Start_y0, end_x2, end_y2 
+// // x:0,0, y:0,0, r:2,3, start_X 0, Start_y 0, end_x 4, end_y 0 
+// // x:0,0, y:0,0, r:2,3, start_X -5, Start_y 5, end_x 5, end_y -5 
+// x = [0,0]
+// y = [0,0]
+// r = [2,3]
+// startX = -5;
+// startY = 5;
+// endX = 5;
+// endY = -5;
 
-out = circleCountry(x,y,r,startX,startY,endX,endY);
+// out = circleCountry(x,y,r,startX,startY,endX,endY);
 
-console.log(out);
-// x:-1,0,0,4, y:0,0,0,4, r:1,3,6,1, start_X 1, Start_y 0, end_x 4, end_y 4 
-// x:-1,0,0,4, y:0,0,0,4, r:1,3,6,0.1, start_X 1, Start_y 0, end_x 4, end_y 4
+// console.log(out);
+// // x:-1,0,0,4, y:0,0,0,4, r:1,3,6,1, start_X 1, Start_y 0, end_x 4, end_y 4 
+// // x:-1,0,0,4, y:0,0,0,4, r:1,3,6,0.1, start_X 1, Start_y 0, end_x 4, end_y 4
 
+// // Solutions:
+// // functional programming approach
+// function circleCountry (x, y, r, start_x, start_y, end_x, end_y) {
+//   var total = 0;
+//   for (var i = 0; i < x.length; i++){
+//     var d1 = Math.hypot(x[i]-start_x, y[i]-start_y);
+//     var d2 = Math.hypot(x[i]-end_x, y[i]-end_y);
+//     var radius = r[i];
+//     if (d1 < radius && d2 > radius || d1 > radius && d2 < radius){
+//       total++;
+//     }
+//   }
+//   return total;
+// }
 
+// // object-oriented
+// function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+//   var circlesToCross = 0;
+//   for (var i = 0; i < x.length; i++) {
+//     var circle = new Circle(x[i], y[i], r[i]);
+//     if (circle.contains(start_x, start_y) !== circle.contains(end_x, end_y))
+//       circlesToCross++;
+//   }
+//   return circlesToCross;
+// }
+
+// function Circle(x, y, r) {
+//   this.x = x;
+//   this.y = y;
+//   this.r = r;
+// }
+
+// Circle.prototype.contains = function(x, y) {
+//   var distanceFromCenter = Math.hypot(this.x - x, this.y - y);
+//   return this.r >= distanceFromCenter;
+// };
 
 
 module.exports = circleCountry;
