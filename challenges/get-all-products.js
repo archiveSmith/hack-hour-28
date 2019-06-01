@@ -17,10 +17,8 @@ function getAllProducts(array) {
     for(let i = 0; i < array.length; i += 1) {
         let multiply = 1;
         for(let j = array.length - 1; j >= 0; j -= 1) {
-                if(array[i] !== array[j]) {
-                    multiply *= array[j];
-                    // console.log(multiply)
-                    
+                if(i !== j) {
+                    multiply *= array[j];                    
                 }
         }
         arr.push(multiply);
