@@ -28,7 +28,7 @@
 function findName(jazbook, name) {
   for(let i  = 0; i < jazbook.length; i++){
     if(jazbook[i][0] === name){
-      return true;
+      return jazbook[i][1];
     }
   }
   return false;
@@ -38,13 +38,10 @@ function findName(jazbook, name) {
 function makePhoneBookObject(jazbook){
   const myBook = {};
 
-  for(let i = 0; i < jazbook.length; i++){
-    if(myBook[jazbook[i][0]] === undefined){
-      myBook[jazbook[i][0]] = jazbook[0][1];
-    }
+  myBook.jazbook[0][0] = jazbook[0][0];
+  myBook.jazbook[0][1] = jazbook[0][1];
+
   
-  }
-  return myBook;
 
 }
 
