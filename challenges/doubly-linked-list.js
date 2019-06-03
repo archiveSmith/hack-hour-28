@@ -33,23 +33,35 @@ LinkedList.prototype.add = function(val) {
 
 };
 
-/*
+
 let l = new LinkedList();
 
 l.add(1);
 l.add(2);
 l.add(3);
 l.add(4);
-*/
+l.add(3);
+
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
+  if(!this.head) return;
+
+  if(this.head.val === val) {
+    this.head = this.head.next;
+    return;
+  }
+
   let cur = this.head;
   while(cur) {
     if(cur.val === val) {
       if(cur.prev) {
+        if(cur === this.tail) {
+          this.tail = this.tail.prev;
+          return;
+        }
         cur.prev.next = cur.next;
       } else {
         cur = cur.next;
@@ -60,13 +72,33 @@ LinkedList.prototype.remove = function(val) {
   }
 
 };
-/*
+
 l.remove(3);
 let cur = l.head;
 while(cur) {
   console.log(cur.val)
   cur = cur.next;
 }
-*/
+l.remove(1);
+cur = l.head;
+while(cur) {
+  console.log(cur.val)
+  cur = cur.next;
+}
+l.remove(3);
+cur = l.head;
+console.log(l.tail);
+while(cur) {
+  console.log(cur.val)
+  cur = cur.next;
+}
+l.add(5);
+
+cur = l.head;
+while(cur) {
+  console.log(cur.val)
+  cur = cur.next;
+}
+
 
 module.exports = LinkedList;
