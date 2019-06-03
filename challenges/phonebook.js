@@ -49,7 +49,7 @@ function makePhoneBookObject(jazbook) {
     obj[entry[0]] = entry[1];
   });
   const book = new PhoneBook(obj);
-  return book;
+  return obj;
 }
 
 PhoneBook.prototype.add = function(name, number) {
@@ -67,21 +67,21 @@ PhoneBook.prototype.remove = function(name) {
   delete this.obj[name];
 };
 
-jazbook = [
-  ["alex", "301-844-3421"],
-  ["jae", "301-844-1211"],
-  ["david", "301-844-0978"],
-  ["travis", "301-844-8505"],
-  ["jasmine", "1800-974-4539"]
-];
+// jazbook = [
+//   ["alex", "301-844-3421"],
+//   ["jae", "301-844-1211"],
+//   ["david", "301-844-0978"],
+//   ["travis", "301-844-8505"],
+//   ["jasmine", "1800-974-4539"]
+// ];
 
-const phonebook = new makePhoneBookObject(jazbook);
+// const phonebook = new makePhoneBookObject(jazbook);
 
-phonebook.add("sam","321654987")
+// phonebook.add("sam","321654987")
 
-console.log(phonebook.findName('sam'));
-phonebook.remove('sam')
-console.log(phonebook.findName('sam'));
+// console.log(phonebook.findName('sam'));
+// phonebook.remove('sam')
+// console.log(phonebook.findName('sam'));
 
 
 const objectToExport = {
