@@ -26,13 +26,30 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  for(let i = 0; i < jazbook.length; i++) {
+    if(jazzbook[i][0] === name) {
+      return jazzbook[i][1];
+    }
+  }
+  return false;
 }
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
-
+  const objbook = {};
+  for(let i = 0; i < jazbook.length; i++) {
+    objbook[jazbook[i][0]] = jazbook[i][1]
+  }
+  return objbook;
 }
+let jazbook = [
+       ['alex','301-844-3421'],
+       ['jae','301-844-1211'],
+       ['david','301-844-0978'],
+       ['travis','301-844-8505'],
+       ['jasmine','1800-974-4539'],
+     ];
+console.log(makePhoneBookObject(jazbook))
 
 const objectToExport = {
   findName,
