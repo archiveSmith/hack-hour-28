@@ -25,23 +25,61 @@
 */
 
 //  return the number associated with the name in the jazbook
-function findName(jazbook, name) {
 
+
+// trying for better than O(n) isn't worth it here since things might not be sorted
+function findName(jazbook, name) {
+  console.log(jazbook);
   for (let i = 0; i < jazbook.length; i++) {
     const entry = jazbook[i];
-    if(entry[0] === name) return entry[1];    
+    console.log(`Entry: ${entry}`);
+    if (entry[0] === name) return entry[1];
   }
   return false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-
+function makePhoneBookObject(jazbook) {
+  this.obj = {};
+  jazbook.forEach(entry => {
+    this.obj[entry[0]] = entry[1];
+  });
 }
+
+makePhoneBookObject.prototype.add = function(name, number) {
+  // doesn't handle collisons, just over write same names
+  this.obj[name] = number;
+};
+
+makePhoneBookObject.prototype.findName = function(name) {
+  if (this.obj[name]) return this.obj[name];
+  return false;
+};
+
+makePhoneBookObject.prototype.remove = function(name) {
+  // doesn't confirm entry was there to begin with
+  delete this.obj[name];
+};
+
+jazbook = [
+  ["alex", "301-844-3421"],
+  ["jae", "301-844-1211"],
+  ["david", "301-844-0978"],
+  ["travis", "301-844-8505"],
+  ["jasmine", "1800-974-4539"]
+];
+
+const phonebook = new makePhoneBookObject(jazbook);
+
+phonebook.add("sam","321654987")
+
+console.log(phonebook.findName('sam'));
+phonebook.remove('sam')
+console.log(phonebook.findName('sam'));
+
 
 const objectToExport = {
   findName,
-  makePhoneBookObject,
+  makePhoneBookObject
 };
-
 module.exports = objectToExport;
