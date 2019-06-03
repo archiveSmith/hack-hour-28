@@ -38,25 +38,31 @@ function findName(jazbook, name) {
   return false;
 }
 
-// return an object literal representing the jazbook
-function makePhoneBookObject(jazbook) {
-  this.obj = {};
-  jazbook.forEach(entry => {
-    this.obj[entry[0]] = entry[1];
-  });
+function PhoneBook(obj){
+  this.obj = obj;
 }
 
-makePhoneBookObject.prototype.add = function(name, number) {
+// return an object literal representing the jazbook
+function makePhoneBookObject(jazbook) {
+  const obj = {};
+  jazbook.forEach(entry => {
+    obj[entry[0]] = entry[1];
+  });
+  const book = new PhoneBook(obj);
+  return book;
+}
+
+PhoneBook.prototype.add = function(name, number) {
   // doesn't handle collisons, just over write same names
   this.obj[name] = number;
 };
 
-makePhoneBookObject.prototype.findName = function(name) {
+PhoneBook.prototype.findName = function(name) {
   if (this.obj[name]) return this.obj[name];
   return false;
 };
 
-makePhoneBookObject.prototype.remove = function(name) {
+PhoneBook.prototype.remove = function(name) {
   // doesn't confirm entry was there to begin with
   delete this.obj[name];
 };
