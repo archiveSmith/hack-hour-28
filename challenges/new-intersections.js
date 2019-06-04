@@ -29,7 +29,7 @@ function newIntersections(x, y){
 
   let counter = 0;
 
-  let unit = 1;
+  let unit = xMin % 1 === 0 ? 1: 0.1;
 
   for(let i = xMin; i <= xMax; i += unit) {
     for(let j = yMin; j <= yMax; j+= unit) {
@@ -64,10 +64,13 @@ function newIntersections(x, y){
 
   return counter;
 }
-
+/*
 let x = [1, 3, 2, 2];
 let y = [2, 2, 1, 3];
-
 console.log(newIntersections(x, y));
 
+ x = [ 0.1, 0.3, 0.2, 0.2 ];
+ y = [ 0.2, 0.2, 0.1, 0.3 ];
+ console.log(newIntersections(x, y));
+*/
 module.exports = newIntersections;
