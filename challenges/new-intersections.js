@@ -18,7 +18,14 @@
  */
 
 function newIntersections(x, y){
-
+    console.log('X points:');
+    console.log(x);
+    console.log();
+    console.log('y points:');
+    console.log(y);
+    
+    console.log();
+    console.log();
 }
 
 module.exports = newIntersections;
