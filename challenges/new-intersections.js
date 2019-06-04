@@ -21,7 +21,53 @@ function newIntersections(x, y){
   console.log("the value of x: ", x, "\n")
   console.log("the value of y: ", y, "\n")
 
-  return 1;
+  let yMax = Math.max(...y);
+  let yMin = Math.min(...y);
+
+  let xMax = Math.max(...x);
+  let xMin = Math.min(...x);
+
+  let counter = 0;
+
+  let unit = 1;
+
+  for(let i = xMin; i <= xMax; i += unit) {
+    for(let j = yMin; j <= yMax; j+= unit) {
+      let hasLeft = false;
+      let hasRight = false;
+      let hasTop = false;
+      let hasBottom = false;
+      for(let k = 0; k < x.length; k++) {
+
+        if(x[k] === i && y[k] > j) {
+          hasTop = true;
+        }
+
+        if(x[k] === i && y[k] < j) {
+          hasBottom = true;
+        }
+
+        if(x[k] < i && y[k] === j) {
+          hasLeft = true;
+        }
+
+        if(x[k] > i && y[k] === j) {
+          hasRight = true;
+        }
+      }
+      if(hasLeft && hasRight && hasTop && hasBottom) {
+        console.log(x[i], y[j]);
+        counter++;
+      }
+    }
+  }
+
+  return counter;
 }
+
+let x = [1, 3, 2, 2];
+let y = [2, 2, 1, 3];
+
+console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
