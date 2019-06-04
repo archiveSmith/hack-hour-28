@@ -20,6 +20,8 @@
 function newIntersections(x, y){
   console.log("the value of x: ", x, "\n")
   console.log("the value of y: ", y, "\n")
+
+  return 1;
 }
 
 module.exports = newIntersections;
