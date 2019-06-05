@@ -11,7 +11,47 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+    // knight can move +/- 2 in x axis
+    // knight can move +/- 1 in y axis
+    // chess board is 8 x 8
+    let moves = 0;
+    let coords = str.split(' ');
+    coords = [+coords[0][1], +coords[1][0]]
+    if (coords[0] + 2 <= 8 && coords[1] + 1 <= 8) {
+        // console.log('in move 1')
+        moves += 1;
+    }
+    if (coords[0] + 2 <= 8 && coords[1] - 1 >= 1) {
+        // console.log('in move 2')
+        moves += 1;
+    }
+    if (coords[0] -2 >= 1 && coords[1] + 1 <= 8) {
+        // console.log('in move 3')
+        moves += 1;
+    }
+    if (coords[0] - 2 >= 1 && coords[1] - 1 >= 1) {
+        // console.log('in move 4')
+        moves += 1;
+    }
+    if (coords[0] + 1 <= 8 && coords[1] + 2 <= 8) {
+        // console.log('in move 5')
+        moves += 1;
+    }
+    if (coords[0] - 1 >= 1 && coords[1] + 2 <= 8) {
+        // console.log('in move 6')
+        moves += 1;
+    }
+    if (coords[0] + 1 <= 8 && coords[1] - 2 >= 1) {
+        // console.log('in move 7')
+        moves += 1;
+    }
+    if (coords[0] - 1 >= 1 && coords[1] - 2 >= 1) {
+        // console.log('in move 8')
+        moves += 1;
+    }
+    return moves;
 }
+
+// console.log(knightjumps('(3 2)'))
 
 module.exports = knightjumps;
