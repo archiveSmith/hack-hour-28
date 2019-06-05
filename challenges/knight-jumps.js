@@ -11,7 +11,34 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const xy = /\((\d) (\d)\)/.exec(str);
+  const x = parseInt(xy[1]);
+  const y = parseInt(xy[2]);
 
-}
+  let count = 0;
+
+  const possibleMoves = [
+    [1, 2],
+    [2, 1],
+    [-1, 2],
+    [-2, 1],
+    [1, -2],
+    [2, -1],
+    [-1, -2],
+    [-2, -1]
+  ];
+
+  possibleMoves.forEach(xy => {
+    possibleX = xy[0];
+    possibleY = xy[1];
+    // console.log(`checking ${x + possibleX}`);
+    if (x + possibleX >= 0 && x + possibleX <= 8)
+      if (y + possibleY >= 0 && y + possibleY <= 8) count++;
+  });
+  return count;
+} 
+
+
+// console.log(knightjumps("(0 0)"));
 
 module.exports = knightjumps;
