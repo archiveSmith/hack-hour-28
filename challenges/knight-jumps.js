@@ -10,8 +10,36 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+//knight can move +/- 2 from the x and y coordinates where it starts;
 
+
+function knightjumps(str) {
+  x = Number(str.charAt(1));
+  y = Number(str.charAt(3));
+  let tracker = 0;
+  console.log('x is ', x, 'y is', y)
+  if(x > 3 && x < 6 && y > 2 && y < 6) {
+    return 8;
+  }
+  if(y + 2 <= 8){
+    tracker += 1;
+  }
+  if(y - 2 >= 1){
+    tracker += 1;
+  }
+  if(x + 2 <= 8){
+    tracker += 1;
+  }
+  if(x - 2 >= 1){
+    tracker += 1;
+  }
+  return tracker;
 }
 
+console.log(knightjumps("(4 5)"))
+console.log(knightjumps("(1 1"))
+console.log(knightjumps("(7 1)"))
+
+
 module.exports = knightjumps;
+
