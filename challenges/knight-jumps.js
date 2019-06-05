@@ -15,6 +15,9 @@ function knightjumps(str) {
   const x = parseInt(xy[1]);
   const y = parseInt(xy[2]);
 
+console.log(str);
+console.log(" ========= ");
+
   let count = 0;
 
   const possibleMoves = [
