@@ -37,8 +37,8 @@ function newIntersections(x, y) {
       }
     }
   }
-//   console.log(`SubObj`);
-//   console.log(subObj);
+  console.log(`SubObj`);
+  console.log(subObj);
 
  for (const y in subObj) {
      if (subObj.hasOwnProperty(y)) {
@@ -50,17 +50,19 @@ function newIntersections(x, y) {
      }
  }
  
-//  console.log(`SubObj`);
-//  console.log(subObj);
-
- for (const y in subObj) {
-     if (subObj.hasOwnProperty(y)) {
-         const rangeArr = subObj[y];
+ 
+ for (const yKey in subObj) {
+     if (subObj.hasOwnProperty(yKey)) {
+         const rangeArr = subObj[yKey];
          
         for (let i = 0; i < y.length; i++) {
-            const element = y[i];
-            // console.log(`Looking at elemnt:${element} between ${rangeArr[0]} and ${rangeArr[1]}`);
-            if(element >= rangeArr[0] && element <= rangeArr[1]) count++;
+            for (let j = i; j < y.length; j++) {
+                const currentY = y[i];
+                const checkY = y[j];
+
+                if(currentY === checkY ) count++;
+
+            }
         }
 
      }
@@ -79,32 +81,33 @@ y = [ 2, 2, 1, 0 ]
 
 x = [ -1, -3, -2, -2 ] 
 y = [ -2, -2, -1, -3 ] 
+// console.log(newIntersections(x,y));
 
 x = [ 0.1, 0.3, 0.2, 0.2 ] 
 y = [ 0.2, 0.2, 0.1, 0.3 ] 
 
-console.log(newIntersections(x,y));
+// console.log(newIntersections(x,y));
 
 x = [ 1, 3, 2, 2, 0 ] 
 y = [ 2, 2, 1, 3, 3 ] 
 
-console.log(newIntersections(x,y));
+// console.log(newIntersections(x,y));
 
 x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6 ] 
 y = [ 8, -5, -1, 3, 4, 9, 1, 6, 3 ] 
 
-console.log(newIntersections(x,y));
+// console.log(newIntersections(x,y));
 
 x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6, 9 ] 
 y = [ 8, -5, -1, 3, 4, 9, 1, 6, 3, 3 ] 
 
 
-console.log(newIntersections(x,y));
+// console.log(newIntersections(x,y));
 
 x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6, 9, 9, 12 ] 
 y = [ 5, -5, -1, 3, 4, 9, 1, 6, 3, 3, 10, 5 ]
 
-console.log(newIntersections(x,y));
+// console.log(newIntersections(x,y));
 
 
 
