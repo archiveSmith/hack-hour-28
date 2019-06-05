@@ -12,6 +12,41 @@
 
 function knightjumps(str) {
 
-}
+  const boardDim = 8;
 
+  const x = parseInt(str.split(' ')[0].replace('(', ''), 10);
+  const y = parseInt(str.split(' ')[1].replace(')', ''), 10);
+
+  let moves = 0;
+
+  if(x - 2 >=  1) { // knight can move left 2
+    if(y + 1 <= boardDim) moves++; // and down 1
+    if(y - 1 >= 1) moves++; // and up 1
+  }
+
+  if(x + 2 <= boardDim) { // knight can move right 2
+    if(y + 1 <= boardDim) moves++; // and down 1
+    if(y - 1 >= 1) moves++; // and up 1
+  }
+
+  if(y - 2 >= 1) { // knight can move up 2
+    if(x + 1 <= boardDim) moves++; // and right 1
+    if(x - 1 >= 1) moves++; //and left 1
+  }
+
+  if(y + 2 <= boardDim) { // knight can move down 2
+    if(x + 1 <= boardDim) moves++; // and right 1
+    if(x - 1 >= 1) moves++; //and left 1
+  }
+
+  return moves;
+
+}
+/*
+console.log(knightjumps("(4 5)"));
+
+console.log(knightjumps("(1 8)"));
+
+console.log(knightjumps('(2 5)'))
+*/
 module.exports = knightjumps;
