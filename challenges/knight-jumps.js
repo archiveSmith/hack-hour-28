@@ -11,7 +11,15 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  newStr = str.slice(1, str.length - 1)
+  let first = newStr[0];
+  let last = newStr[2]
+  let fParsed = parseInt(first);
+  let lParsed = parseInt(last);
 
+  if (fParsed < 1 && fParsed > 7 && lParsed < 1 && lParsed > 7) {
+    return 8
+  }
 }
 
 module.exports = knightjumps;
