@@ -18,6 +18,24 @@
  */
 
 function newIntersections(x, y) {
+  const minX = Math.min(...x);
+  const minY = Math.min(...y);
+
+  const maxX = Math.max(...x);
+  const maxY = Math.max(...y);
+
+  //check all points in the range
+
+  let count = 0;
+
+  for (let i = minX; i <= maxX; i++) {
+    for (let j = minY; j <= maxY; j++) {
+      
+    }
+  }
+}
+
+function newIntersectionsFirstRun(x, y) {
   const subX = [];
   const subY = [];
   const subObj = {};
@@ -30,8 +48,8 @@ function newIntersections(x, y) {
       const currentX = x[i];
       const checkX = x[j];
 
-      if (currentX === checkX) {          
-        if(!subObj[currentX]) subObj[currentX] = new Set();
+      if (currentX === checkX) {
+        if (!subObj[currentX]) subObj[currentX] = new Set();
         subObj[currentX].add(y[i]);
         subObj[currentX].add(y[j]);
       }
@@ -40,75 +58,69 @@ function newIntersections(x, y) {
   console.log(`SubObj`);
   console.log(subObj);
 
- for (const y in subObj) {
-     if (subObj.hasOwnProperty(y)) {
-         const element = subObj[y];
-         const newArray = [];
-         newArray[0] = Math.min(...element);
-         newArray[1] = Math.max(...element);
-         subObj[y] = newArray;
-     }
- }
- 
- 
- for (const yKey in subObj) {
-     if (subObj.hasOwnProperty(yKey)) {
-         const rangeArr = subObj[yKey];
-         
-        for (let i = 0; i < y.length; i++) {
-            for (let j = i; j < y.length; j++) {
-                const currentY = y[i];
-                const checkY = y[j];
+  for (const y in subObj) {
+    if (subObj.hasOwnProperty(y)) {
+      const element = subObj[y];
+      const newArray = [];
+      newArray[0] = Math.min(...element);
+      newArray[1] = Math.max(...element);
+      subObj[y] = newArray;
+    }
+  }
 
-                if(currentY === checkY ) count++;
+  for (const yKey in subObj) {
+    if (subObj.hasOwnProperty(yKey)) {
+      const rangeArr = subObj[yKey];
 
-            }
+      for (let i = 0; i < y.length; i++) {
+        for (let j = i; j < y.length; j++) {
+          const currentY = y[i];
+          const checkY = y[j];
+
+          if (currentY === checkY) count++;
         }
-
-     }
- }
+      }
+    }
+  }
   return count;
 }
-let x,y;
+let x, y;
 
-x = [ 1, 3, 2, 2 ] 
-y = [ 2, 2, 1, 3 ] 
+x = [1, 3, 2, 2];
+y = [2, 2, 1, 3];
 
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
-x = [ 1, 3, 2, 2 ] 
-y = [ 2, 2, 1, 0 ] 
+x = [1, 3, 2, 2];
+y = [2, 2, 1, 0];
 
-x = [ -1, -3, -2, -2 ] 
-y = [ -2, -2, -1, -3 ] 
+x = [-1, -3, -2, -2];
+y = [-2, -2, -1, -3];
 // console.log(newIntersections(x,y));
 
-x = [ 0.1, 0.3, 0.2, 0.2 ] 
-y = [ 0.2, 0.2, 0.1, 0.3 ] 
-
-// console.log(newIntersections(x,y));
-
-x = [ 1, 3, 2, 2, 0 ] 
-y = [ 2, 2, 1, 3, 3 ] 
+x = [0.1, 0.3, 0.2, 0.2];
+y = [0.2, 0.2, 0.1, 0.3];
 
 // console.log(newIntersections(x,y));
 
-x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6 ] 
-y = [ 8, -5, -1, 3, 4, 9, 1, 6, 3 ] 
+x = [1, 3, 2, 2, 0];
+y = [2, 2, 1, 3, 3];
 
 // console.log(newIntersections(x,y));
 
-x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6, 9 ] 
-y = [ 8, -5, -1, 3, 4, 9, 1, 6, 3, 3 ] 
-
-
-// console.log(newIntersections(x,y));
-
-x = [ -1, -2, 10, 2, 3, 3, 5, 5, 6, 9, 9, 12 ] 
-y = [ 5, -5, -1, 3, 4, 9, 1, 6, 3, 3, 10, 5 ]
+x = [-1, -2, 10, 2, 3, 3, 5, 5, 6];
+y = [8, -5, -1, 3, 4, 9, 1, 6, 3];
 
 // console.log(newIntersections(x,y));
 
+x = [-1, -2, 10, 2, 3, 3, 5, 5, 6, 9];
+y = [8, -5, -1, 3, 4, 9, 1, 6, 3, 3];
 
+// console.log(newIntersections(x,y));
+
+x = [-1, -2, 10, 2, 3, 3, 5, 5, 6, 9, 9, 12];
+y = [5, -5, -1, 3, 4, 9, 1, 6, 3, 3, 10, 5];
+
+// console.log(newIntersections(x,y));
 
 module.exports = newIntersections;

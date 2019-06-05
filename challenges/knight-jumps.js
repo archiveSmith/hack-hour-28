@@ -15,8 +15,9 @@ function knightjumps(str) {
   const x = parseInt(xy[1]);
   const y = parseInt(xy[2]);
 
-console.log(str);
-console.log(" ========= ");
+  console.log();
+  console.log(str);
+  console.log(" ========= ");
 
   let count = 0;
 
@@ -35,13 +36,17 @@ console.log(" ========= ");
     possibleX = xy[0];
     possibleY = xy[1];
     // console.log(`checking ${x + possibleX}`);
-    if (x + possibleX >= 0 && x + possibleX <= 8)
-      if (y + possibleY >= 0 && y + possibleY <= 8) count++;
+    if (x + possibleX >= 1 && x + possibleX <= 8)
+      if (y + possibleY >= 1 && y + possibleY <= 8) count++;
   });
   return count;
-} 
+}
 
-
-// console.log(knightjumps("(0 0)"));
+// (4 5) ========= (3 4) ========= (1 1) ========= (1 3) ========= (2 1)
+console.log(knightjumps("(1 1)"));
+console.log(knightjumps("(3 4)"));
+console.log(knightjumps("(1 1)"));
+console.log(knightjumps("(1 3)"));
+console.log(knightjumps("(2 1)"));
 
 module.exports = knightjumps;
