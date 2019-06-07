@@ -52,8 +52,8 @@ function newIntersections(x, y) {
   const subObjX = getLines(x, y);
   const subObjY = getLines(y, x);
 
-  // console.log(subObjX);
-  // console.log(subObjY);
+  console.log(subObjX);
+  console.log(subObjY);
 
   xLines = Object.keys(subObjX).length;
   yLines = Object.keys(subObjY).length;
@@ -74,14 +74,15 @@ function newIntersections(x, y) {
       for (const val2 in lines2) {
         if (lines2.hasOwnProperty(val2)) {
           const range2 = lines2[val2];
-          let int1 = parseInt(val1);
-          let int2 = parseInt(val2);
+          let int1 = parseFloat(val1);
+          let int2 = parseFloat(val2);
 
           // console.log(`${range1[0]} <= ${val2} && ${val2} <= ${range1[1]}`)
           // console.log(`${range2[0]} <= ${val1} && ${val1} <= ${range2[1]}`)
           // console.log();
 
-          if (  range1[0] <= int2 && int2 <= range1[1])
+   
+          if (range1[0] <= int2 && int2 <= range1[1])
             if (range2[0] <= int1 && int1 <= range2[1]) count++;
         }
       }
@@ -102,31 +103,26 @@ y = [2, 2, 1, 0];
 
 x = [-1, -3, -2, -2];
 y = [-2, -2, -1, -3];
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
 x = [0.1, 0.3, 0.2, 0.2];
 y = [0.2, 0.2, 0.1, 0.3];
 
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
 x = [1, 3, 2, 2, 0];
 y = [2, 2, 1, 3, 3];
 
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
 x = [-1, -2, 10, 2, 3, 3, 5, 5, 6];
 y = [8, -5, -1, 3, 4, 9, 1, 6, 3];
 
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
-x = [-1, -2, 10, 2, 3, 3, 5, 5, 6, 9];
-y = [8, -5, -1, 3, 4, 9, 1, 6, 3, 3];
+x = [-1, -2, 10, 2, 3, 3, 5, 5, 6, 9, 9, 12];
+y = [5, -5, -1, 3, 4, 9, 1, 6, 3, 3, 10, 5];
 
-console.log(newIntersections(x,y));
-
-x = [-1, -2, 10, 2, 3, 3, 5, 5, 6, 9, 9 , 12];
-y = [5 , -5, -1, 3, 4, 9, 1, 6, 3, 3, 10, 5];
-
-console.log(newIntersections(x,y));
+console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
