@@ -46,14 +46,14 @@ function makePascalRow(rowAbove, length) {
 
 function pascalTriangle(numRows) {
   console.log(numRows);
-  //   const tri = [[1]]
-  //   if(numRows === 1) return tri;
-  //   tri.push([1,1])
-  //   if(numRows === 2) return tri;
-  //   for (let i = 2; i < numRows; i++) {
-  //     tri.push(makePascalRow(tri[i-1],i))
-  //   }
-  // return tri
+    const tri = [[1]]
+    if(numRows === 1) return tri;
+    tri.push([1,1])
+    if(numRows === 2) return tri;
+    for (let i = 2; i < numRows; i++) {
+      tri.push(makePascalRow(tri[i-1],i))
+    }
+  return tri
 }
 
 // console.log(pascalTriangle(10));
