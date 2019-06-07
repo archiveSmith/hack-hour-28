@@ -29,7 +29,7 @@
     [1,3,3,1],
     [1,4,6,4,1],
     [1,5,10,10,5,1]
-  ]
+  ]  
 */
 
 function makePascalRow(rowAbove, length){
