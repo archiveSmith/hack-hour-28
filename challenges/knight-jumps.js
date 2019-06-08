@@ -11,6 +11,16 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+    //output is a num
+    let moves = 0;
+    //max x moves
+    let x = 2;
+    //max y moves
+    let y = 2;
+
+    let strArr = str.split(',')
+    
+
 
 }
 
