@@ -1,7 +1,7 @@
 /*
-Alright, detective, one of our colleagues successfully observed our target person, Robby the robber. 
-We followed him to a secret warehouse, where we assume to find all the stolen stuff. The door to 
-this warehouse is secured by an electronic combination lock. Unfortunately our spy isn't sure about the 
+Alright, detective, one of our colleagues successfully observed our target person, Robby the robber.
+We followed him to a secret warehouse, where we assume to find all the stolen stuff. The door to
+this warehouse is secured by an electronic combination lock. Unfortunately our spy isn't sure about the
 PIN he saw, when Robby entered it.
 
 The keypad has the following layout:
@@ -15,18 +15,18 @@ The keypad has the following layout:
 └───┼───┼───┘
     │ 0 │
     └───┘
-He noted the PIN 1357, but he also said, it is possible that each of the digits he saw could actually 
-be another adjacent digit (horizontally or vertically, but not diagonally). E.g. instead of the 1 it 
+He noted the PIN 1357, but he also said, it is possible that each of the digits he saw could actually
+be another adjacent digit (horizontally or vertically, but not diagonally). E.g. instead of the 1 it
 could also be the 2 or 4. And instead of the 5 it could also be the 2, 4, 6 or 8.
 
-He also mentioned, he knows this kind of locks. You can enter an unlimited amount of wrong PINs, they 
+He also mentioned, he knows this kind of locks. You can enter an unlimited amount of wrong PINs, they
 never finally lock the system or sound the alarm. That's why we can try out all possible (*) variations.
 
 * possible in sense of: the observed PIN itself and all variations considering the adjacent digits
 
-Can you help us to find all those variations? It would be nice to have a function, that returns an array 
-of all variations for an observed PIN with a length of 1 to 8 digits. We could name the function getPINs. 
-But please note that all PINs, the observed one and also the results, must be strings, because of 
+Can you help us to find all those variations? It would be nice to have a function, that returns an array
+of all variations for an observed PIN with a length of 1 to 8 digits. We could name the function getPINs.
+But please note that all PINs, the observed one and also the results, must be strings, because of
 potentially leading '0's. Don't worry about the order of the array.
 
 Detective, we count on you!
@@ -44,7 +44,97 @@ expectations = {
 
 function getPINs(observed) {
 
+  let combos = ['']; // brilliance
+  let digits = observed.split('');
+
+  for(let i = 0; i < digits.length; i++) {
+    const newCombos = [];
+    if(digits[i] === '1') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '1');
+        newCombos.push(combos[j] + '2');
+        newCombos.push(combos[j] + '4');
+      }
+    }
+    if(digits[i] === '2') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '1');
+        newCombos.push(combos[j] + '2');
+        newCombos.push(combos[j] + '3');
+        newCombos.push(combos[j] + '5');
+      }
+    }
+    if(digits[i] === '3') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '2');
+        newCombos.push(combos[j] + '6');
+        newCombos.push(combos[j] + '3');
+      }
+    }
+    if(digits[i] === '4') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '1');
+        newCombos.push(combos[j] + '5');
+        newCombos.push(combos[j] + '7');
+        newCombos.push(combos[j] + '4');
+      }
+    }
+    if(digits[i] === '5') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '2');
+        newCombos.push(combos[j] + '5');
+        newCombos.push(combos[j] + '6');
+        newCombos.push(combos[j] + '4');
+        newCombos.push(combos[j] + '8');
+      }
+    }
+    if(digits[i] === '6') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '3');
+        newCombos.push(combos[j] + '5');
+        newCombos.push(combos[j] + '9');
+        newCombos.push(combos[j] + '6');
+      }
+    }
+    if(digits[i] === '7') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '4');
+        newCombos.push(combos[j] + '7');
+        newCombos.push(combos[j] + '8');
+      }
+    }
+    if(digits[i] === '8') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '5');
+        newCombos.push(combos[j] + '7');
+        newCombos.push(combos[j] + '9');
+        newCombos.push(combos[j] + '8');
+        newCombos.push(combos[j] + '0');
+      }
+    }
+    if(digits[i] === '9') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '6');
+        newCombos.push(combos[j] + '9');
+        newCombos.push(combos[j] + '8');
+      }
+    }
+    if(digits[i] === '0') {
+      for(let j = 0; j < combos.length; j++) {
+        newCombos.push(combos[j] + '0');
+        newCombos.push(combos[j] + '8');
+      }
+    }
+
+
+    combos = newCombos;
+  }
+
+
+  return combos;
 }
 
+
+//console.log(getPINs('369'));
 
 module.exports = getPINs
