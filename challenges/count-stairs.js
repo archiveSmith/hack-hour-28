@@ -34,5 +34,6 @@ function countStairs(n, str='') {
     }
 
 }
+
 countStairs(10);
 module.exports = countStairs;
