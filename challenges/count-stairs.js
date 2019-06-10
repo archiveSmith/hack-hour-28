@@ -17,16 +17,17 @@
 function countStairs(n, str='') {
     if(n === 1) {
         console.log(str + 1);
-        return str + 1;
+        return 1;
     }
     if(n === 2){
         countStairs(1, str + '1 + ');
         console.log(str + 2);
-        return str + 2;
+        return 1;
     }
     if(n > 1) {
         const newStr = str + '1 + '
         countStairs(n - 1, newStr);
+
     }
     if(n > 2){
         const newStr = str + '2 + ';
