@@ -15,7 +15,15 @@
  */
 
 function countStairs(n) {
-
+    let ways = n;
+    if (n % 2 === 0) {
+        ways += (n - 1)
+    } else {
+        ways += (n - 2)
+    }
+    return ways;
 }
+
+// console.log(countStairs(5))
 
 module.exports = countStairs;
