@@ -15,7 +15,31 @@
  */
 
 function countStairs(n) {
+  let sum = 0;
+  for(let i = 0; i <= n/2; i++) {
+    sum += binomial(n - i, i);
+  }
+  return sum;
 
 }
+
+function binomial (n, k) {
+  return factorial(n)/(factorial(n - k)*factorial(k));
+}
+
+let factorials = {0: 1}
+function factorial(n) {
+  if(!factorials.hasOwnProperty(n))
+    factorials[n] = n*factorial(n - 1);
+
+  return factorials[n];
+}
+
+/*
+console.log(countStairs(3));
+console.log(countStairs(4));
+console.log(countStairs(5));
+console.log(factorials);
+*/
 
 module.exports = countStairs;
