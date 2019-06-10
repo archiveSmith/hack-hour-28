@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /**
  * Make an EventEmitter that
  *
@@ -22,15 +22,42 @@
  */
 
 function EventEmitter() {
-
+  this.listeners = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function(event, func) {
+  if (this.listeners[event] === undefined) this.listeners[event] = [];
+  this.listeners[event].push(func);
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
+EventEmitter.prototype.trigger = function(event, ...args) {
+  const listeners = this.listeners[event];
+  if (listeners === undefined) return undefined;
 
+  listeners.forEach(fn => fn(...args));
 };
+
+const myListeners = new EventEmitter();
+
+const yo = () => console.log("yo");
+const hi = () => console.log("hi");
+const hey = () => console.log("hey");
+const sup = () => console.log("sup");
+const hello = () => console.log("hello");
+
+myListeners.on("click", yo);
+myListeners.on("click", hi);
+myListeners.on("click", hello);
+
+myListeners.on("change", hey);
+myListeners.on("change", sup);
+myListeners.on("change", hello);
+
+console.log("click!");
+myListeners.trigger("click");
+console.log("\nchange!");
+myListeners.trigger("change");
+
+myListeners.trigger("music");
 
 module.exports = EventEmitter;
