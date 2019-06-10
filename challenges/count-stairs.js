@@ -16,14 +16,15 @@
 
 function countStairs(n) {
     let ways = n;
-    if (n % 2 === 0) {
-        ways += (n - 1)
-    } else {
-        ways += (n - 2)
-    }
+    if (n <= 1) return ways = 1;
+    // if (n % 2 === 0) {
+    //     ways += (n / 2)
+    // } else {
+        ways += Math.ceil(n / 2)
+    // }
     return ways;
 }
 
-// console.log(countStairs(5))
+// console.log(countStairs(7))
 
 module.exports = countStairs;
