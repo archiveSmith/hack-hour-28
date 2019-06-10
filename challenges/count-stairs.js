@@ -15,7 +15,20 @@
  */
 
 function countStairs(n) {
-
+  let num = n
+  let a = 1, b = 0, temp;
+  while (num >= 0) {
+    temp = a;
+    a = a + b;
+    b = temp;
+    num -= 1;
+  }
+  return b;
 }
+
+console.log(`${countStairs(5)} --> Should equal: 8`);
+console.log(`${countStairs(4)} --> Should equal: 5`);
+console.log(`${countStairs(3)} --> Should equal: 3`);
+console.log(`${countStairs(2)} --> Should equal: 2`);
 
 module.exports = countStairs;
