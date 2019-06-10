@@ -37,14 +37,57 @@ expectations = {
   "369": ["339","366","399","658","636","258","268","669","668","266","369","398","256","296","259","368","638","396","238","356","659","639","666","359","336","299","338","696","269","358","656","698","699","298","236","239"],
 }
 
+┌───┬───┬───┐
+│ 1 │ 2 │ 3 │
+├───┼───┼───┤
+│ 4 │ 5 │ 6 │
+├───┼───┼───┤
+│ 7 │ 8 │ 9 │
+└───┼───┼───┘
+    │ 0 │
+    └───┘
+
 */
 
+numObj = {
+  1: [1, 2, 4],
+  2: [1, 2, 3, 5],
+  3: [2, 3, 6],
+  4: [1, 4, 5, 7],
+  5: [2, 5, 4, 6, 8],
+  6: [5, 6, 3, 9],
+  7: [4, 7, 8],
+  8: [5, 8, 7, 9, 0],
+  9: [6, 8, 9],
+  0: [8, 0]
+};
 
+function pinBuilder(pin, possibles, retArr) {
+  const digitArray = possibles.shift();
 
+  digitArray.forEach(digit => {
+    const newPin = pin + "" + digit;
+
+    if (possibles.length === 0) {
+      retArr.push(newPin);
+    } else {
+      pinBuilder(newPin, possibles.slice(), retArr);
+    }
+  });
+}
 
 function getPINs(observed) {
+  const retArr = [];
+  const possibleArray = [];
+  for (let i = 0; i < observed.length; i++) {
+    const digit = observed[i];
+    possibleArray.push(numObj[digit]);
+  }
 
+  pinBuilder("", possibleArray.slice(), retArr);
+
+  return retArr;
 }
 
 
-module.exports = getPINs
+module.exports = getPINs;
