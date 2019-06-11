@@ -23,7 +23,7 @@
 // helper functions for different hands.  If true return the value of the card, -1 if false
 // EXPECTS SORTED ARRAY
 function is4ofKind(hand) {
-  if (hand[0] === hand[3] || hand[1] === hand[5]) return hand[1];
+  if (hand[0] === hand[3] || hand[1] === hand[4]) return hand[1];
   return -1;
 }
 
@@ -80,7 +80,7 @@ function poker(hand1, hand2) {
     hand2.sort();
     for (let i = 0; i < handArray.length; i++) {
         const func = handArray[i];
-
+        // console.log(func);
         const hand1Value = func(hand1)
         const hand2Value = func(hand2)
 
@@ -96,11 +96,16 @@ function poker(hand1, hand2) {
     return "Draw!!"
 }
 
-const onePair = [4,6,8,8,9]
-const twoPair = [2, 2, 5, 7, 7];
-const threeOKind = [5, 8, 8, 8, 9];
-const fourOKind = [6, 8, 8, 8, 8];
-const straight = [5, 6, 7, 8, 9];
-const fullHouse = [2, 2, 2, 4, 4];
+
+
+// const onePair = [4,6,8,8,9]
+// const twoPair = [2, 2, 5, 7, 7];
+// const threeOKind = [5, 8, 8, 8, 9];
+// const fourOKind = [6, 8, 8, 8, 8];
+// const straight = [5, 6, 7, 8, 9];
+// const fullHouse = [2, 2, 2, 4, 4];
+// console.log(poker(straight,fourOKind))
+
+// console.log(is4ofKind(fourOKind));
 
 module.exports = poker;
