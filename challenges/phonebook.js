@@ -24,12 +24,13 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
+
 const jazzybook = [
-  ["alex", "301-844-3421"],
-  ["jae", "301-844-1211"],
-  ["david", "301-844-0978"],
-  ["travis", "301-844-8505"],
-  ["jasmine", "1800-974-4539"]
+  ['alex','301-844-3421'],
+  ['jae','301-844-1211'],
+  ['david','301-844-0978'],
+  ['travis','301-844-8505'],
+  ['jasmine','1800-974-4539']
 ];
 
 //  return the number associated with the name in the jazbook
@@ -48,6 +49,8 @@ function makePhoneBookObject(jazbook) {
   for (let i = 0; i < jazbook.length; i++) {
     this.phoneBook[jazbook[i][0]] = jazbook[i][1];
   }
+
+  return this.phoneBook;
 }
 
 makePhoneBookObject.prototype.add = function(name, phoneNumber) {
@@ -64,12 +67,18 @@ makePhoneBookObject.prototype.remove = function(name) {
   }
 };
 
-const newPhoneBook = new makePhoneBookObject(jazzybook);
+makePhoneBookObject.prototype.find = function(name) {
+  for (const prop in this.phoneBook) {
+    if (prop === name) {
+      return this.phoneBook[prop];
+    }
+  }
+}
 
-newPhoneBook.add("parker", "123-456-7890");
-newPhoneBook.add("peter", "111-222-3333");
-newPhoneBook.remove("parker");
-console.log(newPhoneBook.phoneBook);
+const phoneBook = new makePhoneBookObject(jazzybook);
+
+phoneBook.add('parker', '111-222-3333');
+
 
 const objectToExport = {
   findName,
