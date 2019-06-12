@@ -25,7 +25,26 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
+
+//sum up the series 1...n+1, subtrack the sum of the array. difference is answer.
+
 function missingNum(Array) {
+  const n = Array.length + 1;
+  const fullSum = ((n)*(n+1) / 2);
+
+  const arrSum = Array.reduce((a,b) => {
+    return a + b;
+  })
+
+  // console.log(`FullSum = ${fullSum}   -- Arraysum ${arrSum}`);
+
+  return Math.abs(fullSum - arrSum);
 }
+
+
+// array = [1,2,4,8,6,7,3,9,10,11];
+
+// console.log(missingNum(array));
+
 
 module.exports = missingNum;
