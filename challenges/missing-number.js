@@ -26,6 +26,18 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  //iterate over array
+  //check if there is a number larger and smaller than it
+  //if either are missing, return that number
+
+  for (let i = 0; i < Array.length; i++) {
+    if (Array.indexOf(Array[i] - 1) === -1 && Array[i] !== 1)
+      return Array[i] - 1;
+    if (Array.indexOf(Array[i] + 1) === -1 && Array[i] !== Math.max(...Array))
+      return Array[i] + 1;
+  }
 }
+
+console.log(missingNum([2, 3, 1, 5, 4, 9, 6, 7, 8, 10, 12]));
 
 module.exports = missingNum;
