@@ -26,6 +26,18 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  const orderedArray = Array.sort((a, b) => {
+    return a - b
+  })
+  for(let i = 1; i < orderedArray.length; i += 1){
+   if(orderedArray[i] - orderedArray[i - 1] != 1){
+      return orderedArray[i] - 1
+   }
+  }
 }
+
+const inputArr = [2, 5, 4, 3, 7, 6, 9, 8, 1, 12, 10]
+
+console.log(missingNum(inputArr))
 
 module.exports = missingNum;
