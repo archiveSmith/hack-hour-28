@@ -16,6 +16,22 @@
 
 function countStairs(n) {
 
+   let mapper = new Map();
+
+   if(n < 0)
+     return 0;
+
+   if(n === 0)
+   return 1;
+
+   if(!mapper.has(n))
+   {
+     let count = countStairs(n - 1) + countStairs(n - 2);
+     mapper.set(n, count);
+   }
+   return mapper.get(n)
 }
+
+console.log(countStairs(5));
 
 module.exports = countStairs;

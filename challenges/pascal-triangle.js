@@ -32,8 +32,21 @@
   ]
 */
 
-function pascalTriangle(numRows) {
+function pascalTriangle(numRows)
+{
+  let newArr = [];
+  let newArr2 = [];
 
+  for(let i = 1; i < numRows.length; i++)
+  {
+    for(j = 1; j < numRows.length; j++)
+    {
+      
+    }
+  }
+  return newArr;
 }
+
+console.log(pascalTriangle(1));
 
 module.exports = pascalTriangle;
