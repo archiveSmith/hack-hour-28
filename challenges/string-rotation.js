@@ -16,7 +16,27 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+   let arr1 = s1
+   let arr2 = s2
+  // Use isSubstring to determine if string1 and string2 are potentially matching.
+      if(isSubstring(s2, s1[0])) {
+  // Begin a loop that pushes first indexed character to the end of the array and compare s1 to s2. Do this array.length times until a match is found or until loop ends.
+      for (let i = 0; i < arr2.length; i++) {
+        console.log(arr1 + "   " + arr2)
+       if (arr1 === arr2) {return true
+        } else {
+        arr2 = arr2.split('')
+        arr2.push(arr2.shift())
+        arr2 = arr2.join('');
+        }
+     } return false
+    }
+  }
+    
 
-}
+  // Push characters into an array starting at that index to compare it to first. 
+
+  // Iterate over both arrays using a loop and the same index for both arrays. Return true if all values equal, return false at first instance of false value
+
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

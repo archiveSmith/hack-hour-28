@@ -11,7 +11,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  // Should create an empty array to serve as a "callstack" for alphabet characters
+  let arr = [];
+  let counter = 0;
 
+  for ( let i = 0; i < str.length; i++ ) {
+    if (str[i].match(/[a-zA-Z]/g)) {
+      arr.push(str[i])
+    } else {
+      let newArr = arr;
+      
+      for ( let j = newArr.length ; j > 0; j++){
+        if (str[i] === newArr[j]) {
+          newArr.pop()
+        }
+      }
+    }
+  }
+  console.log('test string abcdefg')
+  console.log(arr)
 }
+
+matchWord('sdf323j2jk2l')
 
 module.exports = matchWord;

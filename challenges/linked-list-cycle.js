@@ -25,15 +25,34 @@
  * Challenge 2: Do this in constant space
  * Challenge 3: Do not mutate the original nodes in any way
  *
+ * 
+ * 
+ * If the function recursively traverses through the linked list and reaches the end where node.next = null, return false
+ * If the function recursively traverses through the linked list and reaches a node it has visited before, return true
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
+  let cache = {};
+  function helper(currentNode) {
+    if (currentNode.value === null) return false;
+    if (currentNode.next === null) {
+      return false
+    } else if (
 
+      cache.hasOwnProperty(currentNode.value)) {
+      return true
+    } else {
+      cache[currentNode.value] = '';
+      return helper(currentNode.next)
+    }
+  }
+
+  return helper(head);
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }

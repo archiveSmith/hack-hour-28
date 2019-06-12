@@ -20,17 +20,21 @@
  *   listeners.
  * - It is not necessary to write a way to remove listeners.
  */
+// "on" will bind a function to a function name
+// "trigger" will invoke that function that has been bound with "on"
+
+
 
 function EventEmitter() {
 
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function (funcName, func) {
+  this.prototype[funcName] = func;
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+  this.prototype[funcName](...args)
 };
 
 module.exports = EventEmitter;

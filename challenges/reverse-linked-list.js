@@ -13,8 +13,26 @@ function Node(value) {
     this.next = null;
 }
 
-function reverseLinkedList(head) {
+function reverseLinkedList(head, prior) {
+  if ( head.next  === null ) {
+      head.next = prior;
+      return head
+  }
 
+  // Save head.next to a new variable, 'temp'
+
+  let temp = head.next;
+
+  // Set head's next value to prior
+
+  if ( prior === undefined ) {
+    head.next = null
+  } else {
+    head.next = prior
+  }
+
+  // Invoke reverseLL passing in (temp, head)
+  return reverseLinkedList(temp, head)
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};

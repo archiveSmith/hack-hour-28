@@ -22,8 +22,27 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+// Is the starting location inside a circle? Is the ending location outside that circle?  If so, minimum 1.
+// Is the ending location inside a different circle? If so, how many nested circles is it inside of? Iterate 1 border each
 
+
+
+function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  //Iterate over arrays and see if starting position is within the radius of any arrays.
+  //If so, iterate variable 'borders' by 1.
+  let borders = 0;
+  let cache = {};
+  for (let i = 0; i < x.length; i++) {
+    if (start_x < x[i] + r[i] && start_x > x[i] - r[i] && start_y < y[i] + r[i] && start_y > y[i] - r[i]) {
+      borders++;
+      cache[r] = '';
+    }
+
+    if (end_x < x[i] + r[i] && end_x > x[i] - r[i] && end_y < y[i] + r[i] && end_y > y[i] - r[i]) {
+      borders++;
+    }
+
+  }
 }
 
 module.exports = circleCountry;

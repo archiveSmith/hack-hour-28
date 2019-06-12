@@ -7,8 +7,43 @@
  *
  */
 
-function maxSubarray(arr) {
+// One possible solution: 
+// Start with the entire array. Iterate until you come to find a negative integer. 
+// Calculate sum of integers if you slice off all integers from negative on. 
 
+function maxSubarray(arr) {
+  let solutionArr = arr;
+  debugger
+  // Combine the entire array
+  function getSum(total, num) {
+    return total + num;
+  }
+
+  let totalSum = arr.reduce(getSum)
+
+  // Iterate through the array from the beginning to find negative numbers and compare them to totalSum of array 
+  // to see if the sum is greater without those elements
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < 0) {
+      let testArr = arr.slice(i + 1);
+      if (testArr.reduce(getSum) > totalSum) {
+        solutionArr = testArr;
+        totalSum = solutionArr.reduce(getSum);
+      }
+    }
+  }
+
+  // Repeat process starting from the end of the array
+  for (let i = solutionArr.length - 1; i > 0; i--) {
+    if (solutionArr[i] < 0) {
+      let testArr = solutionArr.slice(0, i);
+      if (testArr.reduce(getSum) > totalSum) {
+        solutionArr = testArr;
+        totalSum = solutionArr.reduce(getSum);
+      }
+    }
+  }
+  return solutionArr;
 }
 
 module.exports = maxSubarray;

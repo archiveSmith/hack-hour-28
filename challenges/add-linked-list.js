@@ -12,13 +12,29 @@
  *
  */
 
-function Node(val) {
+// Recursively add the nodes of the linked lists and return a new node
+// Create variable that adds a "1" remainder if sum of node values has remainder
+// Base case is when l1 and l2 have this.next === null
+// 
+
+function Node(val, next) {
   this.value = val;
-  this.next = null;
+  this.next = next;
 }
 
-function addLinkedList(l1, l2) {
+function addLinkedList(l1, l2, remainder = 0) {
+  // End operation if next values are null
+  if (l1.next === null && l2.next === null) return;
+
+  // 
+  let nextVal = l1.value + l2.value + remainder;
+  if (nextVal > 9) {
+    remainder = 1;
+    nextVal = nextVal.toString().split("")[1].parseInt();
+  }
+
+  return new Node(nextVal, addLinkedList(l1, l2, remainder))
 
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };

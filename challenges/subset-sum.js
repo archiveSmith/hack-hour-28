@@ -9,7 +9,8 @@
  */
 
 function subsetSum(array, target) {
-
+  // Iterate through array and add each value with every other value in array, push into a new array
+  // 
 }
 
 module.exports = subsetSum;
