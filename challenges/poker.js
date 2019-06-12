@@ -15,11 +15,24 @@
  *
  * Clearly real-world poker has more complex rules for tied ranks, but we want you
  * to focus on overall architecture rather than edge cases. Have fun!
- * 
+ *
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
+  let count = 0;
+  let count2 = 0;
+
+  for(let i = 0; i < hand1.length; i++)
+  {
+
+  }
+
+  for(let i = 0; i < hand2.length; i++)
+  {
+
+  }
+
 
 }
 

@@ -1,6 +1,6 @@
-/* 
-A zero-indexed array A consisting of N different integers is given. 
-The array contains integers in the range [1..(N + 1)], which means 
+/*
+A zero-indexed array A consisting of N different integers is given.
+The array contains integers in the range [1..(N + 1)], which means
 that exactly one element is missing.Your goal is to find that missing element.
 Write a function that, given an array A, returns the value of the missing element.
 
@@ -21,11 +21,23 @@ Assume that:
 expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 
-Challange: 
+Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+   let avg;
+   let nums = Array.sort((a,b) => a - b);
+   for(let i = 0; i < nums.length; i++)
+   {
+      if((nums[i + 1] - nums[i]) > 1)
+      {
+        avg = (nums[i + 1] + nums[i])/2;
+      }
+   }
+   return avg;
 }
+
+//console.log(missingNum([1,2,3,5,6]));
 
 module.exports = missingNum;

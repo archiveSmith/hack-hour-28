@@ -12,6 +12,26 @@
 
 function knightjumps(str) {
 
+  let newArr = [];
+
+   let strNum = 
+
+  //Turn string to array.
+   let toArray = str.split('');
+
+  //Place nums in array.
+  for(let i = 0; i < toArray.length; i++)
+  {
+    if(!Number.isNaN(toArray[i]))
+    {
+      newArr.push(toArray[i])
+    }
+  }
+
+  return newArr;
+
 }
+
+console.log(knightjumps('(4 5)'));
 
 module.exports = knightjumps;

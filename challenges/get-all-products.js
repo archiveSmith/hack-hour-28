@@ -10,7 +10,16 @@
  */
 
 function getAllProducts(array) {
-
+  let newArr = [];
+  //Get all subset of array.
+  for(let i = 0; i < array.length - 1; i++)
+  {
+     newArr.push(array[i] * array[i + 1]);
+     newArr.push(array[i] * array[i + 2]);
+  }
+  return newArr;
 }
+
+console.log(getAllProducts([1,7,3,4]));
 
 module.exports = getAllProducts;
