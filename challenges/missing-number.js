@@ -25,7 +25,22 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  let missing = null;
+  let max = Math.max(...array);
+  array.forEach(num => {
+    let next = false;
+    for (let i = 0; i < array.length; i += 1) {
+      if (num === max) next = true;
+      if (array[i] === (num + 1)) next = true;
+    }
+    if (next === false) missing = num + 1;
+  })
+  return missing;
 }
+
+
+// const arr = [11, 3, 6, 4, 10, 8, 13, 1, 2, 7, 9, 5] // missing 8
+// console.log(missingNum(arr))
 
 module.exports = missingNum;
