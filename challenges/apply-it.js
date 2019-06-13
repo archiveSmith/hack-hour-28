@@ -26,7 +26,32 @@
  */
 
 function applyIt(func, args) {
+	let argName = args.slice(0, 1).toString();
+	let argAge = args.slice(1, 2).toString();
+	let argLoc = args.slice(2, 3).toString();
+	let sentence = func(argName, argAge, argLoc);
+	return sentence;
 
 }
+
+var jae = function (name, age, location) {
+	return name + " is " + age + " and he lives in " + location;
+};
+
+var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+console.log(jaero); //Returns "Jae is 19 and he lives in South Carolina"
+
+var jasmine = function (name, age) {
+	if (!age) {
+		return "We don't know how old " + name + " is!";
+	}
+
+	else {
+		return name + " is " + age + " years old!";
+	}
+};
+
+var jmoney = applyIt(jasmine, ["Jasmine"]);
+console.log(jmoney); //Returns "We don't know how old Jasmine is!"
 
 module.exports = applyIt;
