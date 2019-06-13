@@ -26,7 +26,25 @@
  */
 
 function applyIt(func, args) {
-
+   function inner()
+   {
+     return func(args);
+   }
+   return inner;
 }
+
+var jasmine = function(name, age) {
+  if(!age){
+    return "We don't know how old " + name + " is!";
+  }
+
+  else{
+    return name + " is " + age + " years old!";
+  }
+};
+
+var jmoney = applyIt(jasmine, ["Jasmine"]);
+console.log(jmoney()); //Returns "We don't know how old Jasmine is!"
+
 
 module.exports = applyIt;
