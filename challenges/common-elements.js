@@ -20,7 +20,7 @@ function commonElements(array1, array2, array3, array4) {
   let diff1 = new Set([ ...j ].filter(x => h.has(x))),
     diff2 = new Set([ ...diff1 ].filter(x => i.has(x))),
     diff3 = new Set([ ...diff2 ].filter(x => k.has(x)));
-  return diff3;
+  return diff3.size === 0 ? 'Nothing in Common' : diff3;
 }
 
 commonElements(array1, array2, array3, array4)//?
