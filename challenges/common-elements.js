@@ -12,7 +12,11 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 const commonElements = (...arr) => {
-  return arr.reduce((ar, arr) => ar.filter(el => arr.includes(el)));
+  const output = arr.reduce((ar, arr) => ar.filter(el => arr.includes(el)));
+  if(output.length === 0){return "Nothing in Common"}
+  else {
+    return output; 
+  }
 };
 
 module.exports = commonElements;
