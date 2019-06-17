@@ -22,8 +22,33 @@ eachPermutation([1, 2, 3], function(perm) {
 
 function eachPermutation(arr, callback) {
 
-}
+  if(arr.length == 0) return callback(arr);
 
+  let perms = [arr];
+
+  for(let i = 0; i < arr.length; i++) {
+    let newPerms = []
+
+    perms.forEach(perm => {
+      for(let j = i; j < arr.length; j++) {
+        let newPerm = perm.slice();
+        [newPerm[i], newPerm[j]] = [newPerm[j], newPerm[i]];
+        newPerms.push(newPerm);
+      }
+    });
+
+    perms = newPerms;
+
+  }
+
+  perms.forEach(callback);
+
+}
+/*
+eachPermutation([1, 2, 3], function(perm) {
+  console.log(perm)
+});
+*/
 
 
 module.exports = eachPermutation;
