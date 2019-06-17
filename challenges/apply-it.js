@@ -25,8 +25,14 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+var jae = function(name, age, location) {
+  return name + " is " + age + " and he lives in " + location;
+};
 
+function applyIt(func, args) {
+  return func(...args);
 }
+
+console.log(applyIt(jae, ["Jae", 19, "South Carolina"]));
 
 module.exports = applyIt;

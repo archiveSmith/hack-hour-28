@@ -21,9 +21,30 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  let permutations = perm(arr);
 
+  return permutations.map(innerArr => {
+    return callback(innerArr);
+  });
 }
 
+function perm(arr) {
+  let ret = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    let rest = perm(arr.slice(0, i).concat(arr.slice(i + 1)));
+    console.log(rest);
+    if (!rest.length) {
+      ret.push([arr[i]]);
+    } else {
+      for (let j = 0; j < rest.length; j = j + 1) {
+        ret.push([arr[i]].concat(rest[j]));
+      }
+    }
+  }
+  return ret;
+}
+
+console.log(perm([1, 2, 3]));
 
 module.exports = eachPermutation;
