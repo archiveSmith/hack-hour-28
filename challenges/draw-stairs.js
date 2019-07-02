@@ -14,14 +14,13 @@
 */
 
 function drawStairs(n) {
-    for (let i = 1; i <=n; i++) {
-        //assign variable for number of stars to be printed and set to i (starting at 1 up to n)
-        let starsCount = i;
-        //assign variable for number of spaces to print, which would be n - i 
-        let spacesCount = n - i;
-        console.log(`${' '.repeat(spacesCount)}${'*'.repeat(starsCount)}`);
-    }
+  for (let i = 1; i <= n; i++) {
+    //assign variable for number of stars to be printed and set to i (starting at 1 up to n)
+    let starsCount = i;
+    //assign variable for number of spaces to print, which would be n - i
+    let spacesCount = n - i;
+    console.log(`${" ".repeat(spacesCount)}${"*".repeat(starsCount)}`);
+  }
 }
-
 
 module.exports = drawStairs;
