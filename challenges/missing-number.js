@@ -26,7 +26,7 @@ Challange:
   ** keep in mind time complexity
 */
 const missingNum = array => {
-  let n = Array.length + 1;
+  let n = array.length + 1;
 
   while (n) {
     if (!array.includes(n)) return n;
