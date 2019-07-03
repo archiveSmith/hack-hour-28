@@ -25,7 +25,13 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
-}
+const missingNum = array => {
+  let n = Array.length + 1;
+
+  while (n) {
+    if (!array.includes(n)) return n;
+    n--;
+  }
+};
 
 module.exports = missingNum;
