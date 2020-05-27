@@ -14,7 +14,23 @@
  */
 
 function binToDec(binary) {
+  if (binary == 0) return 0;
+  let count = 0;
 
+  binary[0] == 0 ? count += 0 : count += 1
+  console.log(count);
+
+  for (let i = 1; i < binary.length; i++) {
+    if (binary[i + 1] !== undefined) {
+      binary[i] == 0 ? count += 2 : count += 1
+      console.log(count);
+    } else {
+      binary[i] == 0 ? count += 1 : count += 2
+      console.log(count);
+    }
+  }
+
+  return count
 }
 
 module.exports = binToDec;
