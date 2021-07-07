@@ -13,8 +13,24 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+// Not a pure function -- modifies the array that you actually input.
 function reverseInPlace(array) {
 
+  let container;
+  let iterateUntil = Math.floor(array.length / 2 - 1);
+  for (let i = 0; i <= iterateUntil; i++) {
+    // set j
+    let j = array.length - i - 1;
+    // swap
+    container = array[j];
+    array[j] = array[i];
+    array[i] = container;
+  }
 }
+
+let a = [1, 2, 3];
+console.log(a);
+reverseInPlace(a)
+console.log(a);
 
 module.exports = reverseInPlace;

@@ -13,8 +13,18 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
+// input: '0101'
 function binToDec(binary) {
-
+  let dec = 0;
+  let revBinArray = binary.split('').reverse().map(elt => Number(elt)); // 1010
+  revBinArray.forEach((bit, ind) => {
+    dec += bit * Math.pow(2, ind);
+  });
+  return dec;
 }
+
+console.log(binToDec('0101'));
+console.log(binToDec('100'));
+console.log(binToDec('1000010'))
 
 module.exports = binToDec;

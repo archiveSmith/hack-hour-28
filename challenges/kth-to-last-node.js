@@ -23,6 +23,30 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  // First we have to get the length of the linked list. (In order to know which is the second to last node)
+  // This will take n time to traverse...
+  let listLength = 1;
+  let current = k;
+  let container = [];
+
+  while (current.next) {
+    container.push(current.val);
+    current = current.next;
+    listLength++;
+  }
+
+  if (listLength < k) {
+    return undefined;
+  }
+
+  return container[listLength - k];
+
+  // // Return the current node's value.
+  // return current.value;
+
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};

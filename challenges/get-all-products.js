@@ -10,7 +10,21 @@
  */
 
 function getAllProducts(array) {
-
+  const subsetArray = getAllSubsets(array);
+  console.log("subsetArray is: ", subsetArray);
+  return subsetArray.map(subset => subset.reduce((acc, cur) => acc * cur, 1))
 }
+
+function getAllSubsets(array) {
+  let subsetArray = [];
+  for (let i = 0; i < array.length; i++) {
+    subsetArray.push(array.slice(0, i).concat(array.slice(i + 1)));
+  }
+  return subsetArray;
+}
+
+console.log(getAllProducts([1, 7, 3, 4]));
+
+
 
 module.exports = getAllProducts;
